@@ -24,6 +24,13 @@ Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
 
 Route::post("/logout",[PostLoginAPi::class,'logout']);
 Route::get("/datalist",[DataListApi::class,"GetDataList"]);
+
+// detail
 Route::get("/reg/{reg}",[DataListApi::class,"getReg"]);
+Route::get("/reg/{reg}/factory",[DataListApi::class,"getFactory"]);
+Route::get("/reg/{reg}/product",[DataListApi::class,"getProduct"]);
+Route::get("/reg/{reg}/pu",[DataListApi::class,"getPu"]);
+Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
+Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
 
 // Route::get("/provisi",)
