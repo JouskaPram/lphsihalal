@@ -17,19 +17,18 @@ class PostLoginAPi extends Controller
             "userid" => request("userid"),
             "password" => request("password"),
         ],
-        
     ]);
 
     if ($response->getStatusCode() == 200) {
         
         $result = json_decode($response->getBody(), true);
-      $token = $result["payload"]['token'];
-        
-    session(['token' => $token]);
-        return response()->json($result);
+      
+        return redirect("/api/datalist")->withCookie("__bpjph_ct",$result["payload"]["token"],20*20*20)->withCookie("__bpjph_rt",$result["payload"]["refreshToken"],20*20*20);
+        // return response()->json("__bpjph_ct=".$result["payload"]["token"].";__bpjph_rt".$result["payload"]["refreshToken"]);
         
     } else {
         return response()->json($response); 
+        
     }
     }
 
@@ -38,8 +37,10 @@ class PostLoginAPi extends Controller
     $client  = new Client();
     $response = $client->post("http://dev-lph-api.halal.go.id/auth/logout");
     if($response->getStatusCode() == 200){
-        $result = json_decode($response->getBody(),true);
-        return $result;
+    
+        $results = json_decode($response->getBody(),true);
+   
+        return response()->json($results)->withCookie("__bpjph_ct","",0)->withCookie("__bpjph_rt","",0);
     }
    }
 }

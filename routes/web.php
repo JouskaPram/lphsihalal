@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataListApi;
+use App\Http\Controllers\PostLoginAPi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AuthController::class,"login"]);
 
-Route::get("/datalist",[DataListApi::class,"GetDataList"]);
+
+Route::get("/dashboard",);

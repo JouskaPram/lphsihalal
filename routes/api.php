@@ -19,10 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
 Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
+// Route::get("/datalist",[DataListApi::class,"GetDataList"]);
+
 Route::post("/logout",[PostLoginAPi::class,'logout']);
 Route::get("/datalist",[DataListApi::class,"GetDataList"]);
+Route::get("/reg/{reg}",[DataListApi::class,"getReg"]);
 
 // Route::get("/provisi",)
