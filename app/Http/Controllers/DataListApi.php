@@ -59,8 +59,8 @@ class DataListApi extends Controller
         $data = json_decode($response->getBody(), true);
         $factory =  $data["payload"]["factories"];
     
-        return $factory;
-            //  return view("reg.view",["factory"=>$factory]);
+            $regis = $data["payload"];
+             return view("reg.detail.factory",["factory"=>$factory,"regis"=>$regis]);
         } else {
            null;
         }

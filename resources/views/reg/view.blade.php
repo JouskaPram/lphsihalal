@@ -21,5 +21,71 @@
         </div>
     </div>
 </div>
+<div>
+<div id="kt_app_content_container" class="app-container container py-5">
+    <div class="d-flex ">
+    <span class="d-flex position-relative mx-3">
+    <!--begin::Label-->
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
+        Factory
+    </span>
+    <!--end::Label-->
 
+    <!--begin::Line-->
+    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
+    <!--end::Line-->
+</span>
+<span class="d-flex position-relative mx-3">
+    <!--begin::Label-->
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
+        Product
+    </span>
+    <!--end::Label-->
+
+    <!--begin::Line-->
+    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
+    <!--end::Line-->
+</span>
+<span class="d-flex position-relative mx-3">
+    <!--begin::Label-->
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
+        Perusahaan
+    </span>
+    <!--end::Label-->
+
+    <!--begin::Line-->
+    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
+    <!--end::Line-->
+</span>
+<span class="d-flex position-relative mx-3">
+    <!--begin::Label-->
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
+        Penyelia
+    </span>
+    <!--end::Label-->
+
+    <!--begin::Line-->
+    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
+    <!--end::Line-->
+</span>
+<span class="d-flex position-relative mx-3">
+    <!--begin::Label-->
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
+        Documents
+    </span>
+    <!--end::Label-->
+
+    <!--begin::Line-->
+    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
+    <!--end::Line-->
+</span>
+</div>
+</div>
+
+<div id="kt_app_content_container" class="app-container container">
+							@yield('detail')
+
+				</div>
+</div>
 @endsection
+

@@ -131,7 +131,7 @@
                                                  <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_jenis_usaha"]}}</a>
                                             </td>
                                             <td>
-                                                <a href="/api/reg/{{$data["id_reg"]}}" class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2">Lihat detail</a>
+                                                <a href="/api/reg/{{$data["id_reg"]}}" class="btn  btn-bg-primary btn-color-muted btn-active-color-dark btn-sm px-4 me-2">Lihat detail</a>
                                             </td>
                                         </tr>
                                          @endforeach
