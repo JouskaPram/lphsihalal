@@ -45,16 +45,16 @@
   </div>
   
   <div class="d-flex flex-column align-items-center">
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+     <a href="/api/reg/{{$regis["id_reg"]}}/penyelia" class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
       Penyelia
-    </span>
+    </a>
   
   </div>
   
   <div class="d-flex flex-column align-items-center">
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+  <a href="/api/reg/{{$regis["id_reg"]}}/documents" class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
       Documents
-    </span>
+    </a>
   
   </div>
 </div>
@@ -66,4 +66,13 @@
 				</div>
 </div>
 @endsection
+<script>var hostUrl = "/";</script>
+	<script src="{{asset('assets/plugins/global/plugins.bundle.js')}}"></script>
+
+		 <script src="{{asset('assets/js/plugins.bundle.js')}}"></script>
+		 <script src="{{asset('assets/js/scripts.bundle.js')}}"></script>
+		<script src="{{asset('assets/js/widgets.bundle.js')}}"></script>
+		<script src="{{asset('assets/js/custom/widgets.js')}}"></script>
+		<script src="{{asset('assets/js/custom/apps/chat/chat.js')}}"></script>
+		<script src="{{asset('assets/js/custom/utilities/modals/users-search.js')}}"></script>
 

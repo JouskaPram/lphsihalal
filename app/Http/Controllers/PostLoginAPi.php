@@ -38,9 +38,9 @@ class PostLoginAPi extends Controller
     $response = $client->post("http://dev-lph-api.halal.go.id/auth/logout");
     if($response->getStatusCode() == 200){
     
-        $results = json_decode($response->getBody(),true);
+        // $results = json_decode($response->getBody(),true);
    
-        return response()->json($results)->withCookie("__bpjph_ct","",0)->withCookie("__bpjph_rt","",0);
+        return redirect("/")->withCookie("__bpjph_ct","",0)->withCookie("__bpjph_rt","",0);
     }
    }
 }

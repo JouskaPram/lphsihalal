@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataListApi;
 use App\Http\Controllers\PostLoginAPi;
 use Illuminate\Http\Request;
@@ -33,4 +34,4 @@ Route::get("/reg/{reg}/perusahaan",[DataListApi::class,"getPu"]);
 Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
 Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
 
-// Route::get("/provisi",)
+Route::get("/dashboard",[DashboardController::class,"Dashboard"]);
