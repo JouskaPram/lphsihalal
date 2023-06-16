@@ -74,9 +74,9 @@ class DataListApi extends Controller
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $product =  $data["payload"]["products"];
-    
-        return $product;
-            //  return view("reg.view",["factory"=>$factory]);
+        $regis = $data["payload"];
+        
+         return view("reg.detail.product",["product"=>$product,"regis"=>$regis]);
         } else {
            null;
         }
@@ -89,10 +89,10 @@ class DataListApi extends Controller
     $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
-        $product =  $data["payload"]["pu"];
-    
-        return $product;
-            //  return view("reg.view",["factory"=>$factory]);
+        $pu =  $data["payload"]["pu"];
+        $regis =  $data["payload"];
+        // return $pu
+        return view("reg.detail.perusahaan",["pu"=>$pu,"regis"=>$regis]);
         } else {
            null;
         }
@@ -105,10 +105,10 @@ class DataListApi extends Controller
     $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
-        $product =  $data["payload"]["penyelia"];
+        $penyelia =  $data["payload"]["penyelia"]["nama"];
+        $regis =  $data["payload"];
     
-        return $product;
-            //  return view("reg.view",["factory"=>$factory]);
+             return view("reg.detail.penyelia",["penyelia"=>$penyelia,"regis"=>$regis]);
         } else {
            null;
         }
@@ -121,10 +121,11 @@ class DataListApi extends Controller
     $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
-        $product =  $data["payload"]["documents"];
+        $doc =  $data["payload"]["documents"];
+        $regis =  $data["payload"];
     
-        return $product;
-            //  return view("reg.view",["factory"=>$factory]);
+      
+        return view("reg.detail.documents",["doc"=>$doc,"regis"=>$regis]);
         } else {
            null;
         }

@@ -112,23 +112,23 @@
                                        
                                         <tr>
                                             <td>
-                                                <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["nama_pu"]}}</a>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["nama_pu"]}}</p>          
                                             </td>
                                             <td>
-                                                <a href="#" class="text-dark fw-semibold text-hover-primary d-block mb-1 fs-6">{{$data["nama_pu_alt"]}}</a>
+                                                <p class="text-dark fw-semibold text-hover-primary d-block mb-1 fs-6">{{$data["nama_pu_alt"]}}</p>
                                             </td>
                                             <td>
-                                                <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_jenis_daftar"]}}</a>
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_jenis_daftar"]}}</p>
 
                                             </td>
                                             <td>
-                                                 <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_status_reg"]}}</a>
+                                                 <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_status_reg"]}}</p>
                                             </td>
                                             <td>
-                                                 <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["jml_produk"]}}</a>
+                                                 <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["jml_produk"]}}</p>
                                             </td>
                                             <td>
-                                                 <a href="#" class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_jenis_usaha"]}}</a>
+                                                 <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-6">{{$data["nama_jenis_usaha"]}}</p>
                                             </td>
                                             <td>
                                                 <a href="/api/reg/{{$data["id_reg"]}}" class="btn  btn-bg-primary btn-color-muted btn-active-color-dark btn-sm px-4 me-2">Lihat detail</a>

@@ -22,65 +22,43 @@
     </div>
 </div>
 <div>
-<div id="kt_app_content_container" class="app-container container py-5">
-    <div class="d-flex ">
-    <span class="d-flex position-relative mx-3">
-    <!--begin::Label-->
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
-        Factory
+<div id="kt_app_content_container" class="app-container container py-5 d-flex justify-content-between">
+  <div class="d-flex flex-column align-items-center">
+    <a href="/api/reg/{{$regis["id_reg"]}}/factory" class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+      Factory
+    </a>
+  
+  </div>
+  
+  <div class="d-flex flex-column align-items-center">
+    <a href="/api/reg/{{$regis["id_reg"]}}/product" class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+      Product
+    </a>
+  
+  </div>
+  
+  <div class="d-flex flex-column align-items-center">
+    <a href="/api/reg/{{$regis["id_reg"]}}/perusahaan" class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+      Perusahaan
+    </a>
+  
+  </div>
+  
+  <div class="d-flex flex-column align-items-center">
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+      Penyelia
     </span>
-    <!--end::Label-->
-
-    <!--begin::Line-->
-    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
-    <!--end::Line-->
-</span>
-<span class="d-flex position-relative mx-3">
-    <!--begin::Label-->
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
-        Product
+  
+  </div>
+  
+  <div class="d-flex flex-column align-items-center">
+    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark p-3 bg-primary rounded">
+      Documents
     </span>
-    <!--end::Label-->
-
-    <!--begin::Line-->
-    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
-    <!--end::Line-->
-</span>
-<span class="d-flex position-relative mx-3">
-    <!--begin::Label-->
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
-        Perusahaan
-    </span>
-    <!--end::Label-->
-
-    <!--begin::Line-->
-    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
-    <!--end::Line-->
-</span>
-<span class="d-flex position-relative mx-3">
-    <!--begin::Label-->
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
-        Penyelia
-    </span>
-    <!--end::Label-->
-
-    <!--begin::Line-->
-    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
-    <!--end::Line-->
-</span>
-<span class="d-flex position-relative mx-3">
-    <!--begin::Label-->
-    <span class="d-inline-block mb-2 fs-2x fw-bold text-dark">
-        Documents
-    </span>
-    <!--end::Label-->
-
-    <!--begin::Line-->
-    <span class="d-inline-block position-absolute h-8px bottom-0 end-0 start-0 bg-primary translate rounded"></span>
-    <!--end::Line-->
-</span>
+  
+  </div>
 </div>
-</div>
+
 
 <div id="kt_app_content_container" class="app-container container">
 							@yield('detail')
