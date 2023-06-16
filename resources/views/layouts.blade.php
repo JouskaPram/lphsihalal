@@ -100,12 +100,7 @@
 											<!--end::Menu item-->
 											<!--begin::Menu separator-->
 											<div class="separator my-2"></div>
-											<!--end::Menu separator-->
-											<!--begin::Menu item-->
 									
-
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
 											<div class="menu-item px-5">
 												<form action="/api/logout" method="post">
 												<button type="submit" class="btn btn-primary btn-sm">Sign Out</button>

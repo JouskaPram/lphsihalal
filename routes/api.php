@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BiayaApiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataListApi;
 use App\Http\Controllers\PostLoginAPi;
@@ -23,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
 // Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 
-Route::post("/logout",[PostLoginAPi::class,'logout']);
+Route::post("/logout",[PostLoginAPi::class,'logout'])->name("logout");
 Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 
 // detail
@@ -35,3 +36,8 @@ Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
 Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"]);
+
+Route::get("/biaya",[BiayaApiController::class,"getBiaya"]);
+Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
+Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
+Route::get("/biaya/put/{id}",[BiayaApiController::class,"singleBiaya"]);

@@ -23,11 +23,11 @@ class PostLoginAPi extends Controller
         
         $result = json_decode($response->getBody(), true);
       
-        return redirect("/api/datalist")->withCookie("__bpjph_ct",$result["payload"]["token"],20*20*20)->withCookie("__bpjph_rt",$result["payload"]["refreshToken"],20*20*20);
+        return redirect("/api/dashboard")->withCookie("__bpjph_ct",$result["payload"]["token"],20*20*20)->withCookie("__bpjph_rt",$result["payload"]["refreshToken"],20*20*20);
         // return response()->json("__bpjph_ct=".$result["payload"]["token"].";__bpjph_rt".$result["payload"]["refreshToken"]);
         
     } else {
-        return response()->json($response); 
+        return redirect("/")->with("notuser","kamu bukan user");
         
     }
     }

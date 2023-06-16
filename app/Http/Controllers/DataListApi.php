@@ -42,7 +42,7 @@ class DataListApi extends Controller
     
             $regis = $data["payload"];
             // return $regis;
-             return view("reg.view",["regis"=>$regis]);
+             return view("datalist.reg.view",["regis"=>$regis]);
         } else {
            null;
         }
