@@ -105,9 +105,9 @@ class DataListApi extends Controller
     $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
-        $penyelia =  $data["payload"]["penyelia"]["nama"];
+        $penyelia =  $data["payload"]["penyelia"][0];
         $regis =  $data["payload"];
-    
+   
              return view("reg.detail.penyelia",["penyelia"=>$penyelia,"regis"=>$regis]);
         } else {
            null;

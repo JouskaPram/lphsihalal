@@ -32,29 +32,29 @@
                                             
                                        
                                         <tr>
-                                            @foreach ($penyelia as $data)
+                                         
                                                 
                                            
                                             <td class="text-center">
-                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["nama"]}}</p>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$penyelia["nama"]}}</p>          
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["no_ktp"]}}</p>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$penyelia["no_ktp"]}}</p>          
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["no_sertifikat"]}}</p>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$penyelia["no_sertifikat"]}}</p>          
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["tgl_sertifikat"]}}</p>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$penyelia["tgl_sertifikat"]}}</p>          
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["no_sk"]}}</p>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$penyelia["no_sk"]}}</p>          
                                             </td>
                                             <td class="text-center">
-                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$data["no_kontak"]}}</p>          
+                                                <p class="text-dark fw-bold text-hover-primary d-block mb-1 fs-4 mx-4 ">{{$penyelia["no_kontak"]}}</p>          
                                             </td>
                       
-                                             @endforeach
+                                             
                                         </tr>
 
                                     </tbody>
