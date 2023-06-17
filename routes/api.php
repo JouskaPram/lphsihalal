@@ -40,4 +40,4 @@ Route::get("/dashboard",[DashboardController::class,"Dashboard"]);
 Route::get("/biaya",[BiayaApiController::class,"getBiaya"]);
 Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
 Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
-Route::get("/biaya/put/{id}",[BiayaApiController::class,"singleBiaya"]);
+Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);

@@ -64,7 +64,7 @@ class BiayaApiController extends Controller
         }
     }
     public function singleBiaya($id) {
-          $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
     
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
@@ -74,17 +74,14 @@ class BiayaApiController extends Controller
             $data = json_decode($response->getBody(),true);
 
             $biaya = $data["payload"];
-
-            foreach( $biaya as $b){
-                $b;
-            }
-            
-
-            return $b['id_biaya'] == $id;
-
+            $filteredBiaya = array_filter($biaya, function ($item) use ($id) {
+                return $item['id_biaya'] == $id;
+            });
+            // return $filteredBiaya;
+            return view("biaya.single", ["filteredBiaya" => $filteredBiaya, "id" => $id]);
         }
         else{
-
+            null;
         }
     }
 }

@@ -1,7 +1,7 @@
-
-@extends("template.auth-temp")
-@section('title','login')
-
+@extends('template.auth-temp')
+@section('title')
+    Login - Customer
+@endsection
 @section('content')
     <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
@@ -17,9 +17,9 @@
                         src="{{ asset('assets/media/logos/LOGO_LPH_ALUMM_VECTOR.png') }}" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-2">LEMBAHA PEMERIKSAAN HALAL</h1>
+                    <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-2">LEMBAGA PEMERIKSAAN HALAL</h1>
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center">ALMUMTAZAH</h1>
-                    <p class="text-gray-800 fw-bold text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque corrupti explicabo odio quibusdam quis?</p>
+                    <p class="text-gray-800 fw-bold text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nam dolorem accusantium reprehenderit magnam fuga.</p>
                     <!--end::Title-->
                 </div>
                 <!--end::Content-->
@@ -47,7 +47,7 @@
                         <div class="fv-row mb-8">
                             <!--begin::Email-->
                             <input type="email" placeholder="Email" name="userid" autocomplete="off"
-                                class="form-control bg-transparent"  />
+                                class="form-control bg-transparent"  value="{{ old('email') }}"/>
                             <!--end::Email-->
                             @error('email')
                             <span class="text-danger">{{ $message }}</span>
