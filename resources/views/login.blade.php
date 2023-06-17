@@ -46,8 +46,8 @@
                         <!--begin::Input group=-->
                         <div class="fv-row mb-8">
                             <!--begin::Email-->
-                            <input type="email" placeholder="Email" name="email" autocomplete="off"
-                                class="form-control bg-transparent"  value="{{ old('email') }}"/>
+                            <input type="email" placeholder="Email" name="userid" autocomplete="off"
+                                class="form-control bg-transparent"  />
                             <!--end::Email-->
                             @error('email')
                             <span class="text-danger">{{ $message }}</span>

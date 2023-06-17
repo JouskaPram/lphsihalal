@@ -24,7 +24,7 @@
                 {{-- form upload image --}}
                 <div class="row">
                     <div class="col-md-12 mt-4">
-                        <h3 class="text-warning mt-4">Facility</h3>
+                        <h3 class="text-warning mt-4">Factories</h3>
                     </div>
                     <div class="col-md-12 mt-3">
                         <!--begin::Table-->
@@ -34,21 +34,31 @@
                                 <!--begin::Table row-->
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                     <th>No</th>
-                                    <th>File Dokument</th>
-                                    <th>Type Dokument</th>
-                                
+                                    <th>Nama</th>
+                                    <th>Alamat</th>
+                                    <th>Kota</th>
+                                    <th>Provinsi</th>
+                                    <th>Negara</th>
+                                    <th>kode pos</th>
+                                    <th>Status</th>
+                                 
                                 </tr>
                                 <!--end::Table row-->
                             </thead>
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody class="fw-semibold text-gray-600">
-                                @foreach ($doc as $index => $item)
+                                @foreach ($factory as $index => $item)
                                     
                                 <tr>
                                     <td>{{$index+1}}</td>
-                                    <td>{{$item["file_dok"]}}</td>
-                                    <td>{{$item["tipe_dok"]}}</td>
+                                    <td>{{$item["nama"]}}</td>
+                                    <td>{{$item["alamat"]}}</td>
+                                    <td>{{$item["kab_kota"]}}</td>
+                                    <td>{{$item["provinsi"]}}</td>
+                                    <td>{{$item["negara"]}}</td>
+                                    <td>{{$item["kode_pos"]}}</td>
+                                    <td>{{$item["status_milik"]}}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

@@ -60,7 +60,7 @@ class DataListApi extends Controller
         $factory =  $data["payload"]["factories"];
     
             $regis = $data["payload"];
-             return view("reg.detail.factory",["factory"=>$factory,"regis"=>$regis]);
+             return view("datalist.reg.factory",["factory"=>$factory,"regis"=>$regis]);
         } else {
            null;
         }
@@ -76,7 +76,7 @@ class DataListApi extends Controller
         $product =  $data["payload"]["products"];
         $regis = $data["payload"];
         
-         return view("reg.detail.product",["product"=>$product,"regis"=>$regis]);
+         return view("datalist.reg.detail.product",["product"=>$product,"regis"=>$regis]);
         } else {
            null;
         }
@@ -92,7 +92,7 @@ class DataListApi extends Controller
         $pu =  $data["payload"]["pu"];
         $regis =  $data["payload"];
         // return $pu
-        return view("reg.detail.perusahaan",["pu"=>$pu,"regis"=>$regis]);
+        return view("datalist.reg.detail.perusahaan",["pu"=>$pu,"regis"=>$regis]);
         } else {
            null;
         }
@@ -105,10 +105,10 @@ class DataListApi extends Controller
     $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
-        $penyelia =  $data["payload"]["penyelia"][0];
+        $penyelia =  $data["payload"]["penyelia"];
         $regis =  $data["payload"];
    
-             return view("reg.detail.penyelia",["penyelia"=>$penyelia,"regis"=>$regis]);
+             return view("datalist.reg.detail.penyelia",["penyelia"=>$penyelia,"regis"=>$regis]);
         } else {
            null;
         }
@@ -125,7 +125,7 @@ class DataListApi extends Controller
         $regis =  $data["payload"];
     
       
-        return view("reg.detail.documents",["doc"=>$doc,"regis"=>$regis]);
+        return view("datalist.reg.detail.documents",["doc"=>$doc,"regis"=>$regis]);
         } else {
            null;
         }

@@ -45,49 +45,52 @@
             </div>
             <!--end::Card header-->
             <!--begin::Card body-->
-            <div class="card-body pt-0">
-                <!--begin::Table-->
-                <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0 " id="table_init">
-                    <!--begin::Table head-->
-                    <thead>
-                        <!--begin::Table row-->
-                        <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                            
-                            <th>Reg Date</th>
-                            <th>Reg No.</th>
-                            <th>Nama Perusahaan</th>
-                            <th>Reg Status</th>
-                            <th>Reg Type</th>
-                            <th>Product Group</th>
-                            <th>BPJPH Product Type</th>
-                            <th width="20%">Action</th>
-                        </tr>
-                        <!--end::Table row-->
-                    </thead>
-                    <!--end::Table head-->
-                    <!--begin::Table body-->
-                    <tbody class="fw-semibold text-gray-600">
-                        @foreach ($datalist as $item)
-                            
-                   
-                            <tr>
-                            
-                                <th>{{$item["no_daftar"]}}</th>
-                                <th>{{$item["tgl_daftar"]}}</th>
-                                <th>{{$item["nama_pu"]}}</th>
-                                <th>{{$item["nama_status_reg"]}}</th>
-                                <th>{{$item["nama_jenis_usaha"]}}</th>
-                                <th>{{$item["nama_jenis_daftar"]}}</th>
-                                <th>{{$item["nama_jenis_produk"]}}</th>
+            <div class="card-body py-4">
+                <div class="table-responsive">
+
+                    <table class="table table-hover table-rounded table-striped border gy-7 gs-7 " id="table_init">
+                        <!--begin::Table head-->
+                        <thead>
+                            <!--begin::Table row-->
+                            <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                 
-                                <th>
-                                   <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
-                                </th>
+                                <th>Reg Date</th>
+                                <th>Reg No.</th>
+                                <th>Nama Perusahaan</th>
+                                <th>Reg Status</th>
+                                <th>Reg Type</th>
+                                <th>Product Group</th>
+                                <th>BPJPH Product Type</th>
+                                <th width="20%">Action</th>
                             </tr>
-                          @endforeach
-                    </tbody>
-                    <!--end::Table body-->
-                </table>
+                            <!--end::Table row-->
+                        </thead>
+                        <!--end::Table head-->
+                        <!--begin::Table body-->
+                        <tbody class="fw-semibold text-gray-600">
+                            @foreach ($datalist as $item)
+                                
+                       
+                                <tr>
+                                
+                                    <th>{{$item["no_daftar"]}}</th>
+                                    <th>{{$item["tgl_daftar"]}}</th>
+                                    <th>{{$item["nama_pu"]}}</th>
+                                    <th><span class="badge badge-success">{{$item["nama_status_reg"]}}</span></th>
+                                    <th>{{$item["nama_jenis_usaha"]}}</th>
+                                    <th>{{$item["nama_jenis_daftar"]}}</th>
+                                    <th>{{$item["nama_jenis_produk"]}}</th>
+                                    
+                                    <th>
+                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                    </th>
+                                </tr>
+                              @endforeach
+                        </tbody>
+                        <!--end::Table body-->
+                    </table>
+                </div>
+                <!--begin::Table-->
                 <!--end::Table-->
             </div>
             <!--end::Card body-->

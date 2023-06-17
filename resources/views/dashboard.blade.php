@@ -20,8 +20,8 @@
                     <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm002.svg-->
                     <i class="las la-user-friends fs-3x text-secondary"></i>
                     <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">2</div>
-                    <div class="fw-semibold text-white">Active Registration</div>
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$count}}</div>
+                    <div class="fw-semibold text-white">Data Mohon</div>
                 </div>
                 <!--end::Body-->
             </a>
@@ -35,8 +35,8 @@
                     <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
                     <i class="las la-box fs-3x text-secondary"></i>
                     <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">3</div>
-                    <div class="fw-semibold text-white">Fatwa Registration</div>
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalbiaya}}</div>
+                    <div class="fw-semibold text-white">Total Biaya</div>
                 </div>
                 <!--end::Body-->
             </a>

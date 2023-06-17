@@ -54,7 +54,7 @@
                         <span class="menu-icon">
                             <i class="fonticon-house fs-2"></i>
                         </span>
-                        <span class="menu-title">Dashboards</span>
+                        <span class="menu-title"><a href="/api/dashboard">Dashboards</a></span>
                     </span>
                 </div>
                 <div class="menu-item">
@@ -62,7 +62,7 @@
                         <span class="menu-icon">
                             <i class="fonticon-house fs-2"></i>
                         </span>
-                        <span class="menu-title">Menu 1</span>
+                        <span class="menu-title"><a href="/api/datalist">Perusahaan</a></span>
                     </span>
                 </div>
                 <div class="menu-item">
@@ -70,7 +70,7 @@
                         <span class="menu-icon">
                             <i class="fonticon-house fs-2"></i>
                         </span>
-                        <span class="menu-title">Menu 2</span>
+                        <span class="menu-title"><a href="/api/biaya">biaya</a></span>
                     </span>
                 </div>
                 <!--end:Menu item-->

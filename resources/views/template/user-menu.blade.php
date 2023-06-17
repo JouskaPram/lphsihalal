@@ -233,7 +233,9 @@
         <!--end::Menu item-->
         <!--begin::Menu item-->
         <div class="menu-item px-5">
-            <a href="{{route('logout')}}" class="menu-link px-5">Sign Out</a>
+            <form action="/api/logout" method="post">
+                <button type="submit" class="menu-link px-5 btn btn-primary btn-sm">Sign Out</button>
+            </form>
         </div>
         <!--end::Menu item-->
     </div>

@@ -75,10 +75,9 @@
     <div class="app-sidebar-header d-flex flex-stack d-none d-lg-flex pt-8 pb-2" id="kt_app_sidebar_header">
         <!--begin::Logo-->
         <a href="#" class="app-sidebar-logo">
-            <img alt="Logo" src="{{ asset('assets/media/logos/demo38.svg') }}"
-                class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
-            <img alt="Logo" src="{{ asset('assets/media/logos/demo38-dark.svg') }}"
-                class="h-20px h-lg-25px theme-dark-show" />
+            <img alt="Logo" src="{{ asset('assets/media/logos/LOGO_LPH_ALUMM_VECTOR.png') }}"
+               class="h-80px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
+
         </a>
         <!--end::Logo-->
         <!--begin::Sidebar toggle-->
@@ -125,23 +124,23 @@
                         <span class="menu-icon">
                             <i class="fonticon-house fs-2"></i>
                         </span>
-                        <span class="menu-title">Dashboards</span>
+                        <span class="menu-title"><a href="/api/dashboard">Dashboards</a></span>
                     </span>
                 </div>
                 <div class="menu-item">
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="fonticon-house fs-2"></i>
+                            <i class="fas fa-list fs-2"></i>
                         </span>
-                        <span class="menu-title">Menu 1</span>
+                        <span class="menu-title"><a href="/api/datalist">Perusahaan</a></span>
                     </span>
                 </div>
                 <div class="menu-item">
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="fonticon-house fs-2"></i>
+                            <i class="fas fa-credit-card fs-2"></i>
                         </span>
-                        <span class="menu-title">Menu 2</span>
+                        <span class="menu-title"><a href="/api/biaya">Biaya</a></span>
                     </span>
                 </div>
                 <!--end:Menu item-->
