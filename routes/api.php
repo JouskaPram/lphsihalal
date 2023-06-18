@@ -29,6 +29,7 @@ Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 
 // detail
 Route::get("/reg/{reg}",[DataListApi::class,"getReg"]);
+Route::post("/reg/{reg}/status",[DataListApi::class,"updateStatus"]);
 Route::get("/reg/{reg}/factory",[DataListApi::class,"getFactory"]);
 Route::get("/reg/{reg}/product",[DataListApi::class,"getProduct"]);
 Route::get("/reg/{reg}/perusahaan",[DataListApi::class,"getPu"]);

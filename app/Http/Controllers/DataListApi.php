@@ -130,6 +130,23 @@ class DataListApi extends Controller
            null;
         }
     }
+
+    public function updateStatus($reg)  {
+    $myCookieValue = request()->cookie('__bpjph_ct');
+    $RefreshToken = request()->cookie('__bpjph_rt');
+    
+    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+         "json" => [
+            "status" => "ajuan",
+            "reg_id" =>  $reg,
+            "lph_mapped_id"=>"7F431C7E-9B3C-41D9-A9C0-8C4B2BCB624C",
+        ],
+    ]);
+    if($response->getStatusCode()==200){      
+        return redirect("/api/datalist")->with("updated","data berhasil di update");
+    } 
+    }
     
 }
 

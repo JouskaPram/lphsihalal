@@ -66,6 +66,9 @@
                         </form>
                     </div>
                 </div>
+                <form action="/api/reg/{{$regis["id_reg"]}}/status" method="post">
+                    <button type="submit" class="btn btn-primary">Update Status</button>
+                </form>
                 {{-- end form upload image --}}
             </div>
             <!--end::Card body-->

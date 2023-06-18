@@ -19,7 +19,11 @@
                     <!--begin::Title-->
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-2">LEMBAGA PEMERIKSAAN HALAL</h1>
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center">ALMUMTAZAH</h1>
-                    <p class="text-gray-800 fw-bold text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nam dolorem accusantium reprehenderit magnam fuga.</p>
+                    <div class="card p-7">
+                        <p class="text-gray-800 fw-bold text-center">Jl Bayan 2 No 93 Kel. Mustikajaya Kec. Mustikajaya Kota Bekasi 17158 Jawa Barat</p>
+                        <p class="text-gray-800 fw-bold text-center"> lphalmumtazah@gmail.com</p>
+                    </div>
+                    <img  src="{{ asset('assets/media/logos/alur.jpg') }}" class="" alt="" srcset="">
                     <!--end::Title-->
                 </div>
                 <!--end::Content-->

@@ -132,7 +132,7 @@
                         <span class="menu-icon">
                             <i class="fas fa-list fs-2"></i>
                         </span>
-                        <span class="menu-title"><a href="/api/datalist">Perusahaan</a></span>
+                        <span class="menu-title"><a href="/api/datalist">Data Mohon</a></span>
                     </span>
                 </div>
                 <div class="menu-item">
