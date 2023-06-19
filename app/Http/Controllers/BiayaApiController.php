@@ -59,8 +59,7 @@ class BiayaApiController extends Controller
             ]
         ]);
         if($response->getStatusCode()==200){
-               $data = json_decode($response->getBody(),true);
-            return $data;
+            return redirect("/api/biaya")->with("updated","biaya telah terupdate");
         }
     }
     public function singleBiaya($id) {
