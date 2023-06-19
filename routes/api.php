@@ -25,21 +25,30 @@ Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
 // Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 
 Route::post("/logout",[PostLoginAPi::class,'logout'])->name("logout");
-Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 
-// detail
-Route::get("/reg/{reg}",[DataListApi::class,"getReg"]);
-Route::post("/reg/{reg}/status",[DataListApi::class,"updateStatus"]);
-Route::get("/reg/{reg}/factory",[DataListApi::class,"getFactory"]);
-Route::get("/reg/{reg}/product",[DataListApi::class,"getProduct"]);
-Route::get("/reg/{reg}/perusahaan",[DataListApi::class,"getPu"]);
-Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
-Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
 
-Route::get("/dashboard",[DashboardController::class,"Dashboard"]);
+// data mohon route
+Route::middleware('cookie')->group(function () {
+    Route::get("/datalist",[DataListApi::class,"GetDataList"]);
+    // detail data mohon
+    Route::get("/reg/{reg}",[DataListApi::class,"getReg"]);
+    Route::post("/reg/{reg}/status",[DataListApi::class,"updateStatus"]);
+    Route::get("/reg/{reg}/factory",[DataListApi::class,"getFactory"]);
+    Route::get("/reg/{reg}/product",[DataListApi::class,"getProduct"]);
+    Route::get("/reg/{reg}/perusahaan",[DataListApi::class,"getPu"]);
+    Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
+    Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
+});
 
-Route::get("/biaya",[BiayaApiController::class,"getBiaya"])->name("biaya.view");
-Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
-Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
-Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);
-Route::delete("/biaya/{id}",[BiayaApiController::class,"deleteBIaya"])->name("biaya.delete");
+Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");
+
+
+// biaya route
+Route::middleware('cookie')->group(function () {
+    Route::get("/biaya",[BiayaApiController::class,"getBiaya"])->name("biaya.view");
+    Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
+    Route::get("/biaya/tambah",[BiayaApiController::class,"postBiayaLayout"]);
+    Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
+    Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);
+    Route::delete("/biaya/{id}",[BiayaApiController::class,"deleteBIaya"])->name("biaya.delete");
+});
