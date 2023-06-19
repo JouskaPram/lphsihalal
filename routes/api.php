@@ -38,7 +38,8 @@ Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"]);
 
-Route::get("/biaya",[BiayaApiController::class,"getBiaya"]);
+Route::get("/biaya",[BiayaApiController::class,"getBiaya"])->name("biaya.view");
 Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
 Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
 Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);
+Route::delete("/biaya/{id}",[BiayaApiController::class,"deleteBIaya"])->name("biaya.delete");

@@ -3,10 +3,13 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
 
-
+   <div id="kt_app_content_container" class="app-container container-fluid mt-20">
 @section('content')
-
+    @if(session('success'))
+        <h3 class="text-danger">{{session("success")}}</h3>
+    @endif
   <div class="card card-flush">
+     
             <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
@@ -75,9 +78,14 @@
                                     <th>{{$item["harga"]}}</th>
                                     <th>{{$item["qty"]}}</th>
                                     <th>{{$item["total"]}}</th>                                
-                                    <th>
+                                    <th class="d-flex">
                                        <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5">View</a>
-                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-danger h-40px fs-7 fw-bold">Delete</a>
+                                     <form action="{{ route("biaya.delete", ["id" => $item["id_biaya"]]) }}" method="post">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="btn btn-danger h-40px fs-7 fw-bold">Delete</button>
+                                    </form>
+
                                     </th>
                                  
                                 </tr>
@@ -91,6 +99,7 @@
             </div>
             <!--end::Card body-->
         </div>
+   </div>
 @endsection
 @section('custom-js')
     <script>

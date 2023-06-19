@@ -18,13 +18,18 @@ class DashboardController extends Controller
     $resbiaya = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs", [
 
     ]);
+     
+
     if($response->getStatusCode() == 200){
         $data = json_decode($response->getBody(), true);
         $biaya = json_decode($resbiaya->getBody(),true);
         $totalbiaya = count($biaya["payload"]);
         $datalist = $data["payload"];
         $count = count($datalist);
-        return view("dashboard",["count"=>$count,"totalbiaya"=>$totalbiaya]);
+        $config = [
+            'menu-active' => 'dashboard'
+        ];
+        return view("dashboard",["count"=>$count,"totalbiaya"=>$totalbiaya],compact("config"));
     }
     else{
         null;

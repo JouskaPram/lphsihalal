@@ -44,13 +44,13 @@ class BiayaApiController extends Controller
             return $dataid;
         }
     }
-    public function updateBiaya($idbiaya)  {
+    public function updateBiaya($id)  {
          $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/costs/$idbiaya",[
+        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/costs/$id",[
             "json"=>[
                 "id_reg"=>request("id_reg"),
                 "keterangan"=>request("keterangan"),
@@ -77,11 +77,26 @@ class BiayaApiController extends Controller
             $filteredBiaya = array_filter($biaya, function ($item) use ($id) {
                 return $item['id_biaya'] == $id;
             });
-            // return $filteredBiaya;
+            // return $filteredBiaya[0]["id_biaya"];
             return view("biaya.single", ["filteredBiaya" => $filteredBiaya, "id" => $id]);
         }
         else{
             null;
         }
+    }
+    public function deleteBiaya($id) {
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+
+        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
+        if($response->getStatusCode() == 200){
+            return redirect()->route("biaya.view")->with("success", "Data berhasil dihapus.");
+        }
+        else{
+            null;
+        }
+
     }
 }

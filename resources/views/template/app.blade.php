@@ -119,7 +119,7 @@
                 </div>
                 <!--end::Heading-->
                 <!--begin:Menu item-->
-                <div class="menu-item">
+                <div class="menu-item menu-active">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="fonticon-house fs-2"></i>
