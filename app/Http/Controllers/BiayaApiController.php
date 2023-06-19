@@ -74,11 +74,12 @@ class BiayaApiController extends Controller
             $data = json_decode($response->getBody(),true);
 
             $biaya = $data["payload"];
-            $filteredBiaya = array_filter($biaya, function ($item) use ($id) {
-                return $item['id_biaya'] == $id;
+            $filteredBiaya = array_filter($biaya, function ($biaya) use ($id) {
+                return $biaya['id_biaya'] == $id;
             });
-            // return $filteredBiaya[0]["id_biaya"];
-            return view("biaya.single", ["filteredBiaya" => $filteredBiaya, "id" => $id]);
+            
+        $singleBiaya = reset($filteredBiaya);
+            return view("biaya.single", ["singleBiaya" => $singleBiaya, "id" => $id]);
         }
         else{
             null;

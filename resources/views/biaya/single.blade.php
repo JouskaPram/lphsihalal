@@ -8,14 +8,14 @@
             <div class="card-header bg-primary mb-2">
                 <!--begin::Card title-->
                 <div class="card-title text-white">
-                    Edit Product
+                    Edit Biaya
                 </div>
                 <!--end::Card title-->
             </div>
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                <form action="/api/biaya/{{$filteredBiaya[0]["id_biaya"]}}" method="post" >
+                <form action="/api/biaya/{{$singleBiaya["id_biaya"]}}" method="post" >
                     @csrf
                     @method('PUT')
                     <div class="col-md-12 mt-3">
@@ -25,7 +25,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="reg_no" class="form-control form-control-lg form-control-solid" value="{{ $filteredBiaya[0]["id_reg"] }}" readonly>
+                                <input type="text" name="reg_no" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["id_reg"] }}" readonly>
 
                             </div>
                             <!--end::Col-->
@@ -38,7 +38,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <textarea type="text" name="name" class="form-control form-control-lg form-control-solid" >{{ $filteredBiaya[0]["keterangan"] }}
+                                <textarea type="text" name="name" class="form-control form-control-lg form-control-solid" >{{ $singleBiaya["keterangan"] }}
                                 </textarea>
                             </div>
                             <!--end::Col-->
@@ -49,7 +49,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="reg_no" class="form-control form-control-lg form-control-solid" value="{{ $filteredBiaya[0]["harga"] }}" >
+                                <input type="text" name="reg_no" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["harga"] }}" >
             
                             </div>
                             <!--end::Col-->
@@ -61,7 +61,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="reg_no" class="form-control form-control-lg form-control-solid" value="{{ $filteredBiaya[0]["qty"] }}" >
+                                <input type="text" name="reg_no" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["qty"] }}" >
             
                             </div>
                             <!--end::Col-->
