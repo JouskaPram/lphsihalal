@@ -5,13 +5,8 @@
 
 
 @section('content')
-   <!--begin::Content container-->
-    <div id="kt_app_content_container" class="app-container container-fluid mt-20">
-        <!--begin::Card-->
-        @if(session("updated"))       
-          <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
-        @endif
-        <div class="card card-flush">
+
+  <div class="card card-flush">
             <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
@@ -60,36 +55,31 @@
                             <!--begin::Table row-->
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                 
-                                <th>Reg Date</th>
-                                <th>Reg No.</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Reg Status</th>
-                                <th>Reg Type</th>
-                                <th>Product Group</th>
-                                <th>BPJPH Product Type</th>
-                                <th width="20%">Action</th>
+                                <th>NO</th>
+                                <th>Nama Biaya</th>
+                                <th>Harga Biaya</th>
+                                <th>QTY</th>
+                                <th>Total</th>
+                              
+                                <th width="20%" class="text-center">Action</th>
                             </tr>
                             <!--end::Table row-->
                         </thead>
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                            @foreach ($datalist as $item)
-                                
-                       
+                            @foreach ($biaya as $index => $item)         
                                 <tr>
-                                
-                                    <th>{{$item["no_daftar"]}}</th>
-                                    <th>{{$item["tgl_daftar"]}}</th>
-                                    <th>{{$item["nama_pu"]}}</th>
-                                    <th><span class="badge badge-success">{{$item["nama_status_reg"]}}</span></th>
-                                    <th>{{$item["nama_jenis_usaha"]}}</th>
-                                    <th>{{$item["nama_jenis_daftar"]}}</th>
-                                    <th>{{$item["nama_jenis_produk"]}}</th>
-                                    
+                                    <th>{{$index+1}}</th>
+                                    <th>{{$item["keterangan"]}}</th>
+                                    <th>{{$item["harga"]}}</th>
+                                    <th>{{$item["qty"]}}</th>
+                                    <th>{{$item["total"]}}</th>                                
                                     <th>
-                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5">View</a>
+                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-danger h-40px fs-7 fw-bold">Delete</a>
                                     </th>
+                                 
                                 </tr>
                               @endforeach
                         </tbody>
@@ -101,8 +91,6 @@
             </div>
             <!--end::Card body-->
         </div>
-        <!--end::Card-->
-    </div>
 @endsection
 @section('custom-js')
     <script>
