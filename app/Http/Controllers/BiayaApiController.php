@@ -25,11 +25,11 @@ class BiayaApiController extends Controller
         }
     }
     public function postBiayaLayout() {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-    
+    $lph = env("LPH_MAPED");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/7F431C7E-9B3C-41D9-A9C0-8C4B2BCB624C", [
+    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
 
     ]);
     if($response->getStatusCode() == 200){
@@ -59,8 +59,7 @@ class BiayaApiController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-            $dataid = json_decode($response->getBody(),true);
-            return $dataid;
+           return redirect("api/biaya")->with("posted","data berhasil di tambahkan");
         }
     }
 

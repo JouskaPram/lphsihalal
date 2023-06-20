@@ -7,16 +7,7 @@ use App\Http\Controllers\PostLoginAPi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -47,7 +38,7 @@ Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("c
 Route::middleware('cookie')->group(function () {
     Route::get("/biaya",[BiayaApiController::class,"getBiaya"])->name("biaya.view");
     Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
-    Route::get("/biaya/tambah",[BiayaApiController::class,"postBiayaLayout"]);
+    Route::get("/biaya/tambah",[BiayaApiController::class,"postBiayaLayout"])->name("biaya.post");
     Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
     Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);
     Route::delete("/biaya/{id}",[BiayaApiController::class,"deleteBIaya"])->name("biaya.delete");

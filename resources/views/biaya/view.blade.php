@@ -3,8 +3,11 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
 
-   <div id="kt_app_content_container" class="app-container container-fluid mt-20">
 @section('content')
+   <div id="kt_app_content_container" class="app-container container-fluid mt-20">
+    @if(session('posted'))
+        <h3 class="text-danger">{{session("posted")}}</h3>
+    @endif
     @if(session('success'))
         <h3 class="text-danger">{{session("success")}}</h3>
     @endif
@@ -40,9 +43,9 @@
 
 
                     <!--begin::Button-->
-                    <button type="button" id="excel-table" class="btn btn-light-primary">
-                        <span class="fas fa-file"></span> Export Excel
-                    </button>
+                    <a href="{{route("biaya.post")}}" class="btn btn-light-primary">
+                        <span class="fas fa-file"></span> Tambah Biaya
+                    </a>
                     <!--end::Button-->
                 </div>
                 <!--end::Card toolbar-->

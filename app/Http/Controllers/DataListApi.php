@@ -10,11 +10,12 @@ class DataListApi extends Controller
 {
     public function GetDataList(Request $request)
     {
+    $lph = env("LPH_MAPED");
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
     
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/7F431C7E-9B3C-41D9-A9C0-8C4B2BCB624C", [
+    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
 
     ]);
     if ($response->getStatusCode() == 200) {
@@ -140,10 +141,11 @@ class DataListApi extends Controller
          "json" => [
             "status" => "ajuan",
             "reg_id" =>  $reg,
-            "lph_mapped_id"=>"7F431C7E-9B3C-41D9-A9C0-8C4B2BCB624C",
+            "lph_mapped_id"=>env("LPH_MAPED"),
         ],
     ]);
-    if($response->getStatusCode()==200){      
+    if($response->getStatusCode()==200){
+        // return $response;      
         return redirect("/api/datalist")->with("updated","data berhasil di update");
     } 
     }

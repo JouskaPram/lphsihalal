@@ -8,7 +8,7 @@
             <div class="card-header bg-primary mb-2">
                 <!--begin::Card title-->
                 <div class="card-title text-white">
-                    Registration No. :
+                    Registration No. : {{$regis["id_reg"]}} 
                 </div>
                 <!--end::Card title-->
             </div>
