@@ -233,12 +233,34 @@
         <!--end::Menu item-->
         <!--begin::Menu item-->
         <div class="menu-item px-5">
-            <form action="/api/logout" method="post">
-                <button type="submit" class="menu-link px-5 btn btn-primary btn-sm">Sign Out</button>
-            </form>
+        
+           <button type="submit" class="menu-link px-5 btn btn-primary btn-sm" onclick="signout()">
+               Sign Out</button>
+    
+       
         </div>
         <!--end::Menu item-->
     </div>
     <!--end::User account menu-->
     <!--end::Menu wrapper-->
 </div>
+<script>
+			function signout() {
+				Swal.fire({
+					title: "Apakah Anda yakin ingin keluar dari akun anda?",
+					icon: "warning",
+					buttonsStyling: false,
+					showCancelButton: true,
+					confirmButtonText: "Ya, Keluar!",
+					cancelButtonText: 'Tidak, Batal!',
+					customClass: {
+						confirmButton: "btn btn-primary",
+						cancelButton: 'btn btn-danger'
+					}
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location="{{ route('auth.logout') }}"
+					}
+				});
+			}
+</script>

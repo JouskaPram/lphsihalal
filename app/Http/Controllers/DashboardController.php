@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardController extends Controller
 {
@@ -18,17 +20,21 @@ class DashboardController extends Controller
     $resbiaya = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs", [
 
     ]);
-     
+    
 
     if($response->getStatusCode() == 200){
+       
         $data = json_decode($response->getBody(), true);
         $biaya = json_decode($resbiaya->getBody(),true);
         $totalbiaya = count($biaya["payload"]);
         $datalist = $data["payload"];
+        $totalJumlahBiaya = ($biaya["payload"]);
+        
         $count = count($datalist);
         $config = [
             'menu-active' => 'dashboard'
         ];
+     
         return view("dashboard",["count"=>$count,"totalbiaya"=>$totalbiaya],compact("config"));
     }
     else{

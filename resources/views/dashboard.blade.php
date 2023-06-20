@@ -4,12 +4,14 @@
 @section('custom-css')
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
+@include('sweetalert::alert')
 @section('content')
 
 
 
 <!--begin::Content container-->
-<div id="kt_app_content_container" class="app-container container-fluid pt-20">
+<div id="kt_app_content_container" class="app-container container-fluid pt-10">
+
     <!--begin::Card-->
     <div class="row g-5 g-xl-8">
         <div class="col-xl-3">
@@ -65,7 +67,7 @@
                     <!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
                     <i class="las la-clipboard-list fs-3x text-secondary"></i>
                     <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">p</div>
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5"></div>
                     <div class="fw-semibold text-white">Total Registration</div>
                 </div>
                 <!--end::Body-->
@@ -149,6 +151,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </script>
+
 <script>
     $(function () {
         var newreg = Morris.Bar({
@@ -215,5 +218,9 @@
             }
         });
     });
+</script>
+
+<script>
+    
 </script>
 @endsection

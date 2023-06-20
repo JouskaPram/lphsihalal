@@ -15,7 +15,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
 // Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 
-Route::post("/logout",[PostLoginAPi::class,'logout'])->name("logout");
+Route::match(['get','post'],"/logout",[PostLoginAPi::class,'logout'])->name("auth.logout");
 
 
 // data mohon route

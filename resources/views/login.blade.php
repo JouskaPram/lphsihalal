@@ -36,7 +36,7 @@
             <!--begin::Wrapper-->
             <div class="bg-body d-flex flex-center rounded-4 w-md-600px p-10">
                 <!--begin::Content-->
-                <div class="w-md-400px">
+                <div class="w-md-400px ">
                     <!--begin::Form-->
                     <form class="form w-100" novalidate="novalidate" action="{{route('login')}}" method="POST">
                         @csrf

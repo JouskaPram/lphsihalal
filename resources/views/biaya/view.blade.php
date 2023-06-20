@@ -2,7 +2,9 @@
 @section('custom-css')
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
+@include('sweetalert::alert')
 @section('content')
    <div id="kt_app_content_container" class="app-container container-fluid mt-20">
     @if(session('posted'))
@@ -105,6 +107,16 @@
    </div>
 @endsection
 @section('custom-js')
+@if (session("berhasil"))
+    <script>
+        Swal.fire({
+            title: "Success",
+            text: "dadasda ",
+            icon: "{{berhasil}}"
+        });
+    </script>
+@endif
+
     <script>
         function initDataTable() {
             let initTable = $('#table_init').DataTable({

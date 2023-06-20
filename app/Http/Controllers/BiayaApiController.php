@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BiayaApiController extends Controller
 {
@@ -59,7 +61,8 @@ class BiayaApiController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-           return redirect("api/biaya")->with("posted","data berhasil di tambahkan");
+             Session::flash('success', 'Biaya deleted successfully');
+           return redirect("api/biaya")->with('roso', 'Post created successfully');
         }
     }
 
@@ -112,11 +115,11 @@ class BiayaApiController extends Controller
 
         $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
         if($response->getStatusCode() == 200){
-            return redirect()->route("biaya.view")->with("success", "Data berhasil dihapus.");
+         Session::flash('success', 'Biaya deleted successfully');
         }
         else{
             null;
         }
-
+    return redirect()->route('biaya.view')->with('roso', 'Post created successfully');
     }
 }
