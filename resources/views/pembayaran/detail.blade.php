@@ -13,7 +13,8 @@
     @if(session('success'))
         <h3 class="text-danger">{{session("success")}}</h3>
     @endif
-  <div class="card card-flush">
+    <div class="card card-flush">
+      <h4 class="text-dark px-10 pt-10">No. Reg {{$id}}</h4>
      
             <!--begin::Card header-->
             <div class="card-header mt-6">
@@ -46,7 +47,7 @@
                  
                     <!--begin::Button-->
                     <a href="/api/pembayaran/{{$id}}/add" class="btn btn-light-primary">
-                        <span class="fas fa-file"></span> Tambah Biaya
+                        <span class="fa-sharp fa-solid fa-dollar-sign"></span> Tambah Biaya
                     </a>
                     <!--end::Button-->
                 </div>
@@ -84,11 +85,13 @@
                                     <th>{{$item["qty"]}}</th>
                                     <th>{{$item["total"]}}</th>                                
                                     <th class="d-flex">
-                                       <a href="/api/pembayaran/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5">View</a>
+                                       <a href="/api/pembayaran/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> 
+                                          
+                                        <i class="fas fa-info-circle"></i></a>
                                      <form action="{{ route("biaya.delete", ["id" => $item["id_biaya"]]) }}" method="post">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger h-40px fs-7 fw-bold">Delete</button>
+                                        <button class="btn btn-light-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
                                     </form>
 
                                     </th>

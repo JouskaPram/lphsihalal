@@ -71,7 +71,7 @@
                         
                     </div>
                     <button type="submit" class="btn btn-primary" >tambah</button>
-                    <a href="/api/pembayaran/add" class="btn btn-secondary">Back</a>
+                    <a href="/api/pembayaran/{{$id}}" class="btn btn-secondary">Back</a>
                 </form>
             </div>
             <!--end::Card body-->

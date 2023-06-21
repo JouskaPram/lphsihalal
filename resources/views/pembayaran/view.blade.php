@@ -12,6 +12,7 @@
           <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
         @endif
         <div class="card card-flush">
+           
             <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
