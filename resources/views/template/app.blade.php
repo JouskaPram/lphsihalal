@@ -141,7 +141,7 @@
                         <span class="menu-icon">
                             <i class="fas fa-credit-card fs-2"></i>
                         </span>
-                        <span class="menu-title"><a href="/api/biaya">Biaya</a></span>
+                        <span class="menu-title"><a href="/api/pembayaran">pembayaran</a></span>
                     </span>
                 </div>
                 <div class="menu-item">

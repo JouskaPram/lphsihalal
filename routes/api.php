@@ -5,6 +5,7 @@ use App\Http\Controllers\BiayaApiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataListApi;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PostLoginAPi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,10 @@ Route::middleware('cookie')->group(function () {
     Route::get("/reg/{reg}/perusahaan",[DataListApi::class,"getPu"]);
     Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
     Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
+});
+
+Route::middleware("cookie")->group(function ()  {
+   Route::get("/pembayaran",[PembayaranController::class,"getPembayaran"]); 
 });
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");

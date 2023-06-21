@@ -66,9 +66,15 @@
                         </form>
                     </div>
                 </div>
+                @if ($regis["status_reg"] == "OF50")     
                 <form action="/api/reg/{{$regis["id_reg"]}}/status" method="post">
                     <button type="submit" class="btn btn-primary">Update Status</button>
                 </form>
+                @endif
+                @if ($regis["status_reg"] == "OF55" )
+                    <a href="/api/biaya/{{$regis["id_reg"]}}" class="btn btn-primary">Liat Biaya</a>
+                    <button class="btn btn-primary">update status</button>
+                @endif
                 {{-- end form upload image --}}
             </div>
             <!--end::Card body-->
