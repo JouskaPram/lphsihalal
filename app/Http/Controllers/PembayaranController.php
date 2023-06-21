@@ -94,4 +94,46 @@ class PembayaranController extends Controller
         return redirect("/api/pembayaran");
     } 
     }
+    public function updateLayoutBiaya($id,$b) {
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+    
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+
+        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs?order_dir=desc");
+        if($response->getStatusCode()==200){
+            $data = json_decode($response->getBody(),true);
+
+            $biaya = $data["payload"];
+            $filteredBiaya = array_filter($biaya, function ($biaya) use ($b) {
+                return $biaya['id_biaya'] == $b;
+            });
+            
+        $singleBiaya = reset($filteredBiaya);
+      
+            return view("pembayaran.single", ["singleBiaya" => $singleBiaya, "b" => $b,'id'=>$id]);
+        }
+        else{
+            null;
+        }
+    }
+
+    public function updateBiaya($id,$b) {
+           $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+
+        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/costs/$b",[
+            "json"=>[
+                "id_reg"=>$id,
+                "keterangan"=>request("keterangan"),
+                "qty"=>request("qty"),
+                "harga"=>request("harga"),
+            ]
+        ]);
+        if($response->getStatusCode()==200){
+             return redirect("/api/pembayaran/$id");
+        }
+    }
 }

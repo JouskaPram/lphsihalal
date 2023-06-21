@@ -37,6 +37,8 @@ Route::middleware('cookie')->group(function () {
 Route::middleware("cookie")->group(function ()  {
    Route::get("/pembayaran",[PembayaranController::class,"getPembayaran"]);
    Route::get("/pembayaran/{id}",[PembayaranController::class,"singlePembayaran"]);
+   Route::get("/pembayaran/{id}/{b}",[PembayaranController::class,"updateLayoutBiaya"]);
+   Route::put("/pembayaran/{id}/{b}/update",[PembayaranController::class,"updateBiaya"]);
    Route::post("/pembayaran/{id}/status",[PembayaranController::class,"updateStatus"]);
    Route::get("/pembayaran/{id}/add",[PembayaranController::class,"layoutPost"]);
    Route::post("/pembayaran/add",[PembayaranController::class,"postPembayaran"]);

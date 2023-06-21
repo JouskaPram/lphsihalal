@@ -84,11 +84,11 @@
                                     <th>{{$item["qty"]}}</th>
                                     <th>{{$item["total"]}}</th>                                
                                     <th class="d-flex">
-                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5">View</a>
+                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> <i class="fas fa-info-circle "></i></a>
                                      <form action="{{ route("biaya.delete", ["id" => $item["id_biaya"]]) }}" method="post">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger h-40px fs-7 fw-bold">Delete</button>
+                                        <button class="btn btn-light-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
                                     </form>
 
                                     </th>

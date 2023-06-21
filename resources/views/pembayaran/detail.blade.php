@@ -85,9 +85,9 @@
                                     <th>{{$item["qty"]}}</th>
                                     <th>{{$item["total"]}}</th>                                
                                     <th class="d-flex">
-                                       <a href="/api/pembayaran/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> 
+                                       <a href="/api/pembayaran/{{$item["id_reg"]}}/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> 
                                           
-                                        <i class="fas fa-info-circle"></i></a>
+                                        <i class="fas fa-info-circle "></i></a>
                                      <form action="{{ route("biaya.delete", ["id" => $item["id_biaya"]]) }}" method="post">
                                         @csrf
                                         @method("DELETE")

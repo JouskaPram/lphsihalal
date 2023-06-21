@@ -15,7 +15,7 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                <form action="/api/pembayaran/{{$singleBiaya["id_biaya"]}}/update" method="post" >
+                <form action="/api/pembayaran/{{$id}}/{{$singleBiaya["id_biaya"]}}/update" method="post" >
                     @csrf
                     @method('PUT')
                     <div class="col-md-12 mt-3">
@@ -70,7 +70,7 @@
                         
                     </div>
                     <button type="submit" class="btn btn-primary" value="row">Update</button>
-                    <a href="/api/biaya" class="btn btn-secondary">Back</a>
+                    <a href="/api/pembayaran/{{$id}}" class="btn btn-secondary">Back</a>
                 </form>
             </div>
             <!--end::Card body-->
