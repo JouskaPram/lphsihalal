@@ -67,8 +67,8 @@
                     <!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
                     <i class="las la-clipboard-list fs-3x text-secondary"></i>
                     <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5"></div>
-                    <div class="fw-semibold text-white">Total Registration</div>
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalInvoice}}</div>
+                    <div class="fw-semibold text-white">Total Invoice</div>
                 </div>
                 <!--end::Body-->
             </a>

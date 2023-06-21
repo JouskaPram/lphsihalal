@@ -144,6 +144,14 @@
                         <span class="menu-title"><a href="/api/biaya">Biaya</a></span>
                     </span>
                 </div>
+                <div class="menu-item">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                       <i class="fa-solid fa-file fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/invoice">Invoice</a></span>
+                    </span>
+                </div>
                 <!--end:Menu item-->
             </div>
             <!--end::Sidebar menu-->

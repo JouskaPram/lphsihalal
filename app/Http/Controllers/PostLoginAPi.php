@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
+use RealRashid\SweetAlert\Storage\AlertSessionStore;
 
 class PostLoginAPi extends Controller
 {
 
     public function StoreLogin(Request $request)
 {
-    $client = new Client();
     $response = Http::asForm()->post("http://dev-lph-api.halal.go.id/auth/signin", [
             "userid" => request("userid"),
             "password" => request("password"),
@@ -21,12 +21,13 @@ class PostLoginAPi extends Controller
 
     if ($response->getStatusCode() == 200) {
         $result = json_decode($response->getBody(), true);
+
         return redirect("/api/dashboard")
             ->withCookie("__bpjph_ct", $result["payload"]["token"], 20*20*20)
             ->withCookie("__bpjph_rt", $result["payload"]["refreshToken"], 20*20*20);
     } else {
-    
-       return redirect("/")->withErrors("error","error");
+        // Alert::succes("not user","pastikan email/password kamu benar");
+       return redirect()->route("login.view")->with("error", "Invalid user or password");
     }
 }
 

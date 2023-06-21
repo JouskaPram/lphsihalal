@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BiayaApiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataListApi;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PostLoginAPi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +16,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
 // Route::get("/datalist",[DataListApi::class,"GetDataList"]);
-
+Route::get('/',[AuthController::class,"login"])->name("login.view");
 Route::match(['get','post'],"/logout",[PostLoginAPi::class,'logout'])->name("auth.logout");
 
 
@@ -42,4 +44,10 @@ Route::middleware('cookie')->group(function () {
     Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
     Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);
     Route::delete("/biaya/{id}",[BiayaApiController::class,"deleteBIaya"])->name("biaya.delete");
+});
+
+
+// invoice Route
+Route::middleware("cookie")->group(function(){
+    Route::get("/invoice",[InvoiceController::class,"getInvoice"]);
 });

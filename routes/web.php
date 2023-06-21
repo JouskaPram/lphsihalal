@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[AuthController::class,"login"]);
+Route::get('/', function () {
+    return redirect('/api');
+});
 
 
 Route::get("/dashboard",);
