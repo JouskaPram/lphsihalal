@@ -97,11 +97,11 @@ class BiayaApiController extends Controller
 
             $biaya = $data["payload"];
             $filteredBiaya = array_filter($biaya, function ($biaya) use ($id) {
-                return $biaya['id_reg'] == $id;
+                return $biaya['id_biaya'] == $id;
             });
             
-            return $filteredBiaya;
-            // return view("biaya.single", ["filteredBiaya" => $filteredBiaya, "id" => $id]);
+        $singleBiaya = reset($filteredBiaya);
+            return view("biaya.single", ["singleBiaya" => $singleBiaya, "id" => $id]);
         }
         else{
             null;
@@ -122,4 +122,5 @@ class BiayaApiController extends Controller
         }
     return redirect()->route('biaya.view')->with('roso', 'Post created successfully');
     }
+    
 }
