@@ -76,4 +76,22 @@ class PembayaranController extends Controller
            return redirect("/api/pembayaran/$reg")->with('roso', 'Post created successfully');
         }
     }
+    public function updateStatus($id) {
+        $myCookieValue = request()->cookie('__bpjph_ct');
+    $RefreshToken = request()->cookie('__bpjph_rt');
+    
+    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+         "json" => [
+            "status" => "ajuan",
+            "reg_id" =>  $id,
+            "lph_mapped_id"=>env("LPH_MAPED"),
+        ],
+    ]);
+    if($response->getStatusCode()==200){
+        // return $response;      
+
+        return redirect("/api/pembayaran");
+    } 
+    }
 }

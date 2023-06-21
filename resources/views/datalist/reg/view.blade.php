@@ -72,8 +72,16 @@
                 </form>
                 @endif
                 @if ($regis["status_reg"] == "OF55" )
-                    <a href="/api/pembayaran/{{$regis["id_reg"]}}" class="btn btn-primary">Liat Biaya</a>
-                    <button class="btn btn-primary">update status</button>
+                <div class="d-flex">
+
+                    <a href="/api/pembayaran/{{$regis["id_reg"]}}" class="btn btn-primary mx-4">Liat Biaya</a>
+
+                    <form action="/api/pembayaran/{{$regis['id_reg']}}/status" method="post">
+                        @csrf
+                        <button class="btn btn-primary mr-4">update status</button>
+                    
+                    </form>
+                </div>
                 @endif
                 {{-- end form upload image --}}
             </div>
