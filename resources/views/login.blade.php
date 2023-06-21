@@ -24,8 +24,8 @@
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-2">LEMBAGA PEMERIKSAAN HALAL</h1>
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center">ALMUMTAZAH</h1>
                     <div class="card p-7">
-                        <p class="text-gray-800 fw-bold text-center">Jl Bayan 2 No 93 Kel. Mustikajaya Kec. Mustikajaya Kota Bekasi 17158 Jawa Barat</p>
-                        <p class="text-gray-800 fw-bold text-center"><i class="fa-solid fa-envelope"></i>lphalmumtazah@gmail.com</p>
+                        <p class="text-gray-800 fw-bold text-center"><i class="fa-solid fa-location-dot mx-2"></i>Jl Bayan 2 No 93 Kel. Mustikajaya Kec. Mustikajaya Kota Bekasi 17158 Jawa Barat</p>
+                        <p class="text-gray-800 fw-bold text-center"><i class="fa-solid fa-envelope mx-2"></i>lphalmumtazah@gmail.com</p>
                     </div>
                     <img  src="{{ asset('assets/media/logos/alur.jpg') }}" class="" alt="" srcset="">
                     <!--end::Title-->
@@ -76,8 +76,7 @@
                         <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                             <div></div>
                             <!--begin::Link-->
-                            <a href="forgot-password"
-                                class="link-primary">Forgot Password ?</a>
+                            
                             <!--end::Link-->
                         </div>
                         <!--end::Wrapper-->
@@ -91,9 +90,7 @@
                         </div>
                         <!--end::Submit button-->
                         <!--begin::Sign up-->
-                        <div class="text-gray-500 text-center fw-semibold fs-6">Not a Member yet?
-                            <a href="register" class="link-primary">Sign up</a>
-                        </div>
+                        
                         <!--end::Sign up-->
                     </form>
                     <!--end::Form-->
