@@ -5,32 +5,31 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Http;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PostLoginAPi extends Controller
 {
 
-    public function StoreLogin(Request $request){
-
-       $client = new Client();
-    $response = $client->post("http://dev-lph-api.halal.go.id/auth/signin", [
-        "json" => [
+    public function StoreLogin(Request $request)
+{
+    $client = new Client();
+    $response = Http::asForm()->post("http://dev-lph-api.halal.go.id/auth/signin", [
             "userid" => request("userid"),
             "password" => request("password"),
-        ],
     ]);
 
     if ($response->getStatusCode() == 200) {
-        
         $result = json_decode($response->getBody(), true);
-      
-        return redirect("/api/dashboard")->withCookie("__bpjph_ct",$result["payload"]["token"],20*20*20)->withCookie("__bpjph_rt",$result["payload"]["refreshToken"],20*20*20);
-        // return response()->json("__bpjph_ct=".$result["payload"]["token"].";__bpjph_rt".$result["payload"]["refreshToken"]);
-        
+        return redirect("/api/dashboard")
+            ->withCookie("__bpjph_ct", $result["payload"]["token"], 20*20*20)
+            ->withCookie("__bpjph_rt", $result["payload"]["refreshToken"], 20*20*20);
     } else {
-        return redirect("/")->with("notuser","kamu bukan user");
-        
+    
+       return redirect("/")->withErrors("error","error");
     }
-    }
+}
+
 
 
    public function logout()  {

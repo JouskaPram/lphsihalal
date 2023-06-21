@@ -46,6 +46,9 @@
                             <h1 class="text-dark fw-bolder mb-3">Sign In</h1>
                             <!--end::Title-->
                         </div>
+                        @if (session("notuser"))
+                            <p>{{session("notuser")}}</p>
+                        @endif
                         <!--begin::Heading-->
                         <!--begin::Input group=-->
                         <div class="fv-row mb-8">
