@@ -43,9 +43,9 @@
                 <div class="card-toolbar">
                        
 
-
+                 
                     <!--begin::Button-->
-                    <a href="{{route("biaya.post")}}" class="btn btn-light-primary">
+                    <a href="/api/pembayaran/{{$id}}/add" class="btn btn-light-primary">
                         <span class="fas fa-file"></span> Tambah Biaya
                     </a>
                     <!--end::Button-->
