@@ -74,11 +74,11 @@
                 @if ($regis["status_reg"] == "OF55" )
                 <div class="d-flex">
 
-                    <a href="/api/pembayaran/{{$regis["id_reg"]}}" class="btn btn-primary mx    -4">Liat Biaya</a>
+                    <a href="/api/pembayaran/{{$regis["id_reg"]}}" class="btn btn-primary mx-4">LIhat Biaya</a>
 
                     <form action="/api/pembayaran/{{$regis['id_reg']}}/status" method="post">
                         @csrf
-                        <button class="btn btn-primary mr-4">update status</button>
+                        <button class="btn btn-primary mr-4">Update Status</button>
                     
                     </form>
                 </div>
