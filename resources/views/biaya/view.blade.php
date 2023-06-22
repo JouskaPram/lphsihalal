@@ -64,6 +64,7 @@
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                 
                                 <th>NO</th>
+                                <th>reg id</th>
                                 <th>Nama Biaya</th>
                                 <th>Harga Biaya</th>
                                 <th>QTY</th>
@@ -79,6 +80,7 @@
                             @foreach ($biaya as $index => $item)         
                                 <tr>
                                     <th>{{$index+1}}</th>
+                                    <th><a href="/api/pembayaran/{{$item["id_reg"]}}" class="text-primary">{{$item["id_reg"]}}</a></th>
                                     <th>{{$item["keterangan"]}}</th>
                                     <th>{{$item["harga"]}}</th>
                                     <th>{{$item["qty"]}}</th>

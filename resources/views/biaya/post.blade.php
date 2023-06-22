@@ -74,7 +74,7 @@
                         
                     </div>
                     <button type="submit" class="btn btn-primary" >Tambah</button>
-                    <a href="/api/pembayaran/{{$reg[0]["id_reg"]}}" class="btn btn-secondary">Back</a>
+                    <a href="/api/biaya" class="btn btn-secondary">Back</a>
                 </form>
             </div>
             <!--end::Card body-->

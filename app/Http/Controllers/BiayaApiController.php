@@ -31,7 +31,7 @@ class BiayaApiController extends Controller
     $RefreshToken = request()->cookie('__bpjph_rt');
     $lph = env("LPH_MAPED");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
+    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph", [
 
     ]);
     if($response->getStatusCode() == 200){

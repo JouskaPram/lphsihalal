@@ -44,7 +44,7 @@ Route::middleware("cookie")->group(function ()  {
    Route::post("/pembayaran/{id}/status",[PembayaranController::class,"updateStatus"]);
    Route::get("/pembayaran/{id}/add",[PembayaranController::class,"layoutPost"]);
    Route::post("/pembayaran/add",[PembayaranController::class,"postPembayaran"]);
-   Route::delete("/pembayaran/{id}",[PembayaranController::class,"postPembayaran"]);
+   Route::delete("/pembayaran/delete/{id}/{b}",[PembayaranController::class,"deletePembayaran"])->name("pembayaran.delete");
 });
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");

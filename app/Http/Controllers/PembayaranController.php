@@ -83,7 +83,7 @@ class PembayaranController extends Controller
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
     $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
          "json" => [
-            "status" => "ajuan",
+            "status" => "biaya",
             "reg_id" =>  $id,
             "lph_mapped_id"=>env("LPH_MAPED"),
         ],
@@ -136,15 +136,16 @@ class PembayaranController extends Controller
              return redirect("/api/pembayaran/$id");
         }
     }
-    public function deletePembayaran($id)  {
+    public function deletePembayaran($id,$b)  {
+       
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
+        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$b");
         if($response->getStatusCode() == 200){
-            return $response;
+           return redirect("/api/pembayaran/$id");
         }
         else{
             null;

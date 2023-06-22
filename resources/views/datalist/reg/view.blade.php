@@ -78,6 +78,7 @@
 
                     <form action="/api/pembayaran/{{$regis['id_reg']}}/status" method="post">
                         @csrf
+                        @method("POST")
                         <button class="btn btn-primary mr-4">Update Status</button>
                     
                     </form>
