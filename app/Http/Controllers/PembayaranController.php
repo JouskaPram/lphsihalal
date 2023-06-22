@@ -136,4 +136,18 @@ class PembayaranController extends Controller
              return redirect("/api/pembayaran/$id");
         }
     }
+    public function deletePembayaran($id)  {
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+
+        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
+        if($response->getStatusCode() == 200){
+            return $response;
+        }
+        else{
+            null;
+        }
+    }
 }

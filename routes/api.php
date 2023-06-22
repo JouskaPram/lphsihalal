@@ -7,6 +7,7 @@ use App\Http\Controllers\DataListApi;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PostLoginAPi;
+use App\Http\Controllers\SendtoLPHController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,14 +35,16 @@ Route::middleware('cookie')->group(function () {
     Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
 });
 
+// pembayaran route
 Route::middleware("cookie")->group(function ()  {
    Route::get("/pembayaran",[PembayaranController::class,"getPembayaran"]);
    Route::get("/pembayaran/{id}",[PembayaranController::class,"singlePembayaran"]);
-   Route::get("/pembayaran/{id}/{b}",[PembayaranController::class,"updateLayoutBiaya"]);
-   Route::put("/pembayaran/{id}/{b}/update",[PembayaranController::class,"updateBiaya"]);
+   Route::get("/pembayaran/update/{id}/{b}",[PembayaranController::class,"updateLayoutBiaya"]);
+   Route::put("/pembayaran/update/{id}/{b}",[PembayaranController::class,"updateBiaya"]);
    Route::post("/pembayaran/{id}/status",[PembayaranController::class,"updateStatus"]);
    Route::get("/pembayaran/{id}/add",[PembayaranController::class,"layoutPost"]);
    Route::post("/pembayaran/add",[PembayaranController::class,"postPembayaran"]);
+   Route::delete("/pembayaran/{id}",[PembayaranController::class,"postPembayaran"]);
 });
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");
@@ -61,4 +64,9 @@ Route::middleware('cookie')->group(function () {
 // invoice Route
 Route::middleware("cookie")->group(function(){
     Route::get("/invoice",[InvoiceController::class,"getInvoice"]);
+});
+
+// 
+Route::middleware("cookie")->group(function(){
+    Route::get("/proces",[SendtoLPHController::class,"getsentolph"]);
 });

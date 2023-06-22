@@ -120,7 +120,7 @@
                 </div>
                 <!--end::Heading-->
                 <!--begin:Menu item-->
-                <div class="menu-item menu-active">
+                <div class="menu-item menu-active  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="fonticon-house fs-2"></i>
@@ -128,7 +128,7 @@
                         <span class="menu-title"><a href="/api/dashboard">Dashboards</a></span>
                     </span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="fas fa-list fs-2"></i>
@@ -136,7 +136,7 @@
                         <span class="menu-title"><a href="/api/datalist">Data Mohon</a></span>
                     </span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="fas fa-credit-card fs-2"></i>
@@ -144,7 +144,17 @@
                         <span class="menu-title"><a href="/api/pembayaran">Pembayaran</a></span>
                     </span>
                 </div>
-                <div class="menu-item">
+
+                
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                       <i class="fa-solid fa-bars-progress"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/proces">Proses di LPH</a></span>
+                    </span>
+                </div>
+                  <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
                            <i class="fa-solid fa-sack-dollar fs-2"></i>
@@ -152,7 +162,7 @@
                         <span class="menu-title"><a href="/api/biaya">Biaya</a></span>
                     </span>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
                        <i class="fa-solid fa-file fs-2"></i>
