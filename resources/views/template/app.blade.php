@@ -141,6 +141,7 @@
                         <span class="menu-title"><a href="/api/datalist">Data Mohon</a></span>
                     </span>
                 </div>
+                
                 <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -154,9 +155,17 @@
                 <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
-                       <i class="fa-solid fa-bars-progress"></i>
+                       <i class="fa-solid fa-bars-progress fs-2"></i>
                         </span>
                         <span class="menu-title"><a href="/api/proces">Proses di LPH</a></span>
+                    </span>
+                </div>
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                      <i class="fa-solid fa-circle-check fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/proces">Selesai Di Proses</a></span>
                     </span>
                 </div>
                   <div class="menu-item  py-2">
@@ -242,7 +251,7 @@
         var hostUrl = "assets/";
     </script>
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
+   <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used for this page only)-->
@@ -266,12 +275,12 @@
     <script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
-    <script>
-      
-    </script>
     <!--end::Custom Javascript-->
+    <script src="//www.google.com/jsapi"></script>
     {{-- custom js --}}
+    <script src="{{asset('assets/js/sw.js')}}"></script>
     @yield('custom-js')
+
     @if ($message = Session::get('failed'))
         <script>
             Swal.fire({
