@@ -76,7 +76,7 @@ Route::middleware("cookie")->group(function(){
 Route::middleware("cookie")->group(function(){
     Route::controller(SendtoLPHController::class)->group(function(){ 
         Route::get("/proces","getsentolph");
-        Route::get("/proces/selesai/{id}","upStatus");
-        Route::get("/proces/kembali/{id}","downStatus");
+        Route::post("/proces/selesai/{id}","upStatus");
+        Route::post("/proces/kembali/{id}","downStatus");
     });
 });

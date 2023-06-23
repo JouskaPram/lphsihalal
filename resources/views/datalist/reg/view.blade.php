@@ -91,7 +91,7 @@
                         @csrf
                         <button class="btn btn-primary">Selesai</button>
                     </form>
-                    <form action="" method="post">
+                    <form action="/api/proces/kembali/{{$regis["id_reg"]}}" method="post">
                         @csrf
                         <button class="btn btn-danger">Tolak</button>
                     </form>

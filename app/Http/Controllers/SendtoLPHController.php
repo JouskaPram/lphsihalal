@@ -37,7 +37,7 @@ class SendtoLPHController extends Controller
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
     $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
          "json" => [
-            "status" => "periksa",
+            "status" => "PERIKSA",
             "reg_id" =>  $id,
             "lph_mapped_id"=>env("LPH_MAPED"),
         ],
@@ -50,8 +50,24 @@ class SendtoLPHController extends Controller
     
 
     }
-    public function downStatus() {
+    public function downStatus($id) {
         // function untuk update status ke penetapan biaya
         // name status ajuan
+    $myCookieValue = request()->cookie('__bpjph_ct');
+    $RefreshToken = request()->cookie('__bpjph_rt');
+    
+    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+         "json" => [
+            "status" => "periksa",
+            "reg_id" =>  $id,
+            "lph_mapped_id"=>env("LPH_MAPED"),
+        ],
+    ]);
+    if($response->getStatusCode()==200){
+        return $response;      
+
+        // return redirect("/api/datalist");
+    } 
     }
 }
