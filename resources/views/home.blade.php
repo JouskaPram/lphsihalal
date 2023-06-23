@@ -50,7 +50,7 @@
   }
 }
 
-.my-blog-section {
+.my-layanan-section {
   background: url("https://images.unsplash.com/photo-1526697298613-08e9ea0b2327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fGlzbGFtaWN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60") fixed center;
   background-size: cover;
   padding: 50px 0;
@@ -62,36 +62,36 @@
   margin-bottom: 30px;
 }
 
-.blog-item {
+.layanan-item {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 20px;
   margin-bottom: 30px;
 }
 
-.blog-item .blog-image {
+.layanan-item .layanan-image {
   position: relative;
   overflow: hidden;
 }
 
-.blog-item .blog-image img {
+.layanan-item .layanan-image img {
   transition: transform 0.3s ease;
 }
 
-.blog-item .blog-content {
+.layanan-item .layanan-content {
   padding-top: 20px;
 }
 
-.blog-item .blog-title {
+.layanan-item .layanan-title {
   font-size: 24px;
   margin-bottom: 10px;
 }
 
-.blog-item .blog-description {
+.layanan-item .layanan-description {
   font-size: 14px;
   margin-bottom: 20px;
 }
 
-.blog-item .btn {
+.layanan-item .btn {
   padding: 5px 15px;
 }
 
@@ -183,7 +183,7 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#my-blog" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Blog</a>
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#my-layanan" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">layanan</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
@@ -241,47 +241,47 @@
     </div>
   </div>
 </section>
-{{-- myblog section --}}
-                   <section id="my-blog" class="my-blog-section">
+{{-- mylayanan section --}}
+<section id="my-layanan" class="my-layanan-section">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="section-title text-center text-light fw-bold">My Blog</h2>
+        <h2 class="section-title text-center text-light fw-bold">Layanan Kami</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <div class="blog-item aos-init aos-animate" data-aos="fade-up">
-          <div class="blog-image">
-            <img src="https://images.unsplash.com/photo-1574545640323-59dc7a2b4a6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Blog Image 1">
+        <div class="layanan-item aos-init aos-animate" data-aos="fade-up">
+          <div class="layanan-image">
+            <img src="https://images.unsplash.com/photo-1574545640323-59dc7a2b4a6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="layanan Image 1">
           </div>
-          <div class="blog-content">
-            <h3 class="blog-title text-light">Blog Post Title 1</h3>
-            <p class="blog-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="layanan-content">
+            <h3 class="layanan-title text-light">Layanan 1</h3>
+            <p class="layanan-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <a href="#" class="btn btn-primary">Read More</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="blog-item aos-init aos-animate" data-aos="fade-up">
-          <div class="blog-image">
-            <img src="https://plus.unsplash.com/premium_photo-1678553840209-d5cf6cebe448?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Blog Image 2">
+        <div class="layanan-item aos-init aos-animate" data-aos="fade-up">
+          <div class="layanan-image">
+            <img src="https://plus.unsplash.com/premium_photo-1678553840209-d5cf6cebe448?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="layanan Image 2">
           </div>
-          <div class="blog-content">
-            <h3 class="blog-title text-light">Blog Post Title 2</h3>
-            <p class="blog-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="layanan-content">
+            <h3 class="layanan-title text-light">Layanan 2</h3>
+            <p class="layanan-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <a href="#" class="btn btn-primary">Read More</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="blog-item aos-init aos-animate" data-aos="fade-up">
-          <div class="blog-image ">
-            <img src="https://images.unsplash.com/photo-1522219406764-db207f1f7640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="Blog Image 3">
+        <div class="layanan-item aos-init aos-animate" data-aos="fade-up">
+          <div class="layanan-image ">
+            <img src="https://images.unsplash.com/photo-1522219406764-db207f1f7640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" alt="layanan Image 3">
           </div>
-          <div class="blog-content">
-            <h3 class="blog-title text-light">Blog Post Title 3</h3>
-            <p class="blog-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div class="layanan-content">
+            <h3 class="layanan-title text-light">Layanan 3</h3>
+            <p class="layanan-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             <a href="#" class="btn btn-primary">Read More</a>
           </div>
         </div>

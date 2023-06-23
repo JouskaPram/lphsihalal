@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BiayaApiController;
 use App\Http\Controllers\DashboardController;
@@ -78,5 +79,11 @@ Route::middleware("cookie")->group(function(){
         Route::get("/proces","getsentolph");
         Route::post("/proces/selesai/{id}","upStatus");
         Route::post("/proces/kembali/{id}","downStatus");
+    });
+});
+
+Route::middleware("cookie")->group(function(){
+    Route::controller(AuditController::class)->group(function(){
+        
     });
 });

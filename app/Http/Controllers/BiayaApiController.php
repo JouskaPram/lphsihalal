@@ -19,6 +19,7 @@ class BiayaApiController extends Controller
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
             $biaya = $data["payload"];
+            
 
             return view("biaya.view",["biaya"=>$biaya]);
         }

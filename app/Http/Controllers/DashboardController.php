@@ -18,26 +18,34 @@ class DashboardController extends Controller
     $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
 
     ]);
+    $res = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph", [
+
+    ]);
+    $proses = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph", [
+
+    ]);
     $resbiaya = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs", [
 
     ]);
-    $resinvoce = $client->get("http://dev-lph-api.halal.go.id/api/v1/invoice/$lph");
 
     if($response->getStatusCode() == 200){
        
         $data = json_decode($response->getBody(), true);
         $biaya = json_decode($resbiaya->getBody(),true);
-        $invoice = json_decode($resinvoce->getBody(),true);
-        $totalbiaya = count($biaya["payload"]);
+        $proses = json_decode($proses->getBody(),true);
+        $totalproses = count($proses["payload"]);
+        $res = json_decode($res->getBody(),true);
+        $penanganan = count($res["payload"]);
+        $totalbiaya = $biaya["count"];
         $datalist = $data["payload"];
-        $totalInvoice = count($invoice["payload"]);
+
         
         $count = count($datalist);
         $config = [
             'menu-active' => 'dashboard'
         ];
      
-        return view("dashboard",["count"=>$count,"totalbiaya"=>$totalbiaya,"totalInvoice"=>$totalInvoice],compact("config"));
+        return view("dashboard",["count"=>$count,"totalbiaya"=>$totalbiaya,"penanganan"=>$penanganan,"totalproses"=>$totalproses],compact("config"));
     }
     else{
         null;

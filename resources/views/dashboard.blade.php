@@ -3,6 +3,14 @@
 @extends('template.app')
 @section('custom-css')
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<style>
+    .col-xl-3:hover{
+        scale: 1.05;
+        animation-duration: 400ms;
+        transition-duration: 400ms;
+    }
+
+</style>
 @endsection
 @include('sweetalert::alert')
 @section('content')
@@ -35,7 +43,7 @@
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
-                    <i class="las la-box fs-3x text-secondary"></i>
+                    <i class="las la-money-bill-wave fs-3x text-secondary"></i>
                     <!--end::Svg Icon-->
                     <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalbiaya}}</div>
                     <div class="fw-semibold text-white">Total Biaya</div>
@@ -50,10 +58,10 @@
                 <!--begin::Body-->
                 <div class="card-body">
                     <!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
-                    <i class="las la-cash-register fs-3x text-secondary"></i>
+                    <i class="las la-tasks fs-3x text-secondary"></i>
                     <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">5</div>
-                    <div class="fw-semibold text-white">Complete Registration</div>
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$penanganan}}</div>
+                    <div class="fw-semibold text-white">Penanganan Biaya</div>
                 </div>
                 <!--end::Body-->
             </a>
@@ -64,11 +72,13 @@
             <a href="javascript:;" class="card bg-info hoverable card-xl-stretch mb-5 bgi-no-repeat" style="background-position: right top; background-size: 30% auto; background-image: url({{ asset('assets/media/svg/shapes/abstract-2.svg') }});border-radius:8px;">
                 <!--begin::Body-->
                 <div class="card-body">
+                  
+                        <i class="las la-clipboard-list fs-3x text-secondary"></i>
+                        <!--end::Svg Icon-->
+                        <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalproses}}</div>
+                        <div class="fw-semibold text-white">Sedang Di Proses</div>
+                    
                     <!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
-                    <i class="las la-clipboard-list fs-3x text-secondary"></i>
-                    <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalInvoice}}</div>
-                    <div class="fw-semibold text-white">Total Invoice</div>
                 </div>
                 <!--end::Body-->
             </a>
