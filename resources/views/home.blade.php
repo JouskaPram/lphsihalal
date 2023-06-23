@@ -94,11 +94,41 @@
 .blog-item .btn {
   padding: 5px 15px;
 }
-.contact{
-   background: url("https://images.unsplash.com/photo-1574545640323-59dc7a2b4a6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60") fixed center;
+
+.contact-section {
+   height: 500px; /* Adjust the height as needed */
+  background-image: url('https://plus.unsplash.com/premium_photo-1667979115460-105cc6dd0a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fG1vc3F1ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60');
   background-size: cover;
-  padding: 50px 0;
-  color: #fff;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the overlay color as needed */
+  z-index: 1;
+}
+
+.contact-section .row {
+  padding-top: 100px; /* Adjust the top padding as needed */
+}
+
+.contact-section h2 {
+  color: #fff; /* Adjust the text color as needed */
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 </style>
@@ -167,7 +197,7 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#portfolio" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Portfolio</a>
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#contact" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Contact</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
@@ -295,9 +325,40 @@
                       </div>
               
                 {{-- section contact start --}}
-                      <section id="contact" class="contact" style="height: 80vh">
-            
-                        </div>
+                     <section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Contact Us</h2>
+        <form>
+          <div class="form-group">
+            <label for="name" class="text-light fw-bold py-2">Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email" class="text-light fw-bold py-2">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="message" class="text-light fw-bold py-2">Message:</label>
+            <textarea class="form-control" id="message" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary mt-5">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h2 class="text-light fw-bold">Contact Information</h2>
+        <p class="text-light fw-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet velit id nibh pellentesque, nec ullamcorper velit posuere. Vestibulum at finibus ligula. Nulla facilisi. Sed in mauris risus.</p>
+        <ul class="text-light fw-semibold">
+          <li>Address: 123 Street, City, Country</li>
+          <li>Phone: +123 456 7890</li>
+          <li>Email: info@example.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
                       </section>
                 {{-- end section --}}
@@ -380,6 +441,13 @@ function parallaxEffect() {
     description.style.transform = 'translateY(' + descriptionOffset + 'px)';
   }
 }
+window.addEventListener("scroll", function() {
+  var parallaxSection = document.querySelector(".contact-section");
+  var scrollPosition = window.pageYOffset;
+
+  parallaxSection.style.backgroundPositionY = scrollPosition * 0.7 + "px";
+});
+
 
     </script>
  <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
