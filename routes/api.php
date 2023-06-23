@@ -16,35 +16,39 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// Auth route
 Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
-// Route::get("/datalist",[DataListApi::class,"GetDataList"]);
 Route::get('/',[AuthController::class,"login"])->name("login.view");
 Route::match(['get','post'],"/logout",[PostLoginAPi::class,'logout'])->name("auth.logout");
 
 
 // data mohon route
 Route::middleware('cookie')->group(function () {
-    Route::get("/datalist",[DataListApi::class,"GetDataList"]);
-    // detail data mohon
-    Route::get("/reg/{reg}",[DataListApi::class,"getReg"]);
-    Route::post("/reg/{reg}/status",[DataListApi::class,"updateStatus"]);
-    Route::get("/reg/{reg}/factory",[DataListApi::class,"getFactory"]);
-    Route::get("/reg/{reg}/product",[DataListApi::class,"getProduct"]);
-    Route::get("/reg/{reg}/perusahaan",[DataListApi::class,"getPu"]);
-    Route::get("/reg/{reg}/penyelia",[DataListApi::class,"getPenyelia"]);
-    Route::get("/reg/{reg}/documents",[DataListApi::class,"getDocuments"]);
+    Route::controller(DataListApi::class)->group(function(){
+        Route::get("/datalist","GetDataList");
+        // detail data mohon
+        Route::get("/reg/{reg}","getReg");
+        Route::post("/reg/{reg}/status","updateStatus");
+        Route::get("/reg/{reg}/factory","getFactory");
+        Route::get("/reg/{reg}/product","getProduct");
+        Route::get("/reg/{reg}/perusahaan","getPu");
+        Route::get("/reg/{reg}/penyelia","getPenyelia");
+        Route::get("/reg/{reg}/documents","getDocuments");
+    });
 });
 
 // pembayaran route
 Route::middleware("cookie")->group(function ()  {
-   Route::get("/pembayaran",[PembayaranController::class,"getPembayaran"]);
-   Route::get("/pembayaran/{id}",[PembayaranController::class,"singlePembayaran"]);
-   Route::get("/pembayaran/update/{id}/{b}",[PembayaranController::class,"updateLayoutBiaya"]);
-   Route::put("/pembayaran/update/{id}/{b}",[PembayaranController::class,"updateBiaya"]);
-   Route::post("/pembayaran/{id}/status",[PembayaranController::class,"updateStatus"]);
-   Route::get("/pembayaran/{id}/add",[PembayaranController::class,"layoutPost"]);
-   Route::post("/pembayaran/add",[PembayaranController::class,"postPembayaran"]);
-   Route::delete("/pembayaran/delete/{id}/{b}",[PembayaranController::class,"deletePembayaran"])->name("pembayaran.delete");
+   Route::controller(PembayaranController::class)->group(function(){ 
+    Route::get("/pembayaran","getPembayaran");
+    Route::get("/pembayaran/{id}","singlePembayaran");
+    Route::get("/pembayaran/update/{id}/{b}","updateLayoutBiaya");
+    Route::put("/pembayaran/update/{id}/{b}","updateBiaya");
+    Route::post("/pembayaran/{id}/status","updateStatus");
+    Route::get("/pembayaran/{id}/add","layoutPost");
+    Route::post("/pembayaran/add","postPembayaran");
+    Route::delete("/pembayaran/delete/{id}/{b}","deletePembayaran")->name("pembayaran.delete");
+   });
 });
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");
@@ -52,12 +56,14 @@ Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("c
 
 // biaya route
 Route::middleware('cookie')->group(function () {
-    Route::get("/biaya",[BiayaApiController::class,"getBiaya"])->name("biaya.view");
-    Route::post("/biaya/add",[BiayaApiController::class,"postBiaya"]);
-    Route::get("/biaya/tambah",[BiayaApiController::class,"postBiayaLayout"])->name("biaya.post");
-    Route::put("/biaya/put/{id}",[BiayaApiController::class,"updateBiaya"])->name("biaya.update");
-    Route::get("/biaya/{id}",[BiayaApiController::class,"singleBiaya"]);
-    Route::delete("/biaya/{id}",[BiayaApiController::class,"deleteBIaya"])->name("biaya.delete");
+    Route::controller(BiayaApiController::class)->group(function(){ 
+        Route::get("/biaya","getBiaya")->name("biaya.view");
+        Route::post("/biaya/add","postBiaya");
+        Route::get("/biaya/tambah","postBiayaLayout")->name("biaya.post");
+        Route::put("/biaya/put/{id}","updateBiaya")->name("biaya.update");
+        Route::get("/biaya/{id}","singleBiaya");
+        Route::delete("/biaya/{id}","deleteBIaya")->name("biaya.delete");
+     });
 });
 
 
@@ -68,5 +74,9 @@ Route::middleware("cookie")->group(function(){
 
 // 
 Route::middleware("cookie")->group(function(){
-    Route::get("/proces",[SendtoLPHController::class,"getsentolph"]);
+    Route::controller(SendtoLPHController::class)->group(function(){ 
+        Route::get("/proces","getsentolph");
+        Route::get("/proces/selesai/{id}","upStatus");
+        Route::get("/proces/kembali/{id}","downStatus");
+    });
 });

@@ -66,21 +66,34 @@
                         </form>
                     </div>
                 </div>
-                @if ($regis["status_reg"] == "OF50")     
+                @if ($regis["status_reg"] == "OF50" )     
                 <form action="/api/reg/{{$regis["id_reg"]}}/status" method="post">
                     <button type="submit" class="btn btn-primary">Update Status</button>
                 </form>
                 @endif
-                @if ($regis["status_reg"] == "OF55" )
+                @if ($regis["status_reg"] == "OF55"  )
                 <div class="d-flex">
 
-                    <a href="/api/pembayaran/{{$regis["id_reg"]}}" class="btn btn-primary mx-4">LIhat Biaya</a>
+                    <a href="/api/pembayaran/{{$regis["id_reg"]}}" class="btn btn-primary mx-4">Lihat Biaya</a>
 
                     <form action="/api/pembayaran/{{$regis['id_reg']}}/status" method="post">
                         @csrf
                         @method("POST")
                         <button class="btn btn-primary mr-4">Update Status</button>
                     
+                    </form>
+                </div>
+                @endif
+                @if($regis["status_reg"] == "OF60")
+                <div class="d-flex gap-3">
+
+                    <form action="" method="post">
+                        @csrf
+                        <button class="btn btn-primary">Selesai</button>
+                    </form>
+                    <form action="" method="post">
+                        @csrf
+                        <button class="btn btn-danger">Tolak</button>
                     </form>
                 </div>
                 @endif

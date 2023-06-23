@@ -94,9 +94,11 @@
 .blog-item .btn {
   padding: 5px 15px;
 }
-
-.thumbnail{
-  overflow: hidden;
+.contact{
+   background: url("https://images.unsplash.com/photo-1574545640323-59dc7a2b4a6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bXVzbGltfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60") fixed center;
+  background-size: cover;
+  padding: 50px 0;
+  color: #fff;
 }
 
 </style>
@@ -292,6 +294,13 @@
                           </div>
                       </div>
               
+                {{-- section contact start --}}
+                      <section id="contact" class="contact" style="height: 80vh">
+            
+                        </div>
+
+                      </section>
+                {{-- end section --}}
 
               	<div class="bg-muted pt-20">
 					<!--begin::Container-->
