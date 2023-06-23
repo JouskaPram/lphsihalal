@@ -116,7 +116,7 @@ class DataListApi extends Controller
         $data = json_decode($response->getBody(), true);
         $penyelia =  $data["payload"]["penyelia"];
         $regis =  $data["payload"];
-        Alert::alert('Title', 'Message', 'Type');
+        
              return view("datalist.reg.detail.penyelia",["penyelia"=>$penyelia,"regis"=>$regis]);
         } else {
            null;

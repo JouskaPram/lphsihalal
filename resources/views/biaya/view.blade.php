@@ -14,8 +14,12 @@
         <h3 class="text-danger">{{session("success")}}</h3>
     @endif
   <div class="card card-flush">
-     
-            <!--begin::Card header-->
+        @if (session()->has('post'))
+    <div class="alert alert-{{ session('post.type') }}">
+        <strong>{{ session('post.title') }}</strong> {{ session('post.message') }}
+    </div>
+@endif
+      <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
                 <div class="card-title">
@@ -41,9 +45,7 @@
                 <!--end::Card title-->
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
-                       
-
-
+                    
                     <!--begin::Button-->
                     <a href="{{route("biaya.post")}}" class="btn btn-light-primary">
                         <span class="fas fa-file"></span> Tambah Biaya
@@ -61,15 +63,13 @@
                         <!--begin::Table head-->
                         <thead>
                             <!--begin::Table row-->
-                            <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                
+                         <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">                                
                                 <th>NO</th>
                                 <th>reg id</th>
                                 <th>Nama Biaya</th>
                                 <th>Harga Biaya</th>
                                 <th>QTY</th>
                                 <th>Total</th>
-                              
                                 <th width="20%" class="text-center">Action</th>
                             </tr>
                             <!--end::Table row-->

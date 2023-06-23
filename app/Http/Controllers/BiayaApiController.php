@@ -62,9 +62,17 @@ class BiayaApiController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-             Session::flash('success', 'Biaya deleted successfully');
-           return redirect("api/biaya")->with('roso', 'Post created successfully');
+                    $message = 'Biaya berhasil dihapus.';
+        $type = 'success';
+               
+       
         }
+        session()->flash('post', [
+        'title' => 'Title',
+        'message' => $message,
+        'type' => $type
+    ]);
+        return redirect("api/biaya");
     }
 
 
@@ -115,13 +123,15 @@ class BiayaApiController extends Controller
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
         $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
+         Alert::alert('Title', 'Message', 'Type');
         if($response->getStatusCode() == 200){
-         Session::flash('success', 'Biaya deleted successfully');
+    
         }
         else{
             null;
         }
-    return redirect()->route('biaya.view')->with('roso', 'Post created successfully');
+        return redirect()->route("biaya.view");
+        Alert::alert('Title', 'Message', 'Type');
     }
     
 }
