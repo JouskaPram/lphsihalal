@@ -81,7 +81,7 @@
                                     <th>{{$item["no_daftar"]}}</th>
                                     <th>{{$item["tgl_daftar"]}}</th>
                                     <th>{{$item["nama_pu"]}}</th>
-                                    <th><span class="badge badge-success">{{$item["nama_status_reg"]}}</span></th>
+                                    <th><span class="badge badge-primary">{{$item["nama_status_reg"]}}</span></th>
                                     <th>{{$item["nama_jenis_usaha"]}}</th>
                                     <th>{{$item["nama_jenis_daftar"]}}</th>
                                     <th>{{$item["nama_jenis_produk"]}}</th>

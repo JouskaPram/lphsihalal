@@ -70,7 +70,7 @@
                       
                         
                     </div>
-                    <button type="submit" class="btn btn-primary" >tambah</button>
+                    <button type="submit" class="btn btn-primary" >Tambah</button>
                     <a href="/api/pembayaran/{{$id}}" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>

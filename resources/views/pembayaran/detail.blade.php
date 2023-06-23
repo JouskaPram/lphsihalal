@@ -81,9 +81,9 @@
                                 <tr>
                                     <th>{{$index+1}}</th>
                                     <th>{{$item["keterangan"]}}</th>
-                                    <th>{{$item["harga"]}}</th>
-                                    <th>{{$item["qty"]}}</th>
-                                    <th>{{$item["total"]}}</th>                                
+                                    <th>{{number_format($item["harga"])}}</th>
+                                    <th>{{$item["qty"]}}</th>                                
+                                    <th>{{number_format($item["total"])}}</th>
                                     <th class="d-flex">
                                        <a href="/api/pembayaran/update/{{$item["id_reg"]}}/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> 
                                           

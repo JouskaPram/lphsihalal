@@ -190,14 +190,14 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#about" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">About Us</a>
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#about" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Tentang Kami</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#contact" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Contact</a>
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#contact" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Kontak</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
@@ -295,7 +295,7 @@
                     <section id="about">
                       <div class="container">
 
-                        <h1 class="text-primary mt-10 fw-bold text-center pb-20">What We?</h1>
+                        <h1 class="text-primary mt-10 fw-bold text-center pb-20">Tentang Kami</h1>
                           <div class="row py-10">
                             <div class="col-md-5 " data-aos="fade-right"
                             ><div class=" align-items-center " style="height: 100%;">
@@ -329,10 +329,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h2>Contact Us</h2>
+        <h2>Kontak Kami</h2>
         <form>
           <div class="form-group">
-            <label for="name" class="text-light fw-bold py-2">Name:</label>
+            <label for="name" class="text-light fw-bold py-2">Nama:</label>
             <input type="text" class="form-control" id="name" placeholder="Enter your name">
           </div>
           <div class="form-group">
@@ -340,18 +340,18 @@
             <input type="email" class="form-control" id="email" placeholder="Enter your email">
           </div>
           <div class="form-group">
-            <label for="message" class="text-light fw-bold py-2">Message:</label>
+            <label for="message" class="text-light fw-bold py-2">Pesan:</label>
             <textarea class="form-control" id="message" placeholder="Enter your message"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary mt-5">Submit</button>
+          <button type="submit" class="btn btn-primary mt-5">Kirim</button>
         </form>
       </div>
       <div class="col-md-6">
-        <h2 class="text-light fw-bold">Contact Information</h2>
+        <h2 class="text-light fw-bold">Informasi Kontak</h2>
         <p class="text-light fw-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet velit id nibh pellentesque, nec ullamcorper velit posuere. Vestibulum at finibus ligula. Nulla facilisi. Sed in mauris risus.</p>
         <ul class="text-light fw-semibold">
-          <li>Address: 123 Street, City, Country</li>
-          <li>Phone: +123 456 7890</li>
+          <li>Alamat: 123 Jl , kota , Provinsi, Negara</li>
+          <li>No Telepon: +123 456 7890</li>
           <li>Email: info@example.com</li>
         </ul>
       </div>
@@ -390,7 +390,7 @@
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
 								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">Tentang Kami</a>
 								</li>
 								<li class="menu-item mx-5">
 									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>

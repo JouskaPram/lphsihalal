@@ -70,7 +70,7 @@
                         
                     </div>
                     <button type="submit" class="btn btn-primary" value="row">Update</button>
-                    <a href="/api/pembayaran/{{$id}}" class="btn btn-secondary">Back</a>
+                    <a href="/api/pembayaran/{{$id}}" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>
             <!--end::Card body-->

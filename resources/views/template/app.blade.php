@@ -26,6 +26,11 @@
     <!--end::Global Stylesheets Bundle-->
     {{-- custom css --}}
     @yield('custom-css')
+    <style>
+     .pram{
+        color: white;
+     }   
+    </style>
     {{-- end custom css --}}
 </head>
 <!--end::Head-->
@@ -122,14 +127,14 @@
                 <!--begin:Menu item-->
                 <div class="menu-item menu-active  py-2">
                     <span class="menu-link">
-                        <span class="menu-icon">
+                        <span class="menu-icon ">
                             <i class="fonticon-house fs-2"></i>
                         </span>
                         <span class="menu-title"><a href="/api/dashboard">Dashboards</a></span>
                     </span>
                 </div>
                 <div class="menu-item  py-2">
-                    <span class="menu-link">
+                    <span class="menu-link menu-active " @if(strstr( URL::current(), "datalist" )) bg-primary text-light @endif>
                         <span class="menu-icon">
                             <i class="fas fa-list fs-2"></i>
                         </span>
