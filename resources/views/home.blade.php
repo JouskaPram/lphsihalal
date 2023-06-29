@@ -338,26 +338,36 @@ Mewujudkan Manajemen Organisasi yang Berkualitas Dalam Mendukung Reformasi Birok
 <section class="contact2" id="contact2">
   <div class="container">
 
-    <h2 class="text-center fw-bolder text-primary py-15 text-title2">Informasi Lebih Lanjut? Hubungi Kami!!</h2>
+    <h2 class="text-center fw-bolder text-primary pt-15 pb-5 text-title2">Informasi Lebih Lanjut? Hubungi Kami!!</h2>
+    <h3 class="text-center fw-semibold text-dark  pb-10">Berikut adalah Alamat,Email dan Telepon yang dapat di hubungi</h3>
+    <div class="d-flex">
+      
+    </div>
     <div class="row">
       <div class="col-md-4">
-        <div class="card">
+        <div class="card" style="min-height: 275px">
           <div class="card-body">
-  
+           <i class="fa-regular fa-map fs-4x text-primary"></i>
+            <h1 class="py-5 text-dark text-left fw-bolder">Alamat</h1>
+            <h4 class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa nihil debitis id impedit aperiam commodi.</h4>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
+        <div class="card" style="min-height: 275px">
           <div class="card-body">
-  
+             <i class="fa-brands fa-whatsapp fs-4x text-primary"></i>
+            <h1 class="py-5 text-dark text-left fw-bolder">WhatsApp</h1>
+            <h4 class="">0859138483542</h4>
           </div>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="card">
+        <div class="card" style="min-height: 275px">
           <div class="card-body">
-  
+             <i class="fa-regular fa-envelope fs-4x text-primary " style=""></i>
+            <h1 class="py-5 text-dark text-left fw-bolder">Email</h1>
+            <h4 class="">Pramuditaadit2810@gmail.com</h4>
           </div>
         </div>
       </div>
