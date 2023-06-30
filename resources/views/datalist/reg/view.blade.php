@@ -87,7 +87,7 @@
                 @if($regis["status_reg"] == "OF60")
                 <div class="d-flex gap-3">
 
-                    <a href="" class="btn btn-primary">Atur Jadwal</a>
+                    <a href="/api/jadwal/{{$regis["id_reg"]}}" class="btn btn-primary">Atur Jadwal</a>
                     <form action="/api/proces/kembali/{{$regis["id_reg"]}}" method="post">
                         @csrf
                         <button class="btn btn-danger">Tolak</button>

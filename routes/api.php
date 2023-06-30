@@ -6,6 +6,7 @@ use App\Http\Controllers\BiayaApiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataListApi;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\JadwalAuditController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PostLoginAPi;
 use App\Http\Controllers\SendtoLPHController;
@@ -85,5 +86,15 @@ Route::middleware("cookie")->group(function(){
 Route::middleware("cookie")->group(function(){
     Route::controller(AuditController::class)->group(function(){
         
+    });
+});
+
+Route::middleware("cookie")->group(function () {
+    Route::controller(JadwalAuditController::class)->group(function (){
+       Route::get("/jadwal","JadwalAuditior");
+       Route::post("/jadwal/post","postJadwal");
+       Route::get("/jadwal/{id}","singleLayout");
+       Route::get("/jadwal/post/{id}","postJadwalLayout");
+    //    Route::post("");
     });
 });
