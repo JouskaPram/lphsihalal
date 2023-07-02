@@ -14,14 +14,14 @@
             @if(session("updated"))       
               <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
             @endif
-            <a href="/api/jadwal/post/{{$singlejadwal["id_reg"]}}" class="btn btn-primary">Atur Jadwal</a>
+            <a href="/api/jadwal/post/{{$id}}" class="btn btn-primary my-5">Atur Jadwal</a>
             <div class="card card-flush">
                 <!--begin::Card header-->
                 <div class="card-header mt-6">
                     <!--begin::Card title-->
                     <div class="card-title">
                         <!--begin::Search-->
-                        <h3 class="text-primary">Reg No.{{$singlejadwal["id_reg"]}}</h3>
+                        <h3 class="text-primary">Reg No.{{$id}}</h3>
                         <!--end::Search-->
                     </div>
                     <!--end::Card title-->
@@ -77,17 +77,19 @@
                       
                                     
                            
+                                @foreach ($singlejadwal as $item)
                                     <tr>
-                                    
-                                        <th class="text-primary">{{$singlejadwal["id_reg"]}}</th>
-                                        <th>{{$singlejadwal["jadwal_awal"]}}</th>
-                                        <th>{{$singlejadwal["jadwal_akhir"]}}</th>
-                                        <th>{{$singlejadwal["jml_hari"]}}</th>
+                                        
+                                        <th class="text-primary">{{$item["id_reg"]}}</th>
+                                        <th>{{$item["jadwal_awal"]}}</th>
+                                        <th>{{$item["jadwal_akhir"]}}</th>
+                                        <th>{{$item["jml_hari"]}}</th>
                                         
                                         <th>
-                                           <a href="/api/reg/{{$singlejadwal["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                            <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
                                         </th>
                                     </tr>
+                                    @endforeach
                                
                             </tbody>
                             <!--end::Table body-->

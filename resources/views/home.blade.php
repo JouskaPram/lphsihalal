@@ -242,6 +242,11 @@
               <div id="description">
                 <h3 class=" text-dark fw-semibold my-5" >Daftar Sertifikasi Halal Lebih Cepat dan Mudah</h3>
                 <a href="" class="btn btn-primary">Daftar Di Sini</a>
+                <div class="d-flex align-items-center justify-content-center gap-5  pt-10 " style="width: 70%" >
+                    <img  src="https://1.bp.blogspot.com/-IjwJ1RK7f3A/YIKYoGHVDyI/AAAAAAAAClI/wh33g5ObyR8ncmXinj1bDX_-8DS9wPC0gCNcBGAsYHQ/s2048/Majelis%2BUlama%2BIndonesia.png" class="logo-default w-60px h-lg-60px" />
+                    <img  src="https://www.freepnglogos.com/uploads/logo-kemenag-png/logo-kementerian-agama-gambar-logo-depag-png-0.png" class="logo-default w-60px h-lg-60px" />
+                    <img  src="{{ asset('assets/media/logos/LOGO_LPH_ALUMM_VECTOR.png') }}" class="logo-default w-60px h-lg-60px" />
+                </div>
               </div>
               
                     
@@ -301,40 +306,112 @@ Mewujudkan Manajemen Organisasi yang Berkualitas Dalam Mendukung Reformasi Birok
                           </div>
                       </div>
               
-                {{-- section contact start --}}
-                     <section id="contact" class="contact-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Kontak Kami</h2>
-        <form>
-          <div class="form-group">
-            <label for="name" class="text-light fw-bold py-2">Nama:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        <section class="container">
+          <h2 class="text-center fw-bolder text-primary pt-15 pb-5 text-title2 pb-15">ALUR PROSES SERTIFIKASI HALAL</h2>
+          
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-4">
+
+                  <div class="item-wizard card shadow text-center rounded-circle">
+                      <a href="" class="p-5">
+                        
+                     
+                   
+                       
+                       <i class="fa-solid fa-users p-2 color-primary text-primary" style="font-size: 8vw"></i>
+                           <span class="badge badge-primary notify-badge">Pelaku Usaha</span>
+                      </a>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                   <h2 class="fw-bolder text-dark "><span class="badge badge-dark notify-badge fs-4 pt-2 mx-2">1</span>Melakukan Permohonan Sertifikasi Halal</h2>
+                   <h3 class="fw-bold text-dark mx-12">Dokumen Pelengkap:</h3>
+                   <ul class="mx-12 text-dark fw-semibold">
+                    <li>Data Pelaku Usaha</li>
+                    <li>Nama dan Jenis Produk</li>
+                    <li>Daftar Produk dan Bahan yang digunakan</li>
+                    <li>Pengolahan Produk</li>
+                    <li>Dokumen Sistem Jaminan Produk</li>
+                   </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+               <div class="row">
+                <div class="col-md-4">
+
+                  <div class="item-wizard card shadow text-center rounded-circle">
+                      <a href="" class="p-5">
+                        
+                     
+                   
+                       
+                         <i class=" fa-solid fa-gavel p-2 color-primary text-primary" style="font-size: 8vw"></i>
+                           <span class="badge badge-primary notify-badge">MUI</span>
+                      </a>
+                    </div>
+                    <p class="text-center mt-2 fw-bold">( 3 Hari Kerja )</p>
+                </div>
+                <div class="col-md-8">
+                   <h2 class="fw-bolder text-dark "><ul class="badge badge-dark notify-badge fs-4 pt-2 mx-2">4</ul>Menetapkan Kehlalan Produk Melalui Sidang Fatwa</h2>
+                  
+                
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email" class="text-light fw-bold py-2">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-4">
+
+                  <div class="item-wizard card shadow text-center rounded-circle">
+                      <a href="" class="p-5">
+                        
+                     
+                   
+                       
+                       <i class="fa-solid fa-clipboard p-2 color-primary text-primary" style="font-size:150px;"></i>
+                           <span class="badge badge-primary notify-badge">BPJH</span>
+                      </a>
+                  </div>
+                  <p class="text-center mt-2 fw-bold">( 2 Hari Kerja )</p>
+                </div>
+                <div class="col-md-8">
+                   <h2 class="fw-bolder text-dark "><span class="badge badge-dark notify-badge fs-4 pt-2 mx-2 mt-10" >2</span>Memeriksa Kelengkapan Dokumen</h2>
+                   <h2 class="fw-bolder text-dark "><span class="badge badge-dark notify-badge fs-4 pt-2 mx-2">3</span>Menetapkan Lembaga Pemeriksa Halal</h2>
+
+               
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+               <div class="row">
+                <div class="col-md-4">
+
+                  <div class="item-wizard card shadow text-center rounded-circle">
+                      <a href="" class="p-5">
+                        
+                     
+                   
+                       
+                         <i class="fa-solid fa-certificate p-2 color-primary text-primary" style="font-size: 8vw"></i>
+                           <span class="badge badge-primary notify-badge">BPJH</span>
+                      </a>
+                    </div>
+                    <p class="text-center fw-bold mt-2">( 1 Hari Kerja )</p>
+                </div>
+                <div class="col-md-8">
+                   <h2 class="fw-bolder text-dark "><ul class="badge badge-dark notify-badge fs-4 pt-2 mx-2">4</ul>Menetapkan Kehlalan Produk Melalui Sidang Fatwa</h2>
+                  
+                
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="message" class="text-light fw-bold py-2">Pesan:</label>
-            <textarea class="form-control" id="message" placeholder="Enter your message"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary mt-5">Kirim</button>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h2 class="text-light fw-bold">Informasi Kontak</h2>
-        <p class="text-light fw-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquet velit id nibh pellentesque, nec ullamcorper velit posuere. Vestibulum at finibus ligula. Nulla facilisi. Sed in mauris risus.</p>
-        <ul class="text-light fw-semibold">
-          <li>Alamat: 123 Jl , kota , Provinsi, Negara</li>
-          <li>No Telepon: +123 456 7890</li>
-          <li>Email: info@example.com</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+        </section>
 <section class="contact2" id="contact2">
   <div class="container">
 

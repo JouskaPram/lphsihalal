@@ -57,17 +57,7 @@
                             <!--end::Col-->
                         </div>
                       
-                        <div class="row mb-6">
-                            <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Jumlah Hari</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="jumlah" class="form-control form-control-lg form-control-solid" >
-            
-                            </div>
-                            <!--end::Col-->
-                        </div>
+                        
                       
                         
                     </div>

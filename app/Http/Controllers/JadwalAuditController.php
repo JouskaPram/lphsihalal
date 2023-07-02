@@ -41,7 +41,7 @@ class JadwalAuditController extends Controller
                 return $jadwal['id_reg'] == $id;
             });
             
-        $singlejadwal = reset($filteredjadwal);
+        $singlejadwal = $filteredjadwal;
             // return $singlejadwal;
             return view("jadwal.single", ["singlejadwal" => $singlejadwal, "id" => $id]);
         }
@@ -58,20 +58,24 @@ class JadwalAuditController extends Controller
     public function postJadwal()  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $reg = request("req");
+        $dari = strtotime(request("dari"));
+$sampai = strtotime(request("sampai")); 
+
+$jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
         $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/audit_schedule", [
         "json" => [
             "id_reg" => request("reg"),
             "jadwal_awal" => request("dari"),
             "jadwal_akhir" => request("sampai"),
-            "jml_hari" => request("jumlah"),
+            "jml_hari" => $jml_hari,
         ],
         
     ]);
      
         if($response->getStatusCode()==200){
            
-        return redirect("api/biaya");
+        return redirect()->back();
     }}
 }
