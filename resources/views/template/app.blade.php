@@ -165,7 +165,7 @@
                         <span class="menu-icon">
                       <i class="fa-solid fa-circle-check fs-2"></i>
                         </span>
-                        <span class="menu-title"><a href="/api/proces">Selesai Di Proses</a></span>
+                        <span class="menu-title"><a href="/api/selesai">Selesai Di Proses</a></span>
                     </span>
                 </div>
                   <div class="menu-item  py-2">

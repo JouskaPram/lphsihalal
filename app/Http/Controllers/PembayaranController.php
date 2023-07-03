@@ -77,7 +77,7 @@ class PembayaranController extends Controller
         }
     }
     public function updateStatus($id) {
-        $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
     
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);

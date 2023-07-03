@@ -88,9 +88,9 @@
                 <div class="d-flex gap-3">
 
                     <a href="/api/jadwal/{{$regis["id_reg"]}}" class="btn btn-primary">Atur Jadwal</a>
-                    <form action="/api/proces/kembali/{{$regis["id_reg"]}}" method="post">
+                    <form action="/api/jadwal/status/{{$regis["id_reg"]}}" method="post">
                         @csrf
-                        <button class="btn btn-danger">Tolak</button>
+                        <button class="btn btn-success">Selesai</button>
                     </form>
                 </div>
                 @endif

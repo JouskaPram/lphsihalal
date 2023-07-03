@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AuditController extends Controller
 {
-    public function jadwalAuditior()  {
-        
-    }
+public function FunctionName()  {
+    
+}
 }

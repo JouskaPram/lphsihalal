@@ -78,4 +78,41 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
            
         return redirect()->back();
     }}
+
+    public function deleteJadwal($id)  {
+            $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+
+        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/audit_schedule/$id");
+       
+        if($response->getStatusCode() == 200){
+    
+            return redirect()->back();
+        }
+        else{
+            null;
+        }
+      
+    }
+    public function updateStatus($id)  {
+               $myCookieValue = request()->cookie('__bpjph_ct');
+    $RefreshToken = request()->cookie('__bpjph_rt');
+    
+    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+         "json" => [
+            "status" => "biaya",
+            "reg_id" =>  $id,
+            "lph_mapped_id"=>env("LPH_MAPED"),
+        ],
+    ]);
+    if($response->getStatusCode()==200){
+        // return $response;      
+
+        return redirect("/api/pembayaran");
+    } 
+    }
+    
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\JadwalAuditController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PostLoginAPi;
+use App\Http\Controllers\SelesaiController;
 use App\Http\Controllers\SendtoLPHController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -54,7 +55,7 @@ Route::middleware("cookie")->group(function ()  {
 });
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");
-
+Route::get("/selesai",[SelesaiController::class,"getSelesai"])->middleware("cookie");
 
 // biaya route
 Route::middleware('cookie')->group(function () {
@@ -93,8 +94,10 @@ Route::middleware("cookie")->group(function () {
     Route::controller(JadwalAuditController::class)->group(function (){
        Route::get("/jadwal","JadwalAuditior");
        Route::post("/jadwal/post","postJadwal");
-       Route::get("/jadwal/{id}","singleLayout");
+       Route::get("/jadwal/{id}","singleLayout")->name("jadwal.view");
        Route::get("/jadwal/post/{id}","postJadwalLayout");
+       Route::post("/jadwal/status/{id}","updateStatus");
+       Route::delete("/jadwal/delete/{id}","deleteJadwal");
     //    Route::post("");
     });
 });

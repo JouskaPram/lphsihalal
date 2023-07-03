@@ -84,6 +84,7 @@
                                     
                                     <th>
                                        <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                       <a href="/api/jadwal/delete/{{$item["id_audit"]}}" class="btn btn-danger">delete</a>
                                     </th>
                                 </tr>
                               @endforeach
