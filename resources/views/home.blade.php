@@ -426,8 +426,8 @@ Mewujudkan Manajemen Organisasi yang Berkualitas Dalam Mendukung Reformasi Birok
           <div class="card-body">
            <i class="fa-regular fa-map fs-4x text-primary"></i>
             <h1 class="py-5 text-dark text-left fw-bolder">Alamat</h1>
-            <h4 class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa nihil debitis id impedit aperiam commodi.</h4>
-          </div>
+            <h4 class="">
+         Jl Bayan 2 No 93 Kel. Mustikajaya Kec. Mustikajaya Kota Bekasi 17158 Jawa Barat </h4></div>
         </div>
       </div>
       <div class="col-md-4">
@@ -444,7 +444,7 @@ Mewujudkan Manajemen Organisasi yang Berkualitas Dalam Mendukung Reformasi Birok
           <div class="card-body">
              <i class="fa-regular fa-envelope fs-4x text-primary " style=""></i>
             <h1 class="py-5 text-dark text-left fw-bolder">Email</h1>
-            <h4 class="">Pramuditaadit2810@gmail.com</h4>
+            <h4 class="">lphalmumtazah@gmail.com</h4>
           </div>
         </div>
       </div>
