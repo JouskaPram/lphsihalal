@@ -12,7 +12,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="" />
-    <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/media/logos/LOGO_LPH_ALUMM_VECTOR.png') }}}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--begin::Vendor Stylesheets(used for this page only)-->
     <link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
@@ -26,6 +26,11 @@
     <!--end::Global Stylesheets Bundle-->
     {{-- custom css --}}
     @yield('custom-css')
+    <style>
+     .pram{
+        color: white;
+     }   
+    </style>
     {{-- end custom css --}}
 </head>
 <!--end::Head-->
@@ -120,28 +125,71 @@
                 </div>
                 <!--end::Heading-->
                 <!--begin:Menu item-->
-                <div class="menu-item menu-active">
+                <div class="menu-item menu-active  py-2">
                     <span class="menu-link">
-                        <span class="menu-icon">
+                        <span class="menu-icon ">
                             <i class="fonticon-house fs-2"></i>
                         </span>
                         <span class="menu-title"><a href="/api/dashboard">Dashboards</a></span>
                     </span>
                 </div>
-                <div class="menu-item">
-                    <span class="menu-link">
+                <div class="menu-item  py-2">
+                    <span class="menu-link menu-active " @if(strstr( URL::current(), "datalist" )) bg-primary text-light @endif>
                         <span class="menu-icon">
                             <i class="fas fa-list fs-2"></i>
                         </span>
                         <span class="menu-title"><a href="/api/datalist">Data Mohon</a></span>
                     </span>
                 </div>
-                <div class="menu-item">
+                
+                <div class="menu-item  py-2">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <i class="fas fa-credit-card fs-2"></i>
                         </span>
+                        <span class="menu-title"><a href="/api/pembayaran">Pembayaran</a></span>
+                    </span>
+                </div>
+
+                
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                       <i class="fa-solid fa-bars-progress fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/proces">Proses di LPH</a></span>
+                    </span>
+                </div>
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                      <i class="fa-solid fa-circle-check fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/proces">Selesai Di Proses</a></span>
+                    </span>
+                </div>
+                  <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                           <i class="fa-solid fa-sack-dollar fs-2"></i>
+                        </span>
                         <span class="menu-title"><a href="/api/biaya">Biaya</a></span>
+                    </span>
+                </div>
+                  <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-calendar-days fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/jadwal">Jadwal Auditior</a></span>
+                    </span>
+                </div>
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                       <i class="fa-solid fa-file fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/invoice">Invoice</a></span>
                     </span>
                 </div>
                 <!--end:Menu item-->
@@ -211,7 +259,7 @@
         var hostUrl = "assets/";
     </script>
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
+   <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used for this page only)-->
@@ -235,12 +283,12 @@
     <script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
-    <script>
-      
-    </script>
     <!--end::Custom Javascript-->
+    <script src="//www.google.com/jsapi"></script>
     {{-- custom js --}}
+    <script src="{{asset('assets/js/sw.js')}}"></script>
     @yield('custom-js')
+
     @if ($message = Session::get('failed'))
         <script>
             Swal.fire({

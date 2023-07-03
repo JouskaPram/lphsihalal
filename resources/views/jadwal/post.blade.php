@@ -8,69 +8,61 @@
             <div class="card-header bg-primary mb-2">
                 <!--begin::Card title-->
                 <div class="card-title text-white">
-                    Edit Biaya
+                    Atur Jadwal
                 </div>
                 <!--end::Card title-->
             </div>
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                <form action="/api/pembayaran/{{$singleBiaya["id_biaya"]}}/update" method="post" >
+                <form action="/api/jadwal/post" method="post" >
                     @csrf
-                    @method('PUT')
+                    @method('POST')
                     <div class="col-md-12 mt-3">
-                        <div class="row mb-6">
+                            <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Reg No.</label>
+                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Reg no</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="id_reg" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["id_reg"] }}" readonly>
 
+                            <input type="text" value="{{$id}}" class="form-control form-control-lg form-control-solid" name="reg">
                             </div>
                             <!--end::Col-->
                         </div>
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Dari</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
+
+                                <input type="date" name="dari" id="" class="form-control form-control-lg form-control-solid">
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                    
                         
                        
+                      
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Keterangan Biaya</label>
+                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Sampai</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <textarea type="text" name="keterangan" class="form-control form-control-lg form-control-solid" >{{ $singleBiaya["keterangan"] }}
-                                </textarea>
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <div class="row mb-6">
-                            <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Harga</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="harga" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["harga"] }}" >
+                                <input type="date" name="sampai" class="form-control form-control-lg form-control-solid" value="" >
             
                             </div>
                             <!--end::Col-->
                         </div>
                       
-                        <div class="row mb-6">
-                            <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label required fw-semibold fs-6">Qty</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="qty" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["qty"] }}" >
-            
-                            </div>
-                            <!--end::Col-->
-                        </div>
+                        
                       
                         
                     </div>
-                    <button type="submit" class="btn btn-primary" value="row">Update</button>
-                    <a href="/api/biaya" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-primary" >Atur</button>
+                    <a href="/api/jadwal" class="btn btn-secondary">kembali</a>
                 </form>
             </div>
             <!--end::Card body-->
@@ -101,7 +93,7 @@
                         value += `<option value="${i.id}">${i.name}</option>`;
                     });
                     $("#product_type_id").html(value);
-                },
+                },  
             });
     });
 

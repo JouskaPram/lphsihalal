@@ -60,13 +60,11 @@
                             <!--begin::Table row-->
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                 
-                                <th>Reg Date</th>
-                                <th>Reg No.</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Reg Status</th>
-                                <th>Reg Type</th>
-                                <th>Product Group</th>
-                                <th>BPJPH Product Type</th>
+                                <th>Reg Id</th>
+                                <th>Jadwal Awal</th>
+                                <th>Jadwal Akhir</th>
+                                <th>Jumlah Hari</th>
+                           
                                 <th width="20%">Action</th>
                             </tr>
                             <!--end::Table row-->
@@ -74,18 +72,15 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                            @foreach ($datalist as $item)
+                            @foreach ($jadwal as $item)
                                 
                        
                                 <tr>
                                 
-                                    <th>{{$item["no_daftar"]}}</th>
-                                    <th>{{$item["tgl_daftar"]}}</th>
-                                    <th>{{$item["nama_pu"]}}</th>
-                                    <th><span class="badge badge-primary">{{$item["nama_status_reg"]}}</span></th>
-                                    <th>{{$item["nama_jenis_usaha"]}}</th>
-                                    <th>{{$item["nama_jenis_daftar"]}}</th>
-                                    <th>{{$item["nama_jenis_produk"]}}</th>
+                                    <th class="text-primary">{{$item["id_reg"]}}</th>
+                                    <th>{{$item["jadwal_awal"]}}</th>
+                                    <th>{{$item["jadwal_akhir"]}}</th>
+                                    <th>{{$item["jml_hari"]}}</th>
                                     
                                     <th>
                                        <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>

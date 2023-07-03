@@ -3,7 +3,11 @@
     Login - Customer
 @endsection
 @section('content')
-    <div class="d-flex flex-column flex-lg-row flex-column-fluid">
+@if (session("error"))
+    <h1>{{session("error")}}</h1>
+@endif
+        
+<div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
         <div class="d-flex flex-lg-row-fluid">
             <!--begin::Content-->
@@ -20,8 +24,8 @@
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-2">LEMBAGA PEMERIKSAAN HALAL</h1>
                     <h1 class="text-gray-800 fs-2qx fw-bold text-center">ALMUMTAZAH</h1>
                     <div class="card p-7">
-                        <p class="text-gray-800 fw-bold text-center">Jl Bayan 2 No 93 Kel. Mustikajaya Kec. Mustikajaya Kota Bekasi 17158 Jawa Barat</p>
-                        <p class="text-gray-800 fw-bold text-center"> lphalmumtazah@gmail.com</p>
+                        <p class="text-gray-800 fw-bold text-center"><i class="fa-solid fa-location-dot mx-2"></i>Jl Bayan 2 No 93 Kel. Mustikajaya Kec. Mustikajaya Kota Bekasi 17158 Jawa Barat</p>
+                        <p class="text-gray-800 fw-bold text-center"><i class="fa-solid fa-envelope mx-2"></i>lphalmumtazah@gmail.com</p>
                     </div>
                     <img  src="{{ asset('assets/media/logos/alur.jpg') }}" class="" alt="" srcset="">
                     <!--end::Title-->
@@ -46,6 +50,7 @@
                             <h1 class="text-dark fw-bolder mb-3">Sign In</h1>
                             <!--end::Title-->
                         </div>
+                      
                         <!--begin::Heading-->
                         <!--begin::Input group=-->
                         <div class="fv-row mb-8">
@@ -53,9 +58,7 @@
                             <input type="email" placeholder="Email" name="userid" autocomplete="off"
                                 class="form-control bg-transparent"  value="{{ old('email') }}"/>
                             <!--end::Email-->
-                            @error('email')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                          
                         </div>
                         <div class="fv-row mb-3" data-kt-password-meter="true">
                             <div class="position-relative mb-3">
@@ -65,9 +68,7 @@
                                     <i class="bi bi-eye fs-2 d-none"></i>
                                 </span>
                             </div>
-                            @error('password')
-                            <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                      
                             <!--end::Password-->
                         </div>
                         <!--end::Input group=-->
@@ -75,8 +76,7 @@
                         <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                             <div></div>
                             <!--begin::Link-->
-                            <a href="forgot-password"
-                                class="link-primary">Forgot Password ?</a>
+                            
                             <!--end::Link-->
                         </div>
                         <!--end::Wrapper-->
@@ -90,9 +90,7 @@
                         </div>
                         <!--end::Submit button-->
                         <!--begin::Sign up-->
-                        <div class="text-gray-500 text-center fw-semibold fs-6">Not a Member yet?
-                            <a href="register" class="link-primary">Sign up</a>
-                        </div>
+                        
                         <!--end::Sign up-->
                     </form>
                     <!--end::Form-->

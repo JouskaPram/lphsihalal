@@ -25,7 +25,7 @@
                 <div class="item-wizard card shadow text-center rounded-circle">
                     <a href="/api/reg/{{$regis["id_reg"]}}/product" class="p-3">
                       
-                            <span class="badge badge-primary notify-badge">Products</span>
+                            <span class="badge badge-primary notify-badge">products</span>
                      
                         <img src="{{asset('assets/wizard/product.svg' )}}" class="p-5 color-primary" width="100%">
                         {{-- <span class="fas fa-folder p-5 color-primary" style="font-size: 8vw"></span> --}}

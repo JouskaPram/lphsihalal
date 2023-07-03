@@ -8,16 +8,16 @@
             <div class="card-header bg-primary mb-2">
                 <!--begin::Card title-->
                 <div class="card-title text-white">
-                    Edit Biaya
+                    Tambah Biaya
                 </div>
                 <!--end::Card title-->
             </div>
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                <form action="/api/pembayaran/{{$singleBiaya["id_biaya"]}}/update" method="post" >
+                <form action="/api/pembayaran/add" method="post" >
                     @csrf
-                    @method('PUT')
+                    @method('POST')
                     <div class="col-md-12 mt-3">
                         <div class="row mb-6">
                             <!--begin::Label-->
@@ -25,8 +25,10 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="id_reg" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["id_reg"] }}" readonly>
 
+                                <select class="form-control form-control-lg form-control-solid" id="" name="reg">
+                                    <option  value="{{$id}}">{{$id}}</option>                          
+                                </select>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -38,8 +40,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <textarea type="text" name="keterangan" class="form-control form-control-lg form-control-solid" >{{ $singleBiaya["keterangan"] }}
-                                </textarea>
+                                <textarea type="text" name="keterangan" class="form-control form-control-lg form-control-solid" ></textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -49,7 +50,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="harga" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["harga"] }}" >
+                                <input type="text" name="harga" class="form-control form-control-lg form-control-solid" value="" >
             
                             </div>
                             <!--end::Col-->
@@ -61,7 +62,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="text" name="qty" class="form-control form-control-lg form-control-solid" value="{{ $singleBiaya["qty"] }}" >
+                                <input type="text" name="qty" class="form-control form-control-lg form-control-solid" >
             
                             </div>
                             <!--end::Col-->
@@ -69,8 +70,8 @@
                       
                         
                     </div>
-                    <button type="submit" class="btn btn-primary" value="row">Update</button>
-                    <a href="/api/biaya" class="btn btn-secondary">Back</a>
+                    <button type="submit" class="btn btn-primary" >Tambah</button>
+                    <a href="/api/pembayaran/{{$id}}" class="btn btn-secondary">Kembali</a>
                 </form>
             </div>
             <!--end::Card body-->

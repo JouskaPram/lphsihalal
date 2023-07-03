@@ -19,6 +19,7 @@ class BiayaApiController extends Controller
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
             $biaya = $data["payload"];
+            
 
             return view("biaya.view",["biaya"=>$biaya]);
         }
@@ -31,7 +32,7 @@ class BiayaApiController extends Controller
     $RefreshToken = request()->cookie('__bpjph_rt');
     $lph = env("LPH_MAPED");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
+    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph", [
 
     ]);
     if($response->getStatusCode() == 200){
@@ -61,14 +62,22 @@ class BiayaApiController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-             Session::flash('success', 'Biaya deleted successfully');
-           return redirect("api/biaya")->with('roso', 'Post created successfully');
+                    $message = 'Biaya berhasil dihapus.';
+        $type = 'success';
+               
+       
         }
+        session()->flash('post', [
+        'title' => 'Title',
+        'message' => $message,
+        'type' => $type
+    ]);
+        return redirect("api/biaya");
     }
 
 
     public function updateBiaya($id)  {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
@@ -114,12 +123,15 @@ class BiayaApiController extends Controller
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
         $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
+         Alert::alert('Title', 'Message', 'Type');
         if($response->getStatusCode() == 200){
-         Session::flash('success', 'Biaya deleted successfully');
+    
         }
         else{
             null;
         }
-    return redirect()->route('biaya.view')->with('roso', 'Post created successfully');
+        return redirect()->route("biaya.view");
+        Alert::alert('Title', 'Message', 'Type');
     }
+    
 }

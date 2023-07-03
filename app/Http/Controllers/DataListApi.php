@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Http;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class DataListApi extends Controller
@@ -14,17 +15,21 @@ class DataListApi extends Controller
     $lph = env("LPH_MAPED");
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-    
-    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
 
-    ]);
+    $response = Http::withHeaders([
+        "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
+    ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph");
+    $respenetapan = Http::withHeaders([
+        "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
+    ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
+        $penetapan = json_decode($respenetapan->getBody(),true);
+        $penetapan = $penetapan["payload"];
         $datalist = $data["payload"];
         $count= $data["payload"];
         $total = count($count);
-        return view("datalist.view",["datalist"=>$datalist,"total"=>$total]);
+        return view("datalist.view",["datalist"=>$datalist,"total"=>$total,"penetapan"=>$penetapan]);
     } else {
         return null; 
     };
@@ -32,11 +37,13 @@ class DataListApi extends Controller
     
 }
     public function getReg($reg) {
+        // 
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
 
-    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+      $response = Http::withHeaders([
+        "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
+    ])->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
     
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
@@ -109,7 +116,7 @@ class DataListApi extends Controller
         $data = json_decode($response->getBody(), true);
         $penyelia =  $data["payload"]["penyelia"];
         $regis =  $data["payload"];
-        Alert::alert('Title', 'Message', 'Type');
+        
              return view("datalist.reg.detail.penyelia",["penyelia"=>$penyelia,"regis"=>$regis]);
         } else {
            null;

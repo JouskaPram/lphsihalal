@@ -14,8 +14,12 @@
         <h3 class="text-danger">{{session("success")}}</h3>
     @endif
   <div class="card card-flush">
-     
-            <!--begin::Card header-->
+        @if (session()->has('post'))
+    <div class="alert alert-{{ session('post.type') }}">
+        <strong>{{ session('post.title') }}</strong> {{ session('post.message') }}
+    </div>
+@endif
+      <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
                 <div class="card-title">
@@ -41,9 +45,7 @@
                 <!--end::Card title-->
                 <!--begin::Card toolbar-->
                 <div class="card-toolbar">
-                       
-
-
+                    
                     <!--begin::Button-->
                     <a href="{{route("biaya.post")}}" class="btn btn-light-primary">
                         <span class="fas fa-file"></span> Tambah Biaya
@@ -61,14 +63,13 @@
                         <!--begin::Table head-->
                         <thead>
                             <!--begin::Table row-->
-                            <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                
+                         <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">                                
                                 <th>NO</th>
+                                <th>reg id</th>
                                 <th>Nama Biaya</th>
                                 <th>Harga Biaya</th>
                                 <th>QTY</th>
                                 <th>Total</th>
-                              
                                 <th width="20%" class="text-center">Action</th>
                             </tr>
                             <!--end::Table row-->
@@ -79,16 +80,17 @@
                             @foreach ($biaya as $index => $item)         
                                 <tr>
                                     <th>{{$index+1}}</th>
+                                    <th><a href="/api/pembayaran/{{$item["id_reg"]}}" class="text-primary">{{$item["id_reg"]}}</a></th>
                                     <th>{{$item["keterangan"]}}</th>
-                                    <th>{{$item["harga"]}}</th>
+                                    <th>{{ number_format( $item["harga"],0) }}</th>
                                     <th>{{$item["qty"]}}</th>
-                                    <th>{{$item["total"]}}</th>                                
+                                    <th>{{number_format($item["total"],0)}}</th>                                
                                     <th class="d-flex">
-                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5">View</a>
+                                       <a href="/api/biaya/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> <i class="fas fa-info-circle "></i></a>
                                      <form action="{{ route("biaya.delete", ["id" => $item["id_biaya"]]) }}" method="post">
                                         @csrf
                                         @method("DELETE")
-                                        <button class="btn btn-danger h-40px fs-7 fw-bold">Delete</button>
+                                        <button class="btn btn-light-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
                                     </form>
 
                                     </th>

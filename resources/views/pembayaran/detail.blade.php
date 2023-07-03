@@ -2,16 +2,20 @@
 @section('custom-css')
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 @endsection
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
-
+@include('sweetalert::alert')
 @section('content')
-   <!--begin::Content container-->
-    <div id="kt_app_content_container" class="app-container container-fluid mt-20">
-        <!--begin::Card-->
-        @if(session("updated"))       
-          <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
-        @endif
-        <div class="card card-flush">
+   <div id="kt_app_content_container" class="app-container container-fluid mt-20">
+    @if(session('posted'))
+        <h3 class="text-danger">{{session("posted")}}</h3>
+    @endif
+    @if(session('success'))
+        <h3 class="text-danger">{{session("success")}}</h3>
+    @endif
+    <div class="card card-flush">
+      <h4 class="text-dark px-10 pt-10">No. Reg {{$id}}</h4>
+     
             <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
@@ -40,11 +44,11 @@
                 <div class="card-toolbar">
                        
 
-
+                 
                     <!--begin::Button-->
-                    <button type="button" id="excel-table" class="btn btn-light-primary">
-                        <span class="fas fa-file"></span> Export Excel
-                    </button>
+                    <a href="/api/pembayaran/{{$id}}/add" class="btn btn-light-primary">
+                        <span class="fa-sharp fa-solid fa-dollar-sign"></span> Tambah Biaya
+                    </a>
                     <!--end::Button-->
                 </div>
                 <!--end::Card toolbar-->
@@ -60,36 +64,38 @@
                             <!--begin::Table row-->
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                 
-                                <th>Reg Date</th>
-                                <th>Reg No.</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Reg Status</th>
-                                <th>Reg Type</th>
-                                <th>Product Group</th>
-                                <th>BPJPH Product Type</th>
-                                <th width="20%">Action</th>
+                                <th>NO</th>
+                                <th>Nama Biaya</th>
+                                <th>Harga Biaya</th>
+                                <th>QTY</th>
+                                <th>Total</th>
+                              
+                                <th width="20%" class="text-center">Action</th>
                             </tr>
                             <!--end::Table row-->
                         </thead>
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                            @foreach ($datalist as $item)
-                                
-                       
+                            @foreach ($filteredBiaya as $index => $item)         
                                 <tr>
-                                
-                                    <th>{{$item["no_daftar"]}}</th>
-                                    <th>{{$item["tgl_daftar"]}}</th>
-                                    <th>{{$item["nama_pu"]}}</th>
-                                    <th><span class="badge badge-primary">{{$item["nama_status_reg"]}}</span></th>
-                                    <th>{{$item["nama_jenis_usaha"]}}</th>
-                                    <th>{{$item["nama_jenis_daftar"]}}</th>
-                                    <th>{{$item["nama_jenis_produk"]}}</th>
-                                    
-                                    <th>
-                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                    <th>{{$index+1}}</th>
+                                    <th>{{$item["keterangan"]}}</th>
+                                    <th>{{number_format($item["harga"])}}</th>
+                                    <th>{{$item["qty"]}}</th>                                
+                                    <th>{{number_format($item["total"])}}</th>
+                                    <th class="d-flex">
+                                       <a href="/api/pembayaran/update/{{$item["id_reg"]}}/{{$item["id_biaya"]}}" class="btn btn-secondary h-40px fs-7 fw-bold mx-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"> 
+                                          
+                                        <i class="fas fa-info-circle "></i></a>
+                                     <form action="/api/pembayaran/delete/{{$item["id_reg"]}}/{{$item["id_biaya"]}}" method="post">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button class="btn btn-light-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                    </form>
+
                                     </th>
+                                 
                                 </tr>
                               @endforeach
                         </tbody>
@@ -101,10 +107,19 @@
             </div>
             <!--end::Card body-->
         </div>
-        <!--end::Card-->
-    </div>
+   </div>
 @endsection
 @section('custom-js')
+@if (session("berhasil"))
+    <script>
+        Swal.fire({
+            title: "Success",
+            text: "dadasda ",
+            icon: "{{berhasil}}"
+        });
+    </script>
+@endif
+
     <script>
         function initDataTable() {
             let initTable = $('#table_init').DataTable({
