@@ -78,8 +78,8 @@
                                 <tr>
                                 
                                     <th class="text-primary">{{$item["id_reg"]}}</th>
-                                    <th>{{$item["jadwal_awal"]}}</th>
-                                    <th>{{$item["jadwal_akhir"]}}</th>
+                                    <th>{{str_replace("T00:00:00.000Z","",$item["jadwal_awal"])}}</th>
+                                    <th>{{str_replace("T00:00:00.000Z","",$item["jadwal_akhir"])}}</th>
                                     <th>{{$item["jml_hari"]}}</th>
                                     
                                     <th>

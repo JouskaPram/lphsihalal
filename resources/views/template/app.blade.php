@@ -181,7 +181,15 @@
                         <span class="menu-icon">
                             <i class="fa-solid fa-calendar-days fs-2"></i>
                         </span>
-                        <span class="menu-title"><a href="/api/jadwal">Jadwal Auditior</a></span>
+                        <span class="menu-title"><a href="/api/jadwal">Jadwal Audit</a></span>
+                    </span>
+                </div>
+                  <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="fa-solid fa-user-pen fs-2"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/auditior">Auditior</a></span>
                     </span>
                 </div>
                 <div class="menu-item  py-2">

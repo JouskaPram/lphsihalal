@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataListApi;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\JadwalAuditController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\PostLoginAPi;
 use App\Http\Controllers\SelesaiController;
@@ -99,5 +100,18 @@ Route::middleware("cookie")->group(function () {
        Route::post("/jadwal/status/{id}","updateStatus");
        Route::delete("/jadwal/delete/{id}","deleteJadwal");
     //    Route::post("");
+    });
+});
+
+
+Route::middleware("cookie")->group(function () {
+    Route::controller(AuditController::class)->group(function (){
+        Route::get("/auditior","getAuditior");
+    });
+});
+Route::middleware("cookie")->group(function () {
+    Route::controller(LaporanController::class)->group(function (){
+        Route::get("/laporan","postLayout");
+        Route::post("/laporan/post","postaLaporan")->name("laporan.post");
     });
 });
