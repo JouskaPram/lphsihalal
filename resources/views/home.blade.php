@@ -498,15 +498,35 @@ Mewujudkan Manajemen Organisasi yang Berkualitas Dalam Mendukung Reformasi Birok
 							<!--end::Copyright-->
 							<!--begin::Menu-->
 							<ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
-								<li class="menu-item">
-									<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">Tentang Kami</a>
-								</li>
-								<li class="menu-item mx-5">
-									<a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
-								</li>
-								<li class="menu-item">
-									<a href="" target="_blank" class="menu-link px-2">Purchase</a>
-								</li>
+									<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#home" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Home</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											<!--begin::Menu item-->
+											
+											<!--end::Menu item-->
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#my-layanan" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">layanan</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#about" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Tentang Kami</a>
+												<!--end::Menu link-->
+											</div>
+											<!--end::Menu item-->
+											<!--begin::Menu item-->
+											<div class="menu-item">
+												<!--begin::Menu link-->
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#contact2" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Kontak</a>
+												<!--end::Menu link-->
+											</div>
 							</ul>
 							<!--end::Menu-->
 						</div>
