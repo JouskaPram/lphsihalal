@@ -78,8 +78,8 @@
                        
                                 <tr>
                                 
-                                    <th>{{$item["no_daftar"]}}</th>
-                                    <th>{{$item["tgl_daftar"]}}</th>
+                                    <th>{{str_replace("T00:00:00.000Z","",$item["tgl_daftar"])}}</th>
+                                    <th class="text-primary">{{$item["id_reg"]}}</th>
                                     <th>{{$item["nama_pu"]}}</th>
                                     <th><span class="badge badge-primary">{{$item["nama_status_reg"]}}</span></th>
                                     <th>{{$item["nama_jenis_usaha"]}}</th>

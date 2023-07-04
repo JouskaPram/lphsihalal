@@ -18,7 +18,7 @@
                 <!--begin::Card title-->
                 <div class="card-title">
                     <!--begin::Search-->
-                    <h3 class="text-muted fw-semibold">Data Yang Sedang di Proses</h3>
+                    <h3 class="text-muted fw-semibold">Data Yang Selesai Di Proses</h3>
                     <!--end::Search-->
                 </div>
                 <!--end::Card title-->
@@ -78,10 +78,10 @@
                        
                                 <tr>
                                 
-                                    <th>{{$item["no_daftar"]}}</th>
-                                    <th>{{$item["tgl_daftar"]}}</th>
+                                    <th>{{str_replace("T00:00:00.000Z","",$item["tgl_daftar"])}}</th>
+                                    <th class="text-primary">{{$item["id_reg"]}}</th>
                                     <th>{{$item["nama_pu"]}}</th>
-                                    <th><span class="badge badge-success">{{$item["nama_status_reg"]}}</span></th>
+                                    <th><span class="badge badge-success">{{str_replace("/Pendamping PPH","",$item["nama_status_reg"])}}</span></th>
                                     <th>{{$item["nama_jenis_usaha"]}}</th>
                                     <th>{{$item["nama_jenis_daftar"]}}</th>
                                     <th>{{$item["nama_jenis_produk"]}}</th>
