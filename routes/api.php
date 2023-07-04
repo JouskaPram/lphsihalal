@@ -107,6 +107,7 @@ Route::middleware("cookie")->group(function () {
 Route::middleware("cookie")->group(function () {
     Route::controller(AuditController::class)->group(function (){
         Route::get("/auditior","getAuditior");
+        Route::delete("/auditor/delete/{id}","deleteAuditior");
     });
 });
 Route::middleware("cookie")->group(function () {
