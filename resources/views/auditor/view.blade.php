@@ -42,7 +42,7 @@
 
 
                     <!--begin::Button-->
-                    <a href="excel-table" class="btn btn-light-primary">
+                    <a href="/api/auditior/post" class="btn btn-light-primary">
                         <span class="fas fa-file"></span> Tambah Auditor
                     </a>
                     <!--end::Button-->

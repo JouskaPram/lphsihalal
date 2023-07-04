@@ -57,6 +57,7 @@ Route::middleware("cookie")->group(function ()  {
 
 Route::get("/dashboard",[DashboardController::class,"Dashboard"])->middleware("cookie");
 Route::get("/selesai",[SelesaiController::class,"getSelesai"])->middleware("cookie");
+Route::get("/selesai/{id}",[SelesaiController::class,"getKeterangan"])->middleware("cookie");
 
 // biaya route
 Route::middleware('cookie')->group(function () {
@@ -107,6 +108,7 @@ Route::middleware("cookie")->group(function () {
 Route::middleware("cookie")->group(function () {
     Route::controller(AuditController::class)->group(function (){
         Route::get("/auditior","getAuditior");
+        Route::get("/auditior/post","postLayout");
         Route::delete("/auditor/delete/{id}","deleteAuditior");
     });
 });

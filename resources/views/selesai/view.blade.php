@@ -87,7 +87,7 @@
                                     <th>{{$item["nama_jenis_produk"]}}</th>
                                     
                                     <th>
-                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                       <a href="/api/selesai/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">Lihat Keterangan</a>
                                     </th>
                                 </tr>
                               @endforeach
