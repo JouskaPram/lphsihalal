@@ -205,7 +205,7 @@
 											<!--begin::Menu item-->
 											<div class="menu-item">
 												<!--begin::Menu link-->
-												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#contact" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Kontak</a>
+												<a class="menu-link nav-link py-3 px-3 px-xxl-6" href="#contact2" data-kt-scroll-toggle="true" data-kt-drawer-dismiss="true">Kontak</a>
 												<!--end::Menu link-->
 											</div>
 											<!--end::Menu item-->
