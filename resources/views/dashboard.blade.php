@@ -37,21 +37,7 @@
             </a>
             <!--end::Statistics Widget 5-->
         </div>
-        <div class="col-xl-3">
-            <!--begin::Statistics Widget 5-->
-            <a href="javascript:;" class="card bg-primary hoverable card-xl-stretch bgi-no-repeat" style="background-position: right top; background-size: 30% auto; background-image: url({{ asset('assets/media/svg/shapes/abstract-2.svg') }});border-radius:8px;">
-                <!--begin::Body-->
-                <div class="card-body">
-                    <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
-                    <i class="las la-money-bill-wave fs-3x text-secondary"></i>
-                    <!--end::Svg Icon-->
-                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalbiaya}}</div>
-                    <div class="fw-semibold text-white">Total Biaya</div>
-                </div>
-                <!--end::Body-->
-            </a>
-            <!--end::Statistics Widget 5-->
-        </div>
+     
         <div class="col-xl-3">
             <!--begin::Statistics Widget 5-->
             <a href="javascript:;" class="card bg-success hoverable card-xl-stretch mb-5 bgi-no-repeat" style="background-position: right top; background-size: 30% auto; background-image: url({{ asset('assets/media/svg/shapes/abstract-2.svg') }});border-radius:8px;">
@@ -79,6 +65,21 @@
                         <div class="fw-semibold text-white">Sedang Di Proses</div>
                     
                     <!--begin::Svg Icon | path: icons/duotune/graphs/gra005.svg-->
+                </div>
+                <!--end::Body-->
+            </a>
+            <!--end::Statistics Widget 5-->
+        </div>
+           <div class="col-xl-3">
+            <!--begin::Statistics Widget 5-->
+            <a href="javascript:;" class="card bg-primary hoverable card-xl-stretch bgi-no-repeat" style="background-position: right top; background-size: 30% auto; background-image: url({{ asset('assets/media/svg/shapes/abstract-2.svg') }});border-radius:8px;">
+                <!--begin::Body-->
+                <div class="card-body">
+                    <!--begin::Svg Icon | path: icons/duotune/ecommerce/ecm008.svg-->
+                    <i class="las la-check-circle fs-3x text-secondary"></i>
+                    <!--end::Svg Icon-->
+                    <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$totalbiaya}}</div>
+                    <div class="fw-semibold text-white">Selesai Di Proses</div>
                 </div>
                 <!--end::Body-->
             </a>

@@ -98,6 +98,8 @@ Route::middleware("cookie")->group(function () {
        Route::post("/jadwal/post","postJadwal");
        Route::get("/jadwal/{id}","singleLayout")->name("jadwal.view");
        Route::get("/jadwal/post/{id}","postJadwalLayout");
+       Route::get("/jadwal/{id}/{up}","updateLayout");
+       Route::put("/jadwal/{id}/{up}","updateJadwal");
    
        Route::delete("/jadwal/delete/{id}","deleteJadwal");
     //    Route::post("");

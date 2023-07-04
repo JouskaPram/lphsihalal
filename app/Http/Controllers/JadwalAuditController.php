@@ -115,5 +115,56 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         return redirect("/api/pembayaran");
     } 
     }
+    public function updateLayout($id,$up)  {
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+    
+        $client = new Client
+        (['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+
+        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=desc");
+        if($response->getStatusCode()==200){
+            $data = json_decode($response->getBody(),true);
+
+            $jadwal = $data["payload"];
+            $filteredjadwal = array_filter($jadwal, function ($jadwal) use ($id) {
+                return $jadwal['id_reg'] == $id;
+            });
+            $filteredid = array_filter($filteredjadwal,function ($filteredjadwal) use ($up){
+                return $filteredjadwal["id_audit"] == $up;
+            });
+            
+        $singlejadwal = reset($filteredid);
+            // return $singlejadwal;
+            return view("jadwal.update", ["singlejadwal" => $singlejadwal, "id" => $id,"up"=>$up]);
+        }
+        else{
+            null;
+        }
+    }
+
+    public function updateJadwal($id,$up)  {
+          $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        $reg = request("req");
+        $dari = strtotime(request("dari"));
+$sampai = strtotime(request("sampai")); 
+
+$jml_hari = ($sampai - $dari) / (60 * 60 * 24);
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/audit_schedule/$up", [
+        "json" => [
+            "id_reg" => $id,
+            "jadwal_awal" => request("dari"),
+            "jadwal_akhir" => request("sampai"),
+            "jml_hari" => $jml_hari,
+        ],
+        
+    ]);
+     
+        if($response->getStatusCode()==200){
+          
+        return redirect('/api/jadwal');
+    }}
     
 }

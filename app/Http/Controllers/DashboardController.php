@@ -24,7 +24,7 @@ class DashboardController extends Controller
     $proses = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph", [
 
     ]);
-    $resbiaya = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs", [
+    $resbiaya = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10040/$lph", [
 
     ]);
 
