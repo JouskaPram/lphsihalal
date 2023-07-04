@@ -15,7 +15,7 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                <form action="/api/jadwal/post" method="post" >
+                <form action="/api/auditior/post" method="post" >
                     @csrf
                     @method('POST')
                     <div class="col-md-12 mt-3">

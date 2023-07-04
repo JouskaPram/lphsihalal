@@ -76,8 +76,8 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
     ]);
      
         if($response->getStatusCode()==200){
-           
-        return redirect()->back();
+          alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.'); 
+        return redirect()->back()->withSuccess("berhasil di tambahkan");
     }}
 
     public function deleteJadwal($id)  {

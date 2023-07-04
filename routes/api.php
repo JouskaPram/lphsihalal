@@ -109,6 +109,7 @@ Route::middleware("cookie")->group(function () {
     Route::controller(AuditController::class)->group(function (){
         Route::get("/auditior","getAuditior");
         Route::get("/auditior/post","postLayout");
+        Route::post("/auditior/post","postAuditior");
         Route::delete("/auditor/delete/{id}","deleteAuditior");
     });
 });
