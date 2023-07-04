@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JadwalAuditController extends Controller
 {
@@ -11,8 +12,8 @@ class JadwalAuditController extends Controller
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
     
+        // $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-
         $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=asc&limit=10");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
@@ -88,8 +89,8 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/audit_schedule/$id");
        
         if($response->getStatusCode() == 200){
-    
-            return redirect()->back();
+            Alert::warning('Warning Title', 'Jadwal Berhasil Di Hapus');
+            return redirect()->back()->with("delete","data berhasil di hapus");
         }
         else{
             null;

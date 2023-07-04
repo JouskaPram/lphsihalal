@@ -11,8 +11,8 @@
    
         <div id="kt_app_content_container" class="app-container container-fluid mt-20">
             <!--begin::Card-->
-            @if(session("updated"))       
-              <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
+            @if(session("delete"))       
+              <h3 class="text-primary py-3 ">{{session("delete")}}</h3>
             @endif
             <a href="/api/jadwal/post/{{$id}}" class="btn btn-primary my-5">Atur Jadwal</a>
             <div class="card card-flush">
@@ -81,8 +81,8 @@
                                     <tr>
                                         
                                         <th class="text-primary">{{$item["id_reg"]}}</th>
-                                        <th>{{$item["jadwal_awal"]}}</th>
-                                        <th>{{$item["jadwal_akhir"]}}</th>
+                                        <th>{{str_replace("T00:00:00.000Z","",$item["jadwal_awal"])}}</th>
+                                    <th>{{str_replace("T00:00:00.000Z","",$item["jadwal_akhir"])}}</th>
                                         <th>{{$item["jml_hari"]}}</th>
                                         
                                         <th>

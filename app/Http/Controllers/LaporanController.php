@@ -41,7 +41,7 @@ class LaporanController extends Controller
                 "id_reg" => request("reg"),
                 "keterangan" => request("keterangan"),
                 "tgl_selesai" => date("Y-m-d"),
-                "hasil_audit" => "PR005"
+                "hasil_audit" => "PR001"
             ]);
 
         if ($response->status() == 200) {
