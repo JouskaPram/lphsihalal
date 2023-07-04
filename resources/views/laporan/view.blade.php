@@ -15,7 +15,7 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                <form action="/api/jadwal/post" method="post" enctype="multipart/form-data" >
+                <form action="/api/laporan/post" method="post" enctype="multipart/form-data" >
                     @csrf
                     @method('POST')
                     <div class="col-md-12 mt-3">
@@ -56,7 +56,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                <input type="file" name="sampai" class="form-control form-control-lg form-control-solid" value="" >
+                                <input type="file" name="file" class="form-control form-control-lg form-control-solid" value="" >
             
                             </div>
                             <!--end::Col-->

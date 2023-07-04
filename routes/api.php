@@ -97,7 +97,7 @@ Route::middleware("cookie")->group(function () {
        Route::post("/jadwal/post","postJadwal");
        Route::get("/jadwal/{id}","singleLayout")->name("jadwal.view");
        Route::get("/jadwal/post/{id}","postJadwalLayout");
-       Route::post("/jadwal/status/{id}","updateStatus");
+   
        Route::delete("/jadwal/delete/{id}","deleteJadwal");
     //    Route::post("");
     });
@@ -112,6 +112,6 @@ Route::middleware("cookie")->group(function () {
 Route::middleware("cookie")->group(function () {
     Route::controller(LaporanController::class)->group(function (){
         Route::get("/laporan","postLayout");
-        Route::post("/laporan/post","postaLaporan")->name("laporan.post");
+        Route::post("/laporan/post","postLaporan")->name("laporan.post");
     });
 });

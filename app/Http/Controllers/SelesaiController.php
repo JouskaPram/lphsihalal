@@ -18,11 +18,11 @@ class SelesaiController extends Controller
         ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10040/$lph");
         if ($response->getStatusCode() == 200) {
             $data = json_decode($response->getBody(), true);
-            $sendto = $data["payload"];
+            $selesai = $data["payload"];
             $count= $data["payload"];
             $total = count($count);
-            return $response;
-            // return view("proces.view",["sendto"=>$sendto,"total"=>$total]);
+      
+            return view("selesai.view",["selesai"=>$selesai,"total"=>$total]);
         } else {
             return null; 
         };
