@@ -51,7 +51,7 @@
 }
 
 .my-layanan-section {
-  background: url("https://images.unsplash.com/photo-1526697298613-08e9ea0b2327?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTd8fGlzbGFtaWN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60") fixed center;
+  background: url("https://images.unsplash.com/photo-1575645513913-c002ea3b2e01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fG1vc3F1ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60") fixed center;
   background-size: cover;
   padding: 50px 0;
   color: #fff;
