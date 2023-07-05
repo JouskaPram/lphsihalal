@@ -45,7 +45,7 @@
                     <!--end::Button-->
                 </div>
                 <!--end::Card toolbar-->
-            </div>\
+            </div>
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body py-4">

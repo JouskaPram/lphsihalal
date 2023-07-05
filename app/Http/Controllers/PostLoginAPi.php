@@ -26,8 +26,8 @@ class PostLoginAPi extends Controller
             ->withCookie("__bpjph_ct", $result["payload"]["token"], 20*20*20)
             ->withCookie("__bpjph_rt", $result["payload"]["refreshToken"], 20*20*20);
     } else {
-        Alert::error("Email/Sandi Salah","Pastikan email atau sandi anda benar");
-        return redirect("/api");
+       
+        return redirect("/api")->with("wrong","Email/Sandi Yang Anda Masukan Salah");
       
     }
 }

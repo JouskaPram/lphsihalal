@@ -3,9 +3,7 @@
     Login - Customer
 @endsection
 @section('content')
-@if (session("error"))
-    <h1>{{session("error")}}</h1>
-@endif
+
         
 <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
@@ -41,6 +39,10 @@
             <div class="bg-body d-flex flex-center rounded-4 w-md-600px p-10">
                 <!--begin::Content-->
                 <div class="w-md-400px ">
+                    
+                    @if (session("wrong"))
+                            <div class="alert alert-danger mt-10 fs-4 fw-semibold"><i class="fa-solid fa-circle-exclamation text-danger fs-4 mx-3"></i>{{session("wrong")}} </div>
+                    @endif
                     <!--begin::Form-->
                     <form class="form w-100" novalidate="novalidate" action="{{route('login')}}" method="POST">
                         @csrf

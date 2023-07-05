@@ -155,7 +155,7 @@
                         <span class="menu-icon">
                             <i class="fa-solid fa-users fs-2 {{ strstr(Request::url(), 'datalist') ? 'text-primary' : '' }}"></i>
                         </span>
-                        <span class="menu-title"><a href="/api/datalist">Data Mohon</a></span>
+                        <span class="menu-title"><a href="/api/datalist">Dikirim Ke LPH</a></span>
                     </span>
                 </div>
                 
@@ -164,7 +164,7 @@
                         <span class="menu-icon">
                             <i class="fas fa-credit-card fs-2 {{ strstr(Request::url(), 'pembayaran') ? 'text-primary' : '' }}" ></i>
                         </span>
-                        <span class="menu-title"><a href="/api/pembayaran">Pembayaran</a></span>
+                        <span class="menu-title"><a href="/api/pembayaran">Penetapan Biaya</a></span>
                     </span>
                 </div>
 
