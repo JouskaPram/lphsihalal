@@ -12,19 +12,30 @@ class BiayaApiController extends Controller
     public function getBiaya()  {
        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
+        $lph = env("LPH_MAPED");
         $url = env("LPH_URL");
+        // $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-
-        $response = $client->get("$url/costs?order_dir=desc");
+        $reg = $client->get("$url/data_list/10020/$lph");
+      
+        $response = $client->get("$url/costs?order_dir=desc&limit=3149");
+      
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
+            $reg = json_decode($reg->getBody(),true);
+            $id = $reg["payload"];
+            
             $biaya = $data["payload"];
             
-
-            return view("biaya.view",["biaya"=>$biaya]);
+          $filter = array_filter($biaya, function ($biaya) use ($id) {
+    $filteredIds = array_column($id, 'id_reg');
+    return in_array($biaya['id_reg'], $filteredIds);
+});
+        
+            return view("biaya.view",["filter"=>$filter]);
         }
         else{
-
+            null;
         }
     }
     public function postBiayaLayout() {

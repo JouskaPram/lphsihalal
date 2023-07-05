@@ -77,7 +77,7 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                            @foreach ($biaya as $index => $item)         
+                            @foreach ($filter as $index => $item)         
                                 <tr>
                                     <th>{{$index+1}}</th>
                                     <th><a href="/api/pembayaran/{{$item["id_reg"]}}" class="text-primary">{{$item["id_reg"]}}</a></th>

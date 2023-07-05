@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Http;
 class LaporanController extends Controller
 {
     public function getLaporan()  {
-          $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $lph = env("LPH_MAPED");
         $url = env("LPH_URL");
