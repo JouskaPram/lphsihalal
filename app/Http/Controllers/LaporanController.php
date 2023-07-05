@@ -8,7 +8,38 @@ use Illuminate\Support\Facades\Http;
 
 class LaporanController extends Controller
 {
-    public function postLayout()  {
+    public function getLaporan()  {
+          $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        $lph = env("LPH_MAPED");
+        // $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+        $reg = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10040/$lph");
+      
+        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_result?order_dir=desc&limit=22471");
+      
+        if($response->getStatusCode()==200){
+            $data = json_decode($response->getBody(),true);
+            $reg = json_decode($reg->getBody(),true);
+            $id = $reg["payload"];
+            
+            $laporan = $data["payload"];
+            $filter = array_filter($laporan,function ($laporan) use($id){
+                foreach ($id as $key) {
+                    return $laporan["id_reg"] == $key["id_reg"];       
+                }
+            });
+            
+                        
+            
+            return view("laporan.page",["filter"=>$filter]);
+        }
+        else{
+            null;
+        }
+    }
+
+    public function postLayout($id)  {
     $lph = env("LPH_MAPED");
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
@@ -21,7 +52,7 @@ class LaporanController extends Controller
         $data = json_decode($response->getBody(), true);
         $laporan = $data["payload"];
     
-        return view("laporan.view",["laporan"=>$laporan]);
+        return view("laporan.view",["laporan"=>$laporan,"id"=>$id]);
     } else {
         return null; 
     };

@@ -201,6 +201,14 @@
                         <span class="menu-title"><a href="/api/invoice">Invoice</a></span>
                     </span>
                 </div>
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                       <i class="fa-solid fa-clipboard fs-2 {{ strstr(Request::url(), 'laporan') ? 'text-primary' : '' }}"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/laporan">Laporan</a></span>
+                    </span>
+                </div>
                 <!--end:Menu item-->
             </div>
             <!--end::Sidebar menu-->

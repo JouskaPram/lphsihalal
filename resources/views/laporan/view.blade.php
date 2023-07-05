@@ -26,12 +26,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row fv-plugins-icon-container">
 
-                                <select name="reg" id="" class="form-control form-control-lg form-control-solid">
-                                    @foreach ($laporan as $item)
-                                        
-                                    <option value="{{$item["id_reg"]}}">{{$item["nama_pu"]}}</option>
-                                    @endforeach
-                                </select>
+                                <input type="text" name="keterangan" id="" value="{{$id}}" class="form-control form-control-lg form-control-solid">
                             </div>
                             <!--end::Col-->
                         </div>
@@ -67,6 +62,7 @@
                         
                     </div>
                     <button type="submit" class="btn btn-primary" >Kirim</button>
+                    <a href="/api/reg/{{$id}}" class="btn btn-secondary">Kembali</a>
                  
                 </form>
             </div>

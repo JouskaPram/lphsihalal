@@ -117,7 +117,8 @@ Route::middleware("cookie")->group(function () {
 });
 Route::middleware("cookie")->group(function () {
     Route::controller(LaporanController::class)->group(function (){
-        Route::get("/laporan","postLayout");
+        Route::get("/laporan","getLaporan");
+        Route::get("/laporan/{id}","postLayout");
         Route::post("/laporan/post","postLaporan")->name("laporan.post");
     });
 });

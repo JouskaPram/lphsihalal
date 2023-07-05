@@ -12,20 +12,12 @@
           <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
         @endif
         <div class="card card-flush">
-           
             <!--begin::Card header-->
             <div class="card-header mt-6">
                 <!--begin::Card title-->
                 <div class="card-title">
                     <!--begin::Search-->
-                    <h3 class="text-muted fw-semibold">Data Yang Selesai Di Proses</h3>
-                    <!--end::Search-->
-                </div>
-                <!--end::Card title-->
-                <!--begin::Card toolbar-->
-                <div class="card-toolbar">
-                       
-                     <div class="d-flex align-items-center position-relative my-1 me-5">
+                    <div class="d-flex align-items-center position-relative my-1 me-5">
                         <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
                         <span class="svg-icon svg-icon-1 position-absolute ms-6">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -41,9 +33,16 @@
                         <input type="text" id="search-table" class="form-control form-control-solid w-250px ps-15"
                             placeholder="Search" />
                     </div>
+                    <!--end::Search-->
+                </div>
+                <!--end::Card title-->
+                <!--begin::Card toolbar-->
+                <div class="card-toolbar">
+                       
+
 
                     <!--begin::Button-->
-                 
+                    
                     <!--end::Button-->
                 </div>
                 <!--end::Card toolbar-->
@@ -59,36 +58,30 @@
                             <!--begin::Table row-->
                             <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
                                 
-                                <th>Reg Date</th>
-                                <th>Reg No.</th>
-                                <th>Nama Perusahaan</th>
-                                <th>Reg Status</th>
-                                <th>Reg Type</th>
-                                <th>Product Group</th>
-                                <th>BPJPH Product Type</th>
-                                <th width="20%">Action</th>
+                                <th>Reg Id</th>
+                                <th>Tanggal Selesai</th>
+                                <th>Keterangan</th>
+                                <th>Hasil Audit</th>
+                         
                             </tr>
                             <!--end::Table row-->
                         </thead>
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                            @foreach ($selesai as $item)
+                            @foreach ($filter as $item)
                                 
                        
                                 <tr>
                                 
-                                    <th>{{str_replace("T00:00:00.000Z","",$item["tgl_daftar"])}}</th>
                                     <th class="text-primary">{{$item["id_reg"]}}</th>
-                                    <th>{{$item["nama_pu"]}}</th>
-                                    <th><span class="badge badge-success">{{str_replace("/Pendamping PPH","",$item["nama_status_reg"])}}</span></th>
-                                    <th>{{$item["nama_jenis_usaha"]}}</th>
-                                    <th>{{$item["nama_jenis_daftar"]}}</th>
-                                    <th>{{$item["nama_jenis_produk"]}}</th>
+                                    <th>{{str_replace("T17:00:00.000Z","",$item["tgl_selesai"])}}</th>
+                                    <th>{{$item["keterangan"]}}</th>
+                                    <th>@if ($item["hasil_audit"] == "PR001")
+                                        <span class="badge badge-primary">Sukses</span>
+                                    @endif</th>
                                     
-                                    <th>
-                                       <a href="/api/selesai/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">Laporan</a>
-                                    </th>
+                                  
                                 </tr>
                               @endforeach
                         </tbody>
