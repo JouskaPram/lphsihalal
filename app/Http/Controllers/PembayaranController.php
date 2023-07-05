@@ -74,7 +74,7 @@ class PembayaranController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-            Alert::success("Sukses","Pembayaran Berhasil Di Tambahkan");
+            Alert::info("Sukses","Pembayaran Berhasil Di Tambahkan");
             return redirect()->back();
         }
     }
@@ -148,8 +148,8 @@ class PembayaranController extends Controller
 
         $response = $client->delete("$url/costs/$b");
         if($response->getStatusCode() == 200){
-            Alert::error("Sukses","Pembayaran Berhasil Di hapus");
-           return redirect()->back();
+            
+           return redirect()->back()->with("deleted","Data Berhasil Di Hapus");
         }
         else{
             null;

@@ -7,12 +7,10 @@
 @include('sweetalert::alert')
 @section('content')
    <div id="kt_app_content_container" class="app-container container-fluid mt-20">
-    @if(session('posted'))
-        <h3 class="text-danger">{{session("posted")}}</h3>
+    @if(session('deleted'))
+        <div class="alert alert-danger">{{session("deleted")}}</div>
     @endif
-    @if(session('success'))
-        <h3 class="text-danger">{{session("success")}}</h3>
-    @endif
+   
     <div class="card card-flush">
       <h4 class="text-dark px-10 pt-10">No. Reg {{$id}}</h4>
      

@@ -43,15 +43,15 @@ Route::middleware('cookie')->group(function () {
 
 // pembayaran route
 Route::middleware("cookie")->group(function ()  {
-   Route::controller(PembayaranController::class)->group(function(){ 
+   Route::controller(PembayaranController::class)->middleware("api-session")->group(function(){ 
     Route::get("/pembayaran","getPembayaran");
-    Route::get("/pembayaran/{id}","singlePembayaran")->middleware("api-session");
-    Route::get("/pembayaran/update/{id}/{b}","updateLayoutBiaya")->middleware("api-session");
-    Route::put("/pembayaran/update/{id}/{b}","updateBiaya")->middleware("api-session");
-    Route::post("/pembayaran/{id}/status","updateStatus")->middleware("api-session");
+    Route::get("/pembayaran/{id}","singlePembayaran");
+    Route::get("/pembayaran/update/{id}/{b}","updateLayoutBiaya");
+    Route::put("/pembayaran/update/{id}/{b}","updateBiaya");
+    Route::post("/pembayaran/{id}/status","updateStatus");
     Route::get("/pembayaran/{id}/add","layoutPost");
-    Route::post("/pembayaran/add","postPembayaran")->middleware("api-session");
-    Route::delete("/pembayaran/delete/{id}/{b}","deletePembayaran")->middleware("api-session")->name("pembayaran.delete");
+    Route::post("/pembayaran/add","postPembayaran");
+    Route::delete("/pembayaran/delete/{id}/{b}","deletePembayaran")->name("pembayaran.delete");
    });
 });
 

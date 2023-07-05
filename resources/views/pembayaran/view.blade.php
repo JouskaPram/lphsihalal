@@ -8,9 +8,7 @@
    <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid mt-20">
         <!--begin::Card-->
-        @if(session("updated"))       
-          <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
-        @endif
+       
         <div class="card card-flush">
            
             <!--begin::Card header-->

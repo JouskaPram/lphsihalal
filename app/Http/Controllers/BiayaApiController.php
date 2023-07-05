@@ -130,10 +130,10 @@ class BiayaApiController extends Controller
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
         $response = $client->delete("$url/costs/$id");
-         Alert::alert('Title', 'Message', 'Type');
+     
         if($response->getStatusCode() == 200){
-            Alert::error("Sukses","Biaya Berhasil Di Hapus");
-             return redirect()->back();
+            
+            return redirect()->back()->with("deleted","Biaya Berhasil Di Hapus");
         }
         else{
             null;
