@@ -72,7 +72,7 @@
                         <!--end::Table head-->
                         <!--begin::Table body-->
                         <tbody class="fw-semibold text-gray-600">
-                            @foreach ($jadwal as $item)
+                            @foreach ($filter as $item)
                                 
                        
                                 <tr>

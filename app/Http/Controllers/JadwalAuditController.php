@@ -11,16 +11,28 @@ class JadwalAuditController extends Controller
     public function JadwalAuditior()  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $lph = env("LPH_MAPED");
         // $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=asc&limit=10");
+        $reg = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph");
+      
+        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=asc&limit=4042");
+      
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
+            $reg = json_decode($reg->getBody(),true);
+            $id = $reg["payload"];
+            
             $jadwal = $data["payload"];
+            $filter = array_filter($jadwal,function ($jadwal) use($id){
+                foreach ($id as $key) {
+                    return $jadwal["id_reg"] == $key["id_reg"];       
+                }
+            });
+       
+                        
             
-            
-            return view("jadwal.view",["jadwal"=>$jadwal]);
+            return view("jadwal.view",["filter"=>$filter]);
         }
         else{
             null;

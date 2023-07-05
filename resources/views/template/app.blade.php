@@ -12,7 +12,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="" />
-    <link rel="shortcut icon" href="{{ asset('assets/media/logos/LOGO_LPH_ALUMM_VECTOR.png') }}}" />
+    <link rel="shortcut icon" href="{{ asset('assets/media/logos/LOGO_LPH_ALUMM_VECTOR.png') }}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--begin::Vendor Stylesheets(used for this page only)-->
     <link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet"
