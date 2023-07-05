@@ -88,10 +88,10 @@
                                         <th>
                                             <div class="d-flex gap-3">
 
-                                                <a href="/api/jadwal/{{$item["id_reg"]}}/{{$item["id_audit"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
+                                                <a href="/api/jadwal/{{$item["id_reg"]}}/{{$item["id_audit"]}}" class="btn btn-secondary h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"><i class="fas fa-info-circle "></i></a>
                                                 <form action="/api/jadwal/delete/{{$item["id_audit"]}}" method="post">
                                                     @method("DELETE")
-                                                    <button type="submit" class="btn btn-danger h-40px fs-7 fw-bold">delete</button>
+                                                    <button type="submit" class="btn btn-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
                                                 </form>
                                             </div>
                                         </th>

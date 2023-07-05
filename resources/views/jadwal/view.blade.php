@@ -42,9 +42,7 @@
 
 
                     <!--begin::Button-->
-                    <button type="button" id="excel-table" class="btn btn-light-primary">
-                        <span class="fas fa-file"></span> Export Excel
-                    </button>
+                    
                     <!--end::Button-->
                 </div>
                 <!--end::Card toolbar-->
@@ -83,8 +81,8 @@
                                     <th>{{$item["jml_hari"]}}</th>
                                     
                                     <th>
-                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold">View</a>
-                                       <a href="/api/jadwal/delete/{{$item["id_audit"]}}" class="btn btn-danger">delete</a>
+                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"><i class="fas fa-info-circle "></i></a>
+                                       <a href="/api/jadwal/delete/{{$item["id_audit"]}}" class="btn btn-danger mx-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></a>
                                     </th>
                                 </tr>
                               @endforeach

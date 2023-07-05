@@ -28,9 +28,9 @@ class BiayaApiController extends Controller
             $biaya = $data["payload"];
             
           $filter = array_filter($biaya, function ($biaya) use ($id) {
-    $filteredIds = array_column($id, 'id_reg');
-    return in_array($biaya['id_reg'], $filteredIds);
-});
+            $filteredIds = array_column($id, 'id_reg');
+            return in_array($biaya['id_reg'], $filteredIds);
+        });
         
             return view("biaya.view",["filter"=>$filter]);
         }
