@@ -13,15 +13,16 @@ class DataListApi extends Controller
     public function GetDataList(Request $request)
     {
     $lph = env("LPH_MAPED");
+    $url = env("LPH_URL");
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
 
     $response = Http::withHeaders([
         "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-    ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph");
+    ])->get("$url/data_list/10010/$lph");
     $respenetapan = Http::withHeaders([
         "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-    ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph");
+    ])->get("$url/data_list/10020/$lph");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $penetapan = json_decode($respenetapan->getBody(),true);
@@ -40,10 +41,10 @@ class DataListApi extends Controller
         // 
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-
+        $url = env("LPH_URL");
       $response = Http::withHeaders([
         "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-    ])->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+    ])->get("$url/reg/$reg");
     
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
@@ -58,11 +59,11 @@ class DataListApi extends Controller
     }
 
     public function getFactory($reg) {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+    $response = $client->get("$url/reg/$reg");
 
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
@@ -75,11 +76,11 @@ class DataListApi extends Controller
         }
     }
     public function getProduct($reg) {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+    $response = $client->get("$url/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $product =  $data["payload"]["products"];
@@ -91,11 +92,11 @@ class DataListApi extends Controller
         }
     }
     public function getPu($reg) {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+    $response = $client->get("$url/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $pu =  $data["payload"]["pu"];
@@ -107,11 +108,11 @@ class DataListApi extends Controller
         }
     }
     public function getPenyelia($reg) {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+    $response = $client->get("$url/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $penyelia =  $data["payload"]["penyelia"];
@@ -123,11 +124,11 @@ class DataListApi extends Controller
         }
     }
     public function getDocuments($reg) {
-         $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg/$reg");
+    $response = $client->get("$url/reg/$reg");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $doc =  $data["payload"]["documents"];
@@ -143,9 +144,9 @@ class DataListApi extends Controller
     public function updateStatus($reg)  {
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-    
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+    $response = $client->post("$url/data_list/updatestatus", [
          "json" => [
             "status" => "ajuan",
             "reg_id" =>  $reg,

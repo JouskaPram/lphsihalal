@@ -9,14 +9,15 @@ use Illuminate\Support\Facades\Http;
 class SelesaiController extends Controller
 {
     public function getSelesai()  {
-             $lph = env("LPH_MAPED");
+        $lph = env("LPH_MAPED");
+        $url = env("LPH_URL");
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
 
 
         $response = Http::withHeaders([
             "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-        ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10040/$lph");
+        ])->get("$url/data_list/10040/$lph");
         if ($response->getStatusCode() == 200) {
             $data = json_decode($response->getBody(), true);
             $selesai = $data["payload"];
@@ -29,12 +30,12 @@ class SelesaiController extends Controller
         };
     }
     public function getKeterangan($id)  {
-          $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_result?limit=22471&order_dir=desc");
+        $response = $client->get("$url/audit_result?limit=22471&order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
 

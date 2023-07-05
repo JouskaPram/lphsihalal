@@ -12,10 +12,10 @@ class BiayaApiController extends Controller
     public function getBiaya()  {
        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs?order_dir=desc");
+        $response = $client->get("$url/costs?order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
             $biaya = $data["payload"];
@@ -31,8 +31,9 @@ class BiayaApiController extends Controller
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
     $lph = env("LPH_MAPED");
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph", [
+    $response = $client->get("$url/data_list/10020/$lph", [
 
     ]);
     if($response->getStatusCode() == 200){
@@ -49,9 +50,10 @@ class BiayaApiController extends Controller
     public function postBiaya()  {
          $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
+        $url = env("LPH_URL");
     
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/costs", [
+        $response = $client->post("$url/costs", [
         "json" => [
             "id_reg" => request("reg"),
             "keterangan" => request("keterangan"),
@@ -79,10 +81,11 @@ class BiayaApiController extends Controller
     public function updateBiaya($id)  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
+        $url = env("LPH_URL");
         
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/costs/$id",[
+        $response = $client->put("$url/costs/$id",[
             "json"=>[
                 "id_reg"=>request("id_reg"),
                 "keterangan"=>request("keterangan"),
@@ -97,10 +100,10 @@ class BiayaApiController extends Controller
     public function singleBiaya($id) {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs?order_dir=desc");
+        $response = $client->get("$url/costs?order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
 
@@ -119,10 +122,10 @@ class BiayaApiController extends Controller
     public function deleteBiaya($id) {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-        
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$id");
+        $response = $client->delete("$url/costs/$id");
          Alert::alert('Title', 'Message', 'Type');
         if($response->getStatusCode() == 200){
     

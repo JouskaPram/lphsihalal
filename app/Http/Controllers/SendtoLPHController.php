@@ -12,11 +12,11 @@ class SendtoLPHController extends Controller
         $lph = env("LPH_MAPED");
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-
+        $url = env("LPH_URL");
 
         $response = Http::withHeaders([
             "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-        ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph");
+        ])->get("$url/data_list/10030/$lph");
         if ($response->getStatusCode() == 200) {
             $data = json_decode($response->getBody(), true);
             $sendto = $data["payload"];
@@ -31,11 +31,11 @@ class SendtoLPHController extends Controller
     public function upStatus($id)  {
         // function untuk update status ke selesai proses di lph
         // name status periksa
-        $myCookieValue = request()->cookie('__bpjph_ct');
+    $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-    
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+    $response = $client->post("$url/data_list/updatestatus", [
          "json" => [
             "status" => "PERIKSA",
             "reg_id" =>  $id,
@@ -54,9 +54,9 @@ class SendtoLPHController extends Controller
         // name status ajuan
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
-    
+    $url = env("LPH_URL");
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
+    $response = $client->post("$url/data_list/updatestatus", [
          "json" => [
             "status" => "periksa",
             "reg_id" =>  $id,

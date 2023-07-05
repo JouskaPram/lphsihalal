@@ -9,32 +9,32 @@ use Illuminate\Support\Facades\Http;
 class PembayaranController extends Controller
 {
     public function getPembayaran() {
-         $lph = env("LPH_MAPED");
-    $myCookieValue = request()->cookie('__bpjph_ct');
-    $RefreshToken = request()->cookie('__bpjph_rt');
+        $lph = env("LPH_MAPED");
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        $url = env("LPH_URL");
 
-
-    $response = Http::withHeaders([
-        "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-    ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph");
-    if ($response->getStatusCode() == 200) {
-        $data = json_decode($response->getBody(), true);
-        $pembayaran = $data["payload"];
-        $count= $data["payload"];
-        $total = count($count);
-        // return $pembayaran;
-        return view("pembayaran.view",["pembayaran"=>$pembayaran,"total"=>$total]);
-    } else {
-        return null; 
-    };
+        $response = Http::withHeaders([
+            "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
+        ])->get("$url/data_list/10020/$lph");
+        if ($response->getStatusCode() == 200) {
+            $data = json_decode($response->getBody(), true);
+            $pembayaran = $data["payload"];
+            $count= $data["payload"];
+            $total = count($count);
+            // return $pembayaran;
+            return view("pembayaran.view",["pembayaran"=>$pembayaran,"total"=>$total]);
+        } else {
+            return null; 
+        };
     }
     public function singlePembayaran($id)  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs?order_dir=desc");
+        $response = $client->get("$url/costs?order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
 
@@ -57,11 +57,12 @@ class PembayaranController extends Controller
    
 }   
     public function postPembayaran() {
-          $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $reg = request("reg");
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/costs", [
+        $response = $client->post("$url/costs", [
         "json" => [
             "id_reg" => request("reg"),
             "keterangan" => request("keterangan"),
@@ -77,30 +78,30 @@ class PembayaranController extends Controller
         }
     }
     public function updateStatus($id) {
-    $myCookieValue = request()->cookie('__bpjph_ct');
-    $RefreshToken = request()->cookie('__bpjph_rt');
-    
-    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
-         "json" => [
-            "status" => "biaya",
-            "reg_id" =>  $id,
-            "lph_mapped_id"=>env("LPH_MAPED"),
-        ],
-    ]);
-    if($response->getStatusCode()==200){
-        // return $response;      
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        $url = env("LPH_URL");
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+        $response = $client->post("$url/data_list/updatestatus", [
+            "json" => [
+                "status" => "biaya",
+                "reg_id" =>  $id,
+                "lph_mapped_id"=>env("LPH_MAPED"),
+            ],
+        ]);
+        if($response->getStatusCode()==200){
+            // return $response;      
 
-        return redirect("/api/pembayaran");
-    } 
+            return redirect("/api/pembayaran");
+        } 
     }
     public function updateLayoutBiaya($id,$b) {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/costs?order_dir=desc");
+        $response = $client->get("$url/costs?order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
 
@@ -119,12 +120,12 @@ class PembayaranController extends Controller
     }
 
     public function updateBiaya($id,$b) {
-           $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-        
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/costs/$b",[
+        $response = $client->put("$url/costs/$b",[
             "json"=>[
                 "id_reg"=>$id,
                 "keterangan"=>request("keterangan"),
@@ -140,10 +141,10 @@ class PembayaranController extends Controller
        
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-        
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/costs/$b");
+        $response = $client->delete("$url/costs/$b");
         if($response->getStatusCode() == 200){
            return redirect("/api/pembayaran/$id");
         }

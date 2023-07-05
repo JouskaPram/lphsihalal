@@ -11,20 +11,21 @@ class DashboardController extends Controller
 {
     public function Dashboard() {
         $lph = env("LPH_MAPED");
+        $url = env("LPH_URL");
         $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
     
     $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10010/$lph", [
+    $response = $client->get("$url/data_list/10010/$lph", [
 
     ]);
-    $res = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10020/$lph", [
+    $res = $client->get("$url/data_list/10020/$lph", [
 
     ]);
-    $proses = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph", [
+    $proses = $client->get("$url/data_list/10030/$lph", [
 
     ]);
-    $resbiaya = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10040/$lph", [
+    $resbiaya = $client->get("$url/data_list/10040/$lph", [
 
     ]);
 

@@ -12,11 +12,12 @@ class LaporanController extends Controller
           $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $lph = env("LPH_MAPED");
+        $url = env("LPH_URL");
         // $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $reg = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10040/$lph");
+        $reg = $client->get("$url/data_list/10040/$lph");
       
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_result?order_dir=desc&limit=22471");
+        $response = $client->get("$url/audit_result?order_dir=desc&limit=22471");
       
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
@@ -29,9 +30,7 @@ class LaporanController extends Controller
                     return $laporan["id_reg"] == $key["id_reg"];       
                 }
             });
-            
-                        
-            
+                    
             return view("laporan.page",["filter"=>$filter]);
         }
         else{
@@ -41,13 +40,14 @@ class LaporanController extends Controller
 
     public function postLayout($id)  {
     $lph = env("LPH_MAPED");
+    $url = env("LPH_URL");
     $myCookieValue = request()->cookie('__bpjph_ct');
     $RefreshToken = request()->cookie('__bpjph_rt');
 
 
     $response = Http::withHeaders([
         "Cookie" =>'__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken,
-    ])->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph");
+    ])->get("$url/data_list/10030/$lph");
     if ($response->getStatusCode() == 200) {
         $data = json_decode($response->getBody(), true);
         $laporan = $data["payload"];
@@ -60,6 +60,7 @@ class LaporanController extends Controller
     public function postLaporan()
     {
         set_time_limit(120);
+        
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $url = env("LPH_URl");

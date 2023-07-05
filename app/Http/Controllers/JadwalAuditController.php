@@ -12,11 +12,12 @@ class JadwalAuditController extends Controller
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $lph = env("LPH_MAPED");
+        $url = env("LPH_URL");
         // $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $reg = $client->get("http://dev-lph-api.halal.go.id/api/v1/data_list/10030/$lph");
+        $reg = $client->get("$url/data_list/10030/$lph");
       
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=asc&limit=4042");
+        $response = $client->get("$url/audit_schedule?order_dir=asc&limit=4042");
       
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
@@ -42,10 +43,10 @@ class JadwalAuditController extends Controller
     public function singleLayout($id)  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=desc");
+        $response = $client->get("$url/audit_schedule?order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
 
@@ -72,12 +73,13 @@ class JadwalAuditController extends Controller
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $reg = request("req");
+        $url = env("LPH_URL");
         $dari = strtotime(request("dari"));
 $sampai = strtotime(request("sampai")); 
 
 $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/audit_schedule", [
+        $response = $client->post("$url/audit_schedule", [
         "json" => [
             "id_reg" => request("reg"),
             "jadwal_awal" => request("dari"),
@@ -95,10 +97,11 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
     public function deleteJadwal($id)  {
             $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
+        $url = env("LPH_URL");
         
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/audit_schedule/$id");
+        $response = $client->delete("$url/audit_schedule/$id");
        
         if($response->getStatusCode() == 200){
             Alert::warning('Warning Title', 'Jadwal Berhasil Di Hapus');
@@ -110,31 +113,31 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
       
     }
     public function updateStatus($id)  {
-               $myCookieValue = request()->cookie('__bpjph_ct');
-    $RefreshToken = request()->cookie('__bpjph_rt');
-    
-    $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-    $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/data_list/updatestatus", [
-         "json" => [
-            "status" => "biaya",
-            "reg_id" =>  $id,
-            "lph_mapped_id"=>env("LPH_MAPED"),
-        ],
-    ]);
-    if($response->getStatusCode()==200){
-        // return $response;      
+        $myCookieValue = request()->cookie('__bpjph_ct');
+        $RefreshToken = request()->cookie('__bpjph_rt');
+        $url = env("LPH_URL");
+        $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
+        $response = $client->post("$url/data_list/updatestatus", [
+            "json" => [
+                "status" => "biaya",
+                "reg_id" =>  $id,
+                "lph_mapped_id"=>env("LPH_MAPED"),
+            ],
+        ]);
+        if($response->getStatusCode()==200){
+            // return $response;      
 
-        return redirect("/api/pembayaran");
+            return redirect("/api/pembayaran");
     } 
     }
     public function updateLayout($id,$up)  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-    
+        $url = env("LPH_URL");
         $client = new Client
         (['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/audit_schedule?order_dir=desc");
+        $response = $client->get("$url/audit_schedule?order_dir=desc");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
 
@@ -156,15 +159,16 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
     }
 
     public function updateJadwal($id,$up)  {
-          $myCookieValue = request()->cookie('__bpjph_ct');
+        $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $reg = request("req");
+        $url = env("LPH_URL");
         $dari = strtotime(request("dari"));
 $sampai = strtotime(request("sampai")); 
 
 $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->put("http://dev-lph-api.halal.go.id/api/v1/audit_schedule/$up", [
+        $response = $client->put("$url/audit_schedule/$up", [
         "json" => [
             "id_reg" => $id,
             "jadwal_awal" => request("dari"),

@@ -11,9 +11,10 @@ class AuditController extends Controller
          $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $lph = "LPH E-ALMUMTAZAH";
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
 
-        $response = $client->get("http://dev-lph-api.halal.go.id/api/v1/reg_auditor?limit=4469");
+        $response = $client->get("$url/reg_auditor?limit=4469");
         if($response->getStatusCode()==200){
             $data = json_decode($response->getBody(),true);
             $auditor = $data["payload"];
@@ -33,9 +34,9 @@ class AuditController extends Controller
     public function postAuditior()  {
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->post("http://dev-lph-api.halal.go.id/api/v1/reg_auditor", [
+        $response = $client->post("$url/reg_auditor", [
         "json" => [
             "id_reg" => request("reg"),
             "auditor_id" => env("LPH_MAPED"),
@@ -52,9 +53,9 @@ class AuditController extends Controller
     public function deleteAuditior($id)  {
          $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
-
+        $url = env("LPH_URL");
         $client = new Client(['headers' => ['Cookie' => '__bpjph_ct='.$myCookieValue.';__bpjph_rt='.$RefreshToken]]);
-        $response = $client->delete("http://dev-lph-api.halal.go.id/api/v1/reg_auditor/$id");
+        $response = $client->delete("$url/reg_auditor/$id");
      
         if($response->getStatusCode()==200){
         
