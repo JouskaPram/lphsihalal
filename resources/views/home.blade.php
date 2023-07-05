@@ -245,7 +245,7 @@
               </div>
               <div id="description">
                 <h3 class=" text-dark fw-semibold my-5" >Daftar Sertifikasi Halal Lebih Cepat dan Mudah</h3>
-                <a href="https://ptsp.halal.go.id/" class="btn btn-primary">Daftar Di Sini</a>
+                <a href="https://ptsp.halal.go.id/"  target="_blank"  class="btn btn-primary">Daftar Di Sini</a>
                 <div class="d-flex align-items-center justify-content-center gap-5  pt-10 " style="width: 70%" >
                     <img  src="https://1.bp.blogspot.com/-IjwJ1RK7f3A/YIKYoGHVDyI/AAAAAAAAClI/wh33g5ObyR8ncmXinj1bDX_-8DS9wPC0gCNcBGAsYHQ/s2048/Majelis%2BUlama%2BIndonesia.png" class="logo-default w-60px h-lg-60px" />
                     <img  src="https://www.freepnglogos.com/uploads/logo-kemenag-png/logo-kementerian-agama-gambar-logo-depag-png-0.png" class="logo-default w-60px h-lg-60px" />
