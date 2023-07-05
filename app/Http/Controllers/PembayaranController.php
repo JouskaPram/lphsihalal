@@ -75,7 +75,7 @@ class PembayaranController extends Controller
      
         if($response->getStatusCode()==200){
             Alert::success("Sukses","Pembayaran Berhasil Di Tambahkan");
-           return redirect("/api/pembayaran/$reg");
+            return redirect()->back();
         }
     }
     public function updateStatus($id) {
@@ -91,9 +91,9 @@ class PembayaranController extends Controller
             ],
         ]);
         if($response->getStatusCode()==200){
-            // return $response;      
-Alert::success("Sukses","Status Berhasil Di Ubah");
-            return redirect("/api/pembayaran");
+            
+            Alert::success("Sukses","Status Berhasil Di Ubah");
+            return redirect()->back();
         } 
     }
     public function updateLayoutBiaya($id,$b) {
@@ -136,7 +136,7 @@ Alert::success("Sukses","Status Berhasil Di Ubah");
         ]);
         if($response->getStatusCode()==200){
             Alert::info("Sukses","Pembayaran Berhasil Di Ubah");
-             return redirect("/api/pembayaran/$id");
+            return redirect()->back();
         }
     }
     public function deletePembayaran($id,$b)  {
@@ -149,7 +149,7 @@ Alert::success("Sukses","Status Berhasil Di Ubah");
         $response = $client->delete("$url/costs/$b");
         if($response->getStatusCode() == 200){
             Alert::error("Sukses","Pembayaran Berhasil Di hapus");
-           return redirect("/api/pembayaran/$id");
+           return redirect()->back();
         }
         else{
             null;

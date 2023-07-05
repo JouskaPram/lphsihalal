@@ -85,6 +85,7 @@
 @endsection
 
 @section('custom-js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     $('#facility_id').change(function() {
         $('#address').val($(this).find(':selected').data('address'));

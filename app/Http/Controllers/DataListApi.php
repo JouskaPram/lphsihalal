@@ -155,8 +155,8 @@ class DataListApi extends Controller
     ]);
     if($response->getStatusCode()==200){
         // return $response;      
-
-        return redirect("/api/datalist");
+        Alert::success("Sukses","Berhasil Mengubah Status");
+         return redirect()->back();
     } 
     }
     
