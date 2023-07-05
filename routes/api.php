@@ -77,7 +77,7 @@ Route::middleware("cookie")->group(function(){
     Route::get("/invoice",[InvoiceController::class,"getInvoice"]);
 });
 
-// 
+// Process Route
 Route::middleware("cookie")->group(function(){
     Route::controller(SendtoLPHController::class)->group(function(){ 
         Route::get("/proces","getsentolph");
@@ -92,6 +92,7 @@ Route::middleware("cookie")->group(function(){
     });
 });
 
+// Jadwal Route
 Route::middleware("cookie")->group(function () {
     Route::controller(JadwalAuditController::class)->group(function (){
        Route::get("/jadwal","JadwalAuditior");

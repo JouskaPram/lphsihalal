@@ -125,8 +125,16 @@
                 </div>
                 <!--end::Heading-->
                 <!--begin:Menu item-->
+               <div class="menu-item menu-active py-2 ">
+    <span class="menu-link ">
+        <span class="menu-icon">
+            <i class="fa-solid fa-house fs-2 "></i>
+        </span>
+        <span class="menu-title"><a href="/" class="">Home</a></span>
+    </span>
+</div>
                <div class="menu-item menu-active py-2">
-    <span class="menu-link">
+    <span class="menu-link {{ strstr(Request::url(), 'dashboard') ? 'bg-light' : '' }}">
         <span class="menu-icon">
             <i class="fa-solid fa-chart-pie fs-2 {{ strstr(Request::url(), 'dashboard') ? 'text-primary' : '' }}"></i>
         </span>
@@ -141,7 +149,7 @@
                 </div>
 
                 <div class="menu-item  py-2">
-                    <span class="menu-link menu-active " >
+                    <span class="menu-link {{ strstr(Request::url(), 'datalist') ? 'bg-light' : '' }} " >
                         <span class="menu-icon">
                             <i class="fa-solid fa-users fs-2 {{ strstr(Request::url(), 'datalist') ? 'text-primary' : '' }}"></i>
                         </span>
@@ -150,7 +158,7 @@
                 </div>
                 
                 <div class="menu-item  py-2">
-                    <span class="menu-link">
+                    <span class="menu-link {{ strstr(Request::url(), 'pembayaran') ? 'bg-light' : '' }}">
                         <span class="menu-icon">
                             <i class="fas fa-credit-card fs-2 {{ strstr(Request::url(), 'pembayaran') ? 'text-primary' : '' }}" ></i>
                         </span>
@@ -160,7 +168,7 @@
 
                 
                 <div class="menu-item  py-2">
-                    <span class="menu-link">
+                    <span class="menu-link {{ strstr(Request::url(), 'proces') ? 'bg-light' : '' }}">
                         <span class="menu-icon">
                        <i class="fa-solid fa-bars-progress fs-2 {{ strstr(Request::url(), 'proces') ? 'text-primary' : '' }}"></i>
                         </span>
@@ -168,8 +176,8 @@
                     </span>
                 </div>
                 <div class="menu-item  py-2">
-                    <span class="menu-link">
-                        <span class="menu-icon">
+                    <span class="menu-link {{ strstr(Request::url(), 'selesai') ? 'bg-light' : '' }}">
+                        <span class="menu-icon ">
                       <i class="fa-solid fa-circle-check fs-2 {{ strstr(Request::url(), 'selesai') ? 'text-primary' : '' }}"></i>
                         </span>
                         <span class="menu-title"><a href="/api/selesai">Selesai Di Proses</a></span>
@@ -182,7 +190,7 @@
                     <!--end::Separator-->
                 </div>
                   <div class="menu-item  py-2">
-                    <span class="menu-link">
+                    <span class="menu-link {{ strstr(Request::url(), 'biaya') ? 'bg-light' : '' }}">
                         <span class="menu-icon">
                            <i class="fa-solid fa-sack-dollar fs-2 {{ strstr(Request::url(), 'biaya') ? 'text-primary' : '' }}"></i>
                         </span>
@@ -190,23 +198,23 @@
                     </span>
                 </div>
                   <div class="menu-item  py-2">
-                    <span class="menu-link">
-                        <span class="menu-icon">
+                    <span class="menu-link {{ strstr(Request::url(), 'jadwal') ? 'bg-light' : '' }}">
+                        <span class="menu-icon ">
                             <i class="fa-solid fa-calendar-days fs-2 {{ strstr(Request::url(), 'jadwal') ? 'text-primary' : '' }}"></i>
                         </span>
                         <span class="menu-title"><a href="/api/jadwal">Jadwal Audit</a></span>
                     </span>
                 </div>
                   <div class="menu-item  py-2">
-                    <span class="menu-link">
-                        <span class="menu-icon">
+                    <span class="menu-link {{ strstr(Request::url(), 'auditior') ? 'bg-light' : '' }}">
+                        <span class="menu-icon ">
                             <i class="fa-solid fa-user-pen fs-2 {{ strstr(Request::url(), 'auditior') ? 'text-primary' : '' }}"></i>
                         </span>
                         <span class="menu-title"><a href="/api/auditior">Auditior</a></span>
                     </span>
                 </div>
                 <div class="menu-item  py-2">
-                    <span class="menu-link">
+                    <span class="menu-link {{ strstr(Request::url(), 'laporan') ? 'bg-light' : '' }}">
                         <span class="menu-icon">
                        <i class="fa-solid fa-clipboard fs-2 {{ strstr(Request::url(), 'laporan') ? 'text-primary' : '' }}"></i>
                         </span>
@@ -214,27 +222,14 @@
                     </span>
                 </div>
                 <div class="menu-item  py-2">
-                    <span class="menu-link">
+                    <span class="menu-link {{ strstr(Request::url(), 'invoice') ? 'bg-light' : '' }}">
                         <span class="menu-icon">
                        <i class="fa-solid fa-file fs-2 {{ strstr(Request::url(), 'invoice') ? 'text-primary' : '' }}"></i>
                         </span>
                         <span class="menu-title"><a href="/api/invoice">Invoice</a></span>
                     </span>
                 </div>
-                 <div class="menu-item mb-2 ">
-                    <div class="menu-heading text-uppercase fs-7 fw-bold">Auth</div>
-                    <!--begin::Separator-->
-                    <div class="app-sidebar-separator separator"></div>
-                    <!--end::Separator-->
-                </div>
-                <div class="menu-item  py-2">
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                       <i class="fa-solid fa-circle-arrow-left fs-2 {{ strstr(Request::url(), 'invoice') ? 'text-primary' : '' }}"></i>
-                        </span>
-                        <span class="menu-title"><a href="/api/invoice">Logout</a></span>
-                    </span>
-                </div>
+                 
                 <!--end:Menu item-->
             </div>
             <!--end::Sidebar menu-->
@@ -330,6 +325,26 @@
     <script src="//www.google.com/jsapi"></script>
     {{-- custom js --}}
     <script src="{{asset('assets/js/sw.js')}}"></script>
+   <script>
+			function signout() {
+				Swal.fire({
+					title: "Apakah Anda yakin ingin keluar dari akun anda?",
+					icon: "warning",
+					buttonsStyling: false,
+					showCancelButton: true,
+					confirmButtonText: "Ya, Keluar!",
+					cancelButtonText: 'Tidak, Batal!',
+					customClass: {
+						confirmButton: "btn btn-primary",
+						cancelButton: 'btn btn-danger'
+					}
+				}).then((result) => {
+					if (result.isConfirmed) {
+						window.location="{{ route('auth.logout') }}"
+					}
+				});
+			}
+</script>
     @yield('custom-js')
 
     @if ($message = Session::get('failed'))
