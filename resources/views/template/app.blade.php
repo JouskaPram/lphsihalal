@@ -128,7 +128,7 @@
                 <div class="menu-item menu-active  py-2">
                     <span class="menu-link">
                         <span class="menu-icon ">
-                            <i class="fonticon-house fs-2"></i>
+                            <i class="fa-solid fa-chart-pie fs-2"></i>
                         </span>
                         <span class="menu-title"><a href="/api/dashboard">Dashboards</a></span>
                     </span>
@@ -136,7 +136,7 @@
                 <div class="menu-item  py-2">
                     <span class="menu-link menu-active " @if(strstr( URL::current(), "datalist" )) bg-primary text-light @endif>
                         <span class="menu-icon">
-                            <i class="fas fa-list fs-2"></i>
+                            <i class="fa-solid fa-users fs-2"></i>
                         </span>
                         <span class="menu-title"><a href="/api/datalist">Data Mohon</a></span>
                     </span>
