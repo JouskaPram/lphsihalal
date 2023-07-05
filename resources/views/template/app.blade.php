@@ -133,6 +133,12 @@
         <span class="menu-title"><a href="/api/dashboard" class="">Dashboards</a></span>
     </span>
 </div>
+             <div class="menu-item mb-2">
+                    <div class="menu-heading text-uppercase fs-7 fw-bold">Process</div>
+                    <!--begin::Separator-->
+                    <div class="app-sidebar-separator separator"></div>
+                    <!--end::Separator-->
+                </div>
 
                 <div class="menu-item  py-2">
                     <span class="menu-link menu-active " >
@@ -168,6 +174,12 @@
                         </span>
                         <span class="menu-title"><a href="/api/selesai">Selesai Di Proses</a></span>
                     </span>
+                </div>
+                  <div class="menu-item mb-2">
+                    <div class="menu-heading text-uppercase fs-7 fw-bold">Admin</div>
+                    <!--begin::Separator-->
+                    <div class="app-sidebar-separator separator"></div>
+                    <!--end::Separator-->
                 </div>
                   <div class="menu-item  py-2">
                     <span class="menu-link">
@@ -207,6 +219,20 @@
                        <i class="fa-solid fa-file fs-2 {{ strstr(Request::url(), 'invoice') ? 'text-primary' : '' }}"></i>
                         </span>
                         <span class="menu-title"><a href="/api/invoice">Invoice</a></span>
+                    </span>
+                </div>
+                 <div class="menu-item mb-2 ">
+                    <div class="menu-heading text-uppercase fs-7 fw-bold">Auth</div>
+                    <!--begin::Separator-->
+                    <div class="app-sidebar-separator separator"></div>
+                    <!--end::Separator-->
+                </div>
+                <div class="menu-item  py-2">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                       <i class="fa-solid fa-circle-arrow-left fs-2 {{ strstr(Request::url(), 'invoice') ? 'text-primary' : '' }}"></i>
+                        </span>
+                        <span class="menu-title"><a href="/api/invoice">Logout</a></span>
                     </span>
                 </div>
                 <!--end:Menu item-->

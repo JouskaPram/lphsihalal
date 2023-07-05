@@ -82,7 +82,7 @@
                                     
                                     <th>
                                        <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"><i class="fas fa-info-circle "></i></a>
-                                       <a href="/api/jadwal/delete/{{$item["id_audit"]}}" class="btn btn-danger mx-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                                       <a href="/api/jadwal/delete/{{$item["id_audit"]}}" class="btn btn-light-danger h-40px fs-7 fw-bold mx-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></a>
                                     </th>
                                 </tr>
                               @endforeach

@@ -85,7 +85,7 @@
                                         @csrf
                                         @method("DELETE")
                                         
-                                        <button type="submit" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-light-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
                                         </form>
                                     </th>
                                 </tr>
