@@ -11,9 +11,11 @@
    
         <div id="kt_app_content_container" class="app-container container-fluid mt-20">
             <!--begin::Card-->
-            @if(session("delete"))       
-              <h3 class="text-primary py-3 ">{{session("delete")}}</h3>
-            @endif
+        
+              {{-- @if ($message = Session::get('success')) --}}
+    
+    {{-- @endif --}}
+
             <a href="/api/jadwal/post/{{$id}}" class="btn btn-primary my-5">Atur Jadwal</a>
             <div class="card card-flush">
                 <!--begin::Card header-->
@@ -114,6 +116,7 @@
    </div>
 @endsection
 @section('custom-js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function initDataTable() {
             let initTable = $('#table_init').DataTable({

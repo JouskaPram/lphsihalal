@@ -8,9 +8,7 @@
    <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-fluid mt-20">
         <!--begin::Card-->
-        @if(session("updated"))       
-          <h3 class="text-primary py-3 ">{{session("updated")}}</h3>
-        @endif
+       
         <div class="card card-flush">
             <!--begin::Card header-->
             <div class="card-header mt-6">
@@ -81,8 +79,14 @@
                                     <th>{{$item["jml_hari"]}}</th>
                                     
                                     <th>
-                                       <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"><i class="fas fa-info-circle "></i></a>
-                                       <a href="/api/jadwal/delete/{{$item["id_audit"]}}" class="btn btn-light-danger h-40px fs-7 fw-bold mx-3" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                                        <div class="d-flex gap-3">
+
+                                            <a href="/api/reg/{{$item["id_reg"]}}" class="btn btn-secondary h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Detail"><i class="fas fa-info-circle "></i></a>
+                                           <form action="/api/jadwal/delete/{{$item["id_audit"]}}" method="post">
+                                                         @method("DELETE")
+                                                         <button type="submit" class="btn btn-light-danger h-40px fs-7 fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                                             </form>
+                                        </div>
                                     </th>
                                 </tr>
                               @endforeach
@@ -99,6 +103,7 @@
     </div>
 @endsection
 @section('custom-js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function initDataTable() {
             let initTable = $('#table_init').DataTable({

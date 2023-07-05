@@ -46,6 +46,9 @@ class Kernel extends HttpKernel
             // \RealRashid\SweetAlert\ToSweetAlert::class,
         ],
         
+        'api-session' =>[
+             \Illuminate\Session\Middleware\StartSession::class,
+        ]
     ];
 
     /**

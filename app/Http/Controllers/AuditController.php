@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AuditController extends Controller
 {
@@ -46,7 +47,7 @@ class AuditController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-        
+            Alert::success("Sukses","Audit Berhasil Di Tambahkan");
            return redirect()->back();
         }
     } 
@@ -58,7 +59,7 @@ class AuditController extends Controller
         $response = $client->delete("$url/reg_auditor/$id");
      
         if($response->getStatusCode()==200){
-        
+        Alert::error("Sukses","Audit Berhasil Di Hapus");
            return redirect()->back();
         }
     }

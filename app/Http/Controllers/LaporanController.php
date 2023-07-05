@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LaporanController extends Controller
 {
@@ -77,7 +78,8 @@ class LaporanController extends Controller
             ]);
 
         if ($response->status() == 200) {
-            return $response;
+            Alert::success("Sukses","Laporan Berhasil Di Tambahkan");
+            return redirect()->back();
         } else {
             return null;
         }

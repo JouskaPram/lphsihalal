@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PembayaranController extends Controller
 {
@@ -73,8 +74,8 @@ class PembayaranController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-        
-           return redirect("/api/pembayaran/$reg")->with('roso', 'Post created successfully');
+            Alert::success("Sukses","Pembayaran Berhasil Di Tambahkan");
+           return redirect("/api/pembayaran/$reg");
         }
     }
     public function updateStatus($id) {
@@ -91,7 +92,7 @@ class PembayaranController extends Controller
         ]);
         if($response->getStatusCode()==200){
             // return $response;      
-
+Alert::success("Sukses","Status Berhasil Di Ubah");
             return redirect("/api/pembayaran");
         } 
     }
@@ -134,6 +135,7 @@ class PembayaranController extends Controller
             ]
         ]);
         if($response->getStatusCode()==200){
+            Alert::info("Sukses","Pembayaran Berhasil Di Ubah");
              return redirect("/api/pembayaran/$id");
         }
     }
@@ -146,6 +148,7 @@ class PembayaranController extends Controller
 
         $response = $client->delete("$url/costs/$b");
         if($response->getStatusCode() == 200){
+            Alert::error("Sukses","Pembayaran Berhasil Di hapus");
            return redirect("/api/pembayaran/$id");
         }
         else{

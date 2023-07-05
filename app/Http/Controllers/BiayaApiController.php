@@ -75,17 +75,9 @@ class BiayaApiController extends Controller
     ]);
      
         if($response->getStatusCode()==200){
-                    $message = 'Biaya berhasil dihapus.';
-        $type = 'success';
-               
-       
-        }
-        session()->flash('post', [
-        'title' => 'Title',
-        'message' => $message,
-        'type' => $type
-    ]);
+        Alert::success("Sukses","Biaya Berhasil Di Tambahkan");
         return redirect("api/biaya");
+        }
     }
 
 
@@ -105,7 +97,8 @@ class BiayaApiController extends Controller
             ]
         ]);
         if($response->getStatusCode()==200){
-            return redirect("/api/biaya")->with("updated","biaya telah terupdate");
+            Alert::success("info","Biaya Berhasil Di Ubah");
+            return redirect("/api/biaya");
         }
     }
     public function singleBiaya($id) {
@@ -139,13 +132,13 @@ class BiayaApiController extends Controller
         $response = $client->delete("$url/costs/$id");
          Alert::alert('Title', 'Message', 'Type');
         if($response->getStatusCode() == 200){
-    
+            Alert::error("Sukses","Biaya Berhasil Di Hapus");
+            return redirect()->route("biaya.view");
         }
         else{
             null;
         }
-        return redirect()->route("biaya.view");
-        Alert::alert('Title', 'Message', 'Type');
+    
     }
     
 }

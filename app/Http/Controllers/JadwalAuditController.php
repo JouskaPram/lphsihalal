@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Flash;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\View;
 
 class JadwalAuditController extends Controller
 {
@@ -73,6 +76,7 @@ class JadwalAuditController extends Controller
         $myCookieValue = request()->cookie('__bpjph_ct');
         $RefreshToken = request()->cookie('__bpjph_rt');
         $reg = request("req");
+    
         $url = env("LPH_URL");
         $dari = strtotime(request("dari"));
 $sampai = strtotime(request("sampai")); 
@@ -88,11 +92,13 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         ],
         
     ]);
-     
+
         if($response->getStatusCode()==200){
-          alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.'); 
-        return redirect()->back()->withSuccess("berhasil di tambahkan");
-    }}
+          Alert::success('Success', 'Data Berhasil Di Tambahkan');
+        return redirect()->back();
+    }
+
+}
 
     public function deleteJadwal($id)  {
             $myCookieValue = request()->cookie('__bpjph_ct');
@@ -104,8 +110,8 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
         $response = $client->delete("$url/audit_schedule/$id");
        
         if($response->getStatusCode() == 200){
-            Alert::warning('Warning Title', 'Jadwal Berhasil Di Hapus');
-            return redirect()->back()->with("delete","data berhasil di hapus");
+            Alert::error("Sukses","Data Berhasil Di Hapus");
+            return redirect()->back();
         }
         else{
             null;
@@ -125,9 +131,8 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
             ],
         ]);
         if($response->getStatusCode()==200){
-            // return $response;      
-
-            return redirect("/api/pembayaran");
+            Alert::error("Sukses","Status Berhasil di Update");
+            return redirect("/api/pembayaran/$id");
     } 
     }
     public function updateLayout($id,$up)  {
@@ -179,8 +184,8 @@ $jml_hari = ($sampai - $dari) / (60 * 60 * 24);
     ]);
      
         if($response->getStatusCode()==200){
-          
-        return redirect('/api/jadwal');
+        Alert::info("Sukses","Jadwal Berhasil di Update");
+        return redirect()->back();
     }}
     
 }

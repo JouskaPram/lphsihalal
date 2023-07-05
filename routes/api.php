@@ -21,14 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 // Auth route
-Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login");
-Route::get('/',[AuthController::class,"login"])->name("login.view");
+Route::post("/login",[PostLoginAPi::class,'StoreLogin'])->name("login")->middleware("api-session");
+Route::get('/',[AuthController::class,"login"])->name("login.view")->middleware("api-session");
 Route::match(['get','post'],"/logout",[PostLoginAPi::class,'logout'])->name("auth.logout");
 
 
 // data mohon route
 Route::middleware('cookie')->group(function () {
-    Route::controller(DataListApi::class)->group(function(){
+    Route::controller(DataListApi::class)->middleware("api-session")->group(function(){
         Route::get("/datalist","GetDataList");
         // detail data mohon
         Route::get("/reg/{reg}","getReg");
@@ -43,7 +43,7 @@ Route::middleware('cookie')->group(function () {
 
 // pembayaran route
 Route::middleware("cookie")->group(function ()  {
-   Route::controller(PembayaranController::class)->group(function(){ 
+   Route::controller(PembayaranController::class)->middleware("api-session")->group(function(){ 
     Route::get("/pembayaran","getPembayaran");
     Route::get("/pembayaran/{id}","singlePembayaran");
     Route::get("/pembayaran/update/{id}/{b}","updateLayoutBiaya");
@@ -61,7 +61,7 @@ Route::get("/selesai/{id}",[SelesaiController::class,"getKeterangan"])->middlewa
 
 // biaya route
 Route::middleware('cookie')->group(function () {
-    Route::controller(BiayaApiController::class)->group(function(){ 
+    Route::controller(BiayaApiController::class)->middleware("api-session")->group(function(){ 
         Route::get("/biaya","getBiaya")->name("biaya.view");
         Route::post("/biaya/add","postBiaya");
         Route::get("/biaya/tambah","postBiayaLayout")->name("biaya.post");
@@ -79,7 +79,7 @@ Route::middleware("cookie")->group(function(){
 
 // Process Route
 Route::middleware("cookie")->group(function(){
-    Route::controller(SendtoLPHController::class)->group(function(){ 
+    Route::controller(SendtoLPHController::class)->middleware("api-session")->group(function(){ 
         Route::get("/proces","getsentolph");
         Route::post("/proces/selesai/{id}","upStatus");
         Route::post("/proces/kembali/{id}","downStatus");
@@ -94,7 +94,7 @@ Route::middleware("cookie")->group(function(){
 
 // Jadwal Route
 Route::middleware("cookie")->group(function () {
-    Route::controller(JadwalAuditController::class)->group(function (){
+    Route::controller(JadwalAuditController::class)->middleware("api-session")->group(function (){
        Route::get("/jadwal","JadwalAuditior");
        Route::post("/jadwal/post","postJadwal");
        Route::get("/jadwal/{id}","singleLayout")->name("jadwal.view");
@@ -109,7 +109,7 @@ Route::middleware("cookie")->group(function () {
 
 
 Route::middleware("cookie")->group(function () {
-    Route::controller(AuditController::class)->group(function (){
+    Route::controller(AuditController::class)->middleware("api-session")->group(function (){
         Route::get("/auditior","getAuditior");
         Route::get("/auditior/post","postLayout");
         Route::post("/auditior/post","postAuditior");
@@ -117,7 +117,7 @@ Route::middleware("cookie")->group(function () {
     });
 });
 Route::middleware("cookie")->group(function () {
-    Route::controller(LaporanController::class)->group(function (){
+    Route::controller(LaporanController::class)->middleware("api-session")->group(function (){
         Route::get("/laporan","getLaporan");
         Route::get("/laporan/{id}","postLayout");
         Route::post("/laporan/post","postLaporan")->name("laporan.post");

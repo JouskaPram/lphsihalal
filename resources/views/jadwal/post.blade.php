@@ -10,7 +10,9 @@
                 <div class="card-title text-white">
                     Atur Jadwal
                 </div>
-                <!--end::Card title-->
+               
+           
+                            <!--end::Card title-->
             </div>
             <!--end::Card header-->
             <!--begin::Card body-->
@@ -62,7 +64,7 @@
                         
                     </div>
                     <button type="submit" class="btn btn-primary" >Atur</button>
-                    <a href="/api/jadwal" class="btn btn-secondary">kembali</a>
+                    <a href="/api/jadwal" class="btn btn-secondary mx-3">kembali</a>
                 </form>
             </div>
             <!--end::Card body-->

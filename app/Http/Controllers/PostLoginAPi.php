@@ -26,8 +26,9 @@ class PostLoginAPi extends Controller
             ->withCookie("__bpjph_ct", $result["payload"]["token"], 20*20*20)
             ->withCookie("__bpjph_rt", $result["payload"]["refreshToken"], 20*20*20);
     } else {
-        // Alert::succes("not user","pastikan email/password kamu benar");
-       return redirect()->route("login.view")->with("error", "Invalid user or password");
+        Alert::error("Email/Sandi Salah","Pastikan email atau sandi anda benar");
+        return redirect("/api");
+      
     }
 }
 
